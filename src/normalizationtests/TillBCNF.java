@@ -25,56 +25,56 @@ public class TillBCNF {
 	
 	@Test
 	public void normalizeRelation_1() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationOne(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_01(), true);
 		assertEquals(this.setUpObject.VectorR_ABC_AtoBC_BCtoA_ADE_ADtoE(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_2() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationTwo(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_02(), true);
 		assertEquals(this.setUpObject.VectorR_ABC_AtoBC_AE_AtoE_AD_null(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_3() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationThree(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_03(), true);
 		assertEquals(this.setUpObject.VectorR_ABC_ABtoC_CtoAB_DE_EtoD_DtoE_EF_EtoF_FtoE_ABEGH_ABEtoGH(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_4() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationFour(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_04(), true);
 		assertEquals(this.setUpObject.VectorR_BC_BtoC_AB_AtoB(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_5() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_5(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_05(), true);
 		assertEquals(this.setUpObject.VectorR_BC_BtoC_AB_AtoB(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_6() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationSix(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_06(), true);
 		assertEquals(this.setUpObject.VectorR_BC_BtoC_CtoB_BE_BtoE_ABD_ABtoD(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_7() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationSeven(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_07(), true);
 		assertEquals(this.setUpObject.VectorR_BC_BtoC_BD_BtoD_AB_AtoB(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_8() {
-		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relationEight(), true);
+		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_08(), true);
 		assertEquals(this.setUpObject.VectorR_BC_BtoC_CtoB_ABD_ABtoD(), result);
 	}
 	
 	@Test
 	public void normalizeRelation_9() {
 		ArrayList<Relation> expected = new ArrayList<>();
-		expected.add(this.setUpObject.relationNine());
-		assertEquals(expected, Normalization.normalizeBCNF(this.setUpObject.relationNine(), true));
+		expected.add(this.setUpObject.relation_09());
+		assertEquals(expected, Normalization.normalizeBCNF(this.setUpObject.relation_09(), true));
 	}
 }

@@ -24,7 +24,7 @@ public class RareElementTests {
 		this.setUpObject = new SetUpClass();
 		Attribute attr = this.setUpObject.attr_A();
 		ADependency fd = this.setUpObject.funcDep_A_to_B();
-		DFJoint dfJoint = this.setUpObject.dfJoint_4();
+		DFJoint dfJoint = this.setUpObject.dfJoint_04();
 		this.rareElement = new RareElement(attr, fd, dfJoint, "Antecedent");
 		this.rareElementVoid = new RareElement();
 	}
@@ -41,7 +41,7 @@ public class RareElementTests {
 	public void ConstructorRareElement() {
 		assertEquals(this.setUpObject.attr_A(), this.rareElement.getAttribute());
 		assertEquals(this.setUpObject.funcDep_A_to_B(), this.rareElement.getFD());
-		assertEquals(this.setUpObject.dfJoint_4(), this.rareElement.getDFJoint());
+		assertEquals(this.setUpObject.dfJoint_04(), this.rareElement.getDFJoint());
 		assertEquals("Antecedent", this.rareElement.getPosition());
 	}
 	

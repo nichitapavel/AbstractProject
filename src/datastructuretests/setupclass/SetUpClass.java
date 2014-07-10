@@ -621,7 +621,7 @@ public class SetUpClass {
 	/******************/
 	
 	//DFJoint One = {A -> BC, BC -> A, BCD -> E, E -> C}
-	public DFJoint dfJoint_1() {
+	public DFJoint dfJoint_01() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint One");
 		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
@@ -632,7 +632,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Two = {A -> BC, BC -> E, CD -> A}
-	public DFJoint dfJoint_2() {
+	public DFJoint dfJoint_02() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Two");
 		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
@@ -642,7 +642,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Three = {AB -> C, C -> AB, E -> D, D -> E, E -> F, F -> E, ABD -> G, CF -> H}
-	public DFJoint dfJoint_3() {
+	public DFJoint dfJoint_03() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Three");
 		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
@@ -657,7 +657,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Four = {A -> BC, B -> C, A -> B, AB -> C}
-	public DFJoint dfJoint_4() {
+	public DFJoint dfJoint_04() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Four");
 		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
@@ -668,7 +668,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Five = {A -> B, B -> C}
-	public DFJoint dfJoint_5() {
+	public DFJoint dfJoint_05() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Five");
 		dfJoint.addFunctionalDependency(funcDep_A_to_B());
@@ -677,7 +677,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Six = {AB -> D, B -> C, C -> B, B -> E}
-	public DFJoint dfJoint_6() {
+	public DFJoint dfJoint_06() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Six");
 		dfJoint.addFunctionalDependency(funcDep_AB_to_D());
@@ -688,7 +688,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Seven = {A -> B, B -> C, C -> D}
-	public DFJoint dfJoint_7() {
+	public DFJoint dfJoint_07() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Seven");
 		dfJoint.addFunctionalDependency(funcDep_A_to_B());
@@ -698,7 +698,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Eight = {B -> C, AB -> D, C -> B}
-	public DFJoint dfJoint_8() {
+	public DFJoint dfJoint_08() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Eight");
 		dfJoint.addFunctionalDependency(funcDep_B_to_C());
@@ -708,7 +708,7 @@ public class SetUpClass {
 	}
 	
 	//DFJoint Nine = {AB -> C}
-	public DFJoint dfJoint_9() {
+	public DFJoint dfJoint_09() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Nine");
 		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
@@ -1099,87 +1099,87 @@ public class SetUpClass {
 	/******************/
 	
 	//Relation One = DFJoint One, AttributeJoint ABCDE
-	public Relation relationOne() {
-		return new Relation(attrJnt_ABCDE(), dfJoint_1());
+	public Relation relation_01() {
+		return new Relation(attrJnt_ABCDE(), dfJoint_01());
 	}
 	
 	//Relation Two = DFJoint Two, AttributeJoint ABCDE
-	public Relation relationTwo() {
-		return new Relation(attrJnt_ABCDE(), dfJoint_2());
+	public Relation relation_02() {
+		return new Relation(attrJnt_ABCDE(), dfJoint_02());
 	}
 	
 	//Relation Three = DFJoint Three, AttributeJoint ABCDEFGH
-	public Relation relationThree() {
-		return new Relation(attrJnt_ABCDEFGH(), dfJoint_3());
+	public Relation relation_03() {
+		return new Relation(attrJnt_ABCDEFGH(), dfJoint_03());
 	}
 	
 	//Relation Four = DFJoint Four, AttributeJoint ABC
-	public Relation relationFour() {
-		return new Relation(attrJnt_ABC(), dfJoint_4());
+	public Relation relation_04() {
+		return new Relation(attrJnt_ABC(), dfJoint_04());
 	}
 		
 	//Relation Five = DFJoint Five, AttributeJoint ABC
-	public Relation relation_5() {
-		return new Relation(attrJnt_ABC(), dfJoint_5());
+	public Relation relation_05() {
+		return new Relation(attrJnt_ABC(), dfJoint_05());
 	}
 	
 	//Relation Six = DFJoint Six, AttributeJoint ABCDE -> Key:
-		public Relation relationSix() {
-			return new Relation(attrJnt_ABCDE(), dfJoint_6());
+		public Relation relation_06() {
+			return new Relation(attrJnt_ABCDE(), dfJoint_06());
 		}
 
 	//Relation Seven = DFJoint Seven, AttributeJoint ABCD -> Key:
-	public Relation relationSeven() {
-		return new Relation(attrJnt_ABCD(), dfJoint_7());
+	public Relation relation_07() {
+		return new Relation(attrJnt_ABCD(), dfJoint_07());
 	}
 	
 	//Relation Eight = DFJoint Eight, AttributeJoint ABCD -> Key:
-	public Relation relationEight() {
-		return new Relation(attrJnt_ABCD(), dfJoint_8());
+	public Relation relation_08() {
+		return new Relation(attrJnt_ABCD(), dfJoint_08());
 	}
 	
 	//Relation Nine = DFJoint Nine, AttributeJoint ABC -> Key: AB
-	public Relation relationNine() {
-		return new Relation(attrJnt_ABC(), dfJoint_9());
+	public Relation relation_09() {
+		return new Relation(attrJnt_ABC(), dfJoint_09());
 	}
 	
 	//Relation OneABC
-	public Relation relationOneABC() {
+	public Relation relation_1ABC() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABC());
 		return relation;
 	}
 	
 	//Relation OneADE
-	public Relation relationOneADE() {
+	public Relation relation_1ADE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ADE());
 		return relation;
 	}
 	
 	//Relation OneBCDE
-	public Relation relationOneBCDE() {
+	public Relation relation_1BCDE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_BCDE());
 		return relation;
 	}
 	
 	//Relation OneABCD
-	public Relation relationOneABCD() {
+	public Relation relation_1ABCD() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABCD());
 		return relation;
 	}
 	
 	//Relation OneCE
-	public Relation relationOneCE() {
+	public Relation relation_1CE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_CE());
 		return relation;
 	}
 	
 	//Relation OneABDE
-	public Relation relationOneABDE() {
+	public Relation relation_1ABDE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABDE());
 		return relation;
@@ -1259,7 +1259,7 @@ public class SetUpClass {
 	
 	//Relation ABC_AtoBC
 	public Relation ABC_AtoBC() {
-		Relation relation = relationOneABC();
+		Relation relation = relation_1ABC();
 		relation.setDFJoint(AtoBC());;
 		return relation;
 	}
@@ -1300,14 +1300,14 @@ public class SetUpClass {
 	
 	//Relation ABCD_ABtoD_BtoC_CtoB
 	public Relation ABCD_ABtoD_BtoC_CtoB() {
-		Relation relation = relationSeven();
+		Relation relation = relation_07();
 		relation.setDFJoint(ABtoD_BtoC_CtoB());;
 		return relation;
 	}
 	
 	//Relation ABC_ABtoC_CtoAB
 	public Relation ABC_ABtoC_CtoAB() {
-		Relation relation = relationOneABC();
+		Relation relation = relation_1ABC();
 		relation.setDFJoint(ABtoC_CtoAB());
 		return relation;
 	}
@@ -1341,7 +1341,7 @@ public class SetUpClass {
 	
 	//Relation ABC_AtoBC_BCtoA
 	public Relation ABC_AtoBC_BCtoA() {
-		Relation relation = relationOneABC();
+		Relation relation = relation_1ABC();
 		relation.setDFJoint(AtoBC_BCtoA());
 		return relation;
 	}
@@ -1382,7 +1382,7 @@ public class SetUpClass {
 		return new RareElement(
 				attr_C(),
 				funcDep_A_to_BC(),
-				dfJoint_4(),
+				dfJoint_04(),
 				"Consequent");
 	}
 	//A Antecedent AB->C DFJoint Four
@@ -1390,7 +1390,7 @@ public class SetUpClass {
 		return new RareElement(
 				attr_A(),
 				funcDep_AB_to_C(),
-				dfJoint_4(),
+				dfJoint_04(),
 				"Antecedent");
 	}
 
@@ -1399,7 +1399,7 @@ public class SetUpClass {
 		return new RareElement(
 				attr_B(),
 				funcDep_AB_to_C(),
-				dfJoint_4(),
+				dfJoint_04(),
 				"Antecedent");
 	}
 	
@@ -1407,54 +1407,54 @@ public class SetUpClass {
 	//Vector<FunctionalDependency>
 	/******************/
 	
-	public ArrayList<ADependency> vectorNonBCNFDFJoint1() {
-		ArrayList<ADependency> vector = new ArrayList<>();
-		vector.add(funcDep_A_to_BC());
-		vector.add(funcDep_BC_to_A());
-		vector.add(funcDep_E_to_C());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint1() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_A_to_BC());
+		arrayList.add(funcDep_BC_to_A());
+		arrayList.add(funcDep_E_to_C());
+		return arrayList;
 	}
 	
-	public ArrayList<ADependency> vectorNonBCNFDFJoint2() {
-		ArrayList<ADependency> vector = new ArrayList<>();
-		vector.add(funcDep_A_to_BC());
-		vector.add(funcDep_BC_to_E());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint2() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_A_to_BC());
+		arrayList.add(funcDep_BC_to_E());
+		return arrayList;
 	}
 	
-	public ArrayList<ADependency> vectorNonBCNFDFJoint3() {
-		ArrayList<ADependency> vector = dfJoint_3().getDFJoint();
-		vector.remove(funcDep_ABD_to_G());
-		vector.remove(funcDep_CF_to_H());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint3() {
+		ArrayList<ADependency> arrayList = dfJoint_03().getDFJoint();
+		arrayList.remove(funcDep_ABD_to_G());
+		arrayList.remove(funcDep_CF_to_H());
+		return arrayList;
 	}
 	
-	public ArrayList<ADependency> vectorNonBCNFDFJoint4_5() {
-		ArrayList<ADependency> vector = new ArrayList<>();
-		vector.add(funcDep_B_to_C());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint4_5() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_B_to_C());
+		return arrayList;
 	}
 	
-	public ArrayList<ADependency> vectorNonBCNFDFJoint6() {
-		ArrayList<ADependency> vector = new ArrayList<>();
-		vector.add(funcDep_B_to_C());
-		vector.add(funcDep_C_to_B());
-		vector.add(funcDep_B_to_E());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint6() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_B_to_C());
+		arrayList.add(funcDep_C_to_B());
+		arrayList.add(funcDep_B_to_E());
+		return arrayList;
 	}
 	
-	public ArrayList<ADependency> vectorNonBCNFDFJoint7() {
-		ArrayList<ADependency> vector = new ArrayList<>();
-		vector.add(funcDep_B_to_C());
-		vector.add(funcDep_C_to_D());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint7() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_B_to_C());
+		arrayList.add(funcDep_C_to_D());
+		return arrayList;
 	}
 
-	public ArrayList<ADependency> vectorNonBCNFDFJoint8() {
-		ArrayList<ADependency> vector = new ArrayList<>();
-		vector.add(funcDep_B_to_C());
-		vector.add(funcDep_C_to_B());
-		return vector;
+	public ArrayList<ADependency> arrayListNonBCNFDFJoint8() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_B_to_C());
+		arrayList.add(funcDep_C_to_B());
+		return arrayList;
 	}
 	
 	/******************/
@@ -1462,65 +1462,65 @@ public class SetUpClass {
 	/******************/
 	
 	public ArrayList<Relation> VectorR_ABC_AtoBC_AE_AtoE_AD_null() {
-		ArrayList<Relation> vector = new ArrayList<>();
-		vector.add(ABC_AtoBC());
-		vector.add(AE_AtoE());
-		vector.add(relationAD());
-		return vector;
+		ArrayList<Relation> arrayList = new ArrayList<>();
+		arrayList.add(ABC_AtoBC());
+		arrayList.add(AE_AtoE());
+		arrayList.add(relationAD());
+		return arrayList;
 	}
 	
 	public ArrayList<Relation> VectorR_BC_BtoC_AB_AtoB() {
-		ArrayList<Relation> vector = new ArrayList<>();
-		vector.add(BC_BtoC());
-		vector.add(AB_AtoB());
-		return vector;
+		ArrayList<Relation> arrayList = new ArrayList<>();
+		arrayList.add(BC_BtoC());
+		arrayList.add(AB_AtoB());
+		return arrayList;
 	}
 	
 	public ArrayList<Relation> VectorR_BE_BtoE_ABCD_ABtoD_BtoC_CtoB() {
-		ArrayList<Relation> vector = new ArrayList<>();
-		vector.add(BE_BtoE());
-		vector.add(ABCD_ABtoD_BtoC_CtoB());
-		return vector;
+		ArrayList<Relation> arrayList = new ArrayList<>();
+		arrayList.add(BE_BtoE());
+		arrayList.add(ABCD_ABtoD_BtoC_CtoB());
+		return arrayList;
 	}
 	
 	public ArrayList<Relation> VectorR_BC_BtoC_BD_BtoD_AB_AtoB() {
-		ArrayList<Relation> vector = new ArrayList<>();
-		vector.add(BC_BtoC());
-		vector.add(BD_BtoD());
-		vector.add(AB_AtoB());
-		return vector;
+		ArrayList<Relation> arrayList = new ArrayList<>();
+		arrayList.add(BC_BtoC());
+		arrayList.add(BD_BtoD());
+		arrayList.add(AB_AtoB());
+		return arrayList;
 	}
 
 	public ArrayList<Relation> VectorR_ABC_ABtoC_CtoAB_DE_EtoD_DtoE_EF_EtoF_FtoE_ABEGH_ABEtoGH() {
-		ArrayList<Relation> vector = new ArrayList<>();
-		vector.add(ABC_ABtoC_CtoAB());
-		vector.add(DE_EtoD_DtoE());
-		vector.add(EF_EtoF_FtoE());
-		vector.add(relationABEGH());
-		return vector;
+		ArrayList<Relation> arrayList = new ArrayList<>();
+		arrayList.add(ABC_ABtoC_CtoAB());
+		arrayList.add(DE_EtoD_DtoE());
+		arrayList.add(EF_EtoF_FtoE());
+		arrayList.add(relationABEGH());
+		return arrayList;
 	}
 
 	public Vector<Relation> VectorR_BC_BtoC_CtoB_BE_BtoE_ABD_ABtoD() {
-		Vector<Relation> vector = new Vector<>();
-		vector.add(BC_BtoC_CtoB());
-		vector.add(BE_BtoE());
-		vector.add(ABD_ABtoD());
-		return vector;
+		Vector<Relation> arrayList = new Vector<>();
+		arrayList.add(BC_BtoC_CtoB());
+		arrayList.add(BE_BtoE());
+		arrayList.add(ABD_ABtoD());
+		return arrayList;
 	}
 
 	public Vector<Relation> VectorR_BC_BtoC_CtoB_ABD_ABtoD() {
-		Vector<Relation> vector = new Vector<>();
-		vector.add(BC_BtoC_CtoB());
-		vector.add(ABD_ABtoD());
-		return vector;
+		Vector<Relation> arrayList = new Vector<>();
+		arrayList.add(BC_BtoC_CtoB());
+		arrayList.add(ABD_ABtoD());
+		return arrayList;
 	}
 
 	public Vector<Relation> VectorR_ABC_AtoBC_BCtoA_ADE_ADtoE() {
-		Vector<Relation> vector = new Vector<>();
-		vector.add(ABC_AtoBC_BCtoA());
-		Relation relation = relationOneADE();
+		Vector<Relation> arrayList = new Vector<>();
+		arrayList.add(ABC_AtoBC_BCtoA());
+		Relation relation = relation_1ADE();
 		relation.setDFJoint(ADtoE());
-		vector.add(relation);
-		return vector;
+		arrayList.add(relation);
+		return arrayList;
 	}
 }

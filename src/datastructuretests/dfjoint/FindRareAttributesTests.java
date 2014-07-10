@@ -26,7 +26,7 @@ public class FindRareAttributesTests {
 	@Test
 	public void rareAttributesDFJointOne() {
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_1().findRareAttributes());
+				this.setUpObject.dfJoint_01().findRareAttributes());
 	}
 	
 	@Test
@@ -54,13 +54,13 @@ public class FindRareAttributesTests {
 	@Test
 	public void rareAttributesDFJointTwo() {
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_2().findRareAttributes());
+				this.setUpObject.dfJoint_02().findRareAttributes());
 	}
 	
 	@Test
 	public void rareAttributesDFJointThree() {
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_3().findRareAttributes());
+				this.setUpObject.dfJoint_03().findRareAttributes());
 	}
 	
 	@Test
@@ -68,48 +68,48 @@ public class FindRareAttributesTests {
 		this.rareAttributesVector.add(new RareElement(
 				this.setUpObject.attr_B(),
 				this.setUpObject.funcDep_A_to_BC(),
-				this.setUpObject.dfJoint_4(),
+				this.setUpObject.dfJoint_04(),
 				"Consequent")
 		);
 		this.rareAttributesVector.add(new RareElement(
 				this.setUpObject.attr_C(),
 				this.setUpObject.funcDep_A_to_BC(),
-				this.setUpObject.dfJoint_4(),
+				this.setUpObject.dfJoint_04(),
 				"Consequent")
 		);
 		this.rareAttributesVector.add(new RareElement(
 				this.setUpObject.attr_A(),
 				this.setUpObject.funcDep_AB_to_C(),
-				this.setUpObject.dfJoint_4(),
+				this.setUpObject.dfJoint_04(),
 				"Antecedent")
 		);
 		this.rareAttributesVector.add(new RareElement(
 				this.setUpObject.attr_B(),
 				this.setUpObject.funcDep_AB_to_C(),
-				this.setUpObject.dfJoint_4(),
+				this.setUpObject.dfJoint_04(),
 				"Antecedent")
 		);
 		
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_4().findRareAttributes());
+				this.setUpObject.dfJoint_04().findRareAttributes());
 	}
 	
 	@Test
 	public void rareAttributesDFJointSix() {
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_6().findRareAttributes());
+				this.setUpObject.dfJoint_06().findRareAttributes());
 	}
 	
 	@Test
 	public void rareAttributesDFJointEight() {
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_8().findRareAttributes());
+				this.setUpObject.dfJoint_08().findRareAttributes());
 	}
 	
 	@Test
 	public void rareAttributesDFJointNine() {
 		assertEquals(this.rareAttributesVector,
-				this.setUpObject.dfJoint_9().findRareAttributes());
+				this.setUpObject.dfJoint_09().findRareAttributes());
 	}
 	
 	@Test

@@ -39,10 +39,10 @@ public class FunctionalDependencyTests {
 		fd = new FunctionalDependency(antecedent, consecuent);
 		
 		//firstDFJoint  = {A -> BC, B -> C, A -> B, AB -> C}
-		firstDFJoint = this.setUpObject.dfJoint_4();
+		firstDFJoint = this.setUpObject.dfJoint_04();
 		
 		//secondDFJoint = {A -> B, B -> C}
-		secondDFJoint = this.setUpObject.dfJoint_5();
+		secondDFJoint = this.setUpObject.dfJoint_05();
 	}
 	
 	//Test constructors

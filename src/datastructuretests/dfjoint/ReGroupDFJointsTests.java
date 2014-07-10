@@ -27,24 +27,24 @@ public class ReGroupDFJointsTests {
 	
 	@Test
 	public void reGroupDFJointOne() {
-		this.dfJoint = this.setUpObject.dfJoint_1();
+		this.dfJoint = this.setUpObject.dfJoint_01();
 		testTemplate(this.dfJoint, this.dfJoint);
 	}
 	
 	@Test
 	public void reGroupDFJointTwo() {
-		this.dfJoint = this.setUpObject.dfJoint_2();
+		this.dfJoint = this.setUpObject.dfJoint_02();
 		testTemplate(this.dfJoint, this.dfJoint);
 	}
 	
 	@Test
 	public void reGroupDFJointThree() {
-		testTemplate(this.setUpObject.dfJoint_23(), this.setUpObject.dfJoint_3()); 
+		testTemplate(this.setUpObject.dfJoint_23(), this.setUpObject.dfJoint_03()); 
 	}
 	
 	@Test
 	public void reGroupDFJointFour() {
-		testTemplate(this.setUpObject.dfJoint_24(), this.setUpObject.dfJoint_4());
+		testTemplate(this.setUpObject.dfJoint_24(), this.setUpObject.dfJoint_04());
 	}
 	
 	@Test
@@ -54,12 +54,12 @@ public class ReGroupDFJointsTests {
 	
 	@Test
 	public void reGroupDFJointSix() {
-		testTemplate(this.setUpObject.dfJoint_27(), this.setUpObject.dfJoint_6());
+		testTemplate(this.setUpObject.dfJoint_27(), this.setUpObject.dfJoint_06());
 	}
 	
 	@Test
 	public void reGroupDFJointNine() {
-		this.dfJoint = this.setUpObject.dfJoint_9();
+		this.dfJoint = this.setUpObject.dfJoint_09();
 		testTemplate(this.dfJoint, this.dfJoint);
 	}
 }

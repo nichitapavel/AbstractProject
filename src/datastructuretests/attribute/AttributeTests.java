@@ -196,14 +196,14 @@ public class AttributeTests {
 	public void isRare_A_InAntecedentInDFJointFour_ABtoC() {
 		Attribute A = this.setUpObject.attr_A();
 		assertTrue(A.isRareInAntecedent(this.setUpObject.funcDep_AB_to_C(),
-				this.setUpObject.dfJoint_4()));
+				this.setUpObject.dfJoint_04()));
 	}
 	
 	@Test
 	public void isRare_B_InAntecedentInDFJointFour_ABtoC() {
 		Attribute B = this.setUpObject.attr_B();
 		assertTrue(B.isRareInAntecedent(this.setUpObject.funcDep_AB_to_C(),
-				this.setUpObject.dfJoint_4()));
+				this.setUpObject.dfJoint_04()));
 	}
 	
 	@Test
@@ -224,14 +224,14 @@ public class AttributeTests {
 	public void isRareFalse_B_InAntecedentInDFJointOne_BCtoA() {
 		Attribute B = this.setUpObject.attr_B();
 		assertFalse(B.isRareInAntecedent(this.setUpObject.funcDep_BC_to_A(),
-				this.setUpObject.dfJoint_1()));
+				this.setUpObject.dfJoint_01()));
 	}
 	
 	@Test
 	public void isRareFalse_C_InAntecedentInDFJointOne_BCtoA() {
 		Attribute C = this.setUpObject.attr_C();
 		assertFalse(C.isRareInAntecedent(this.setUpObject.funcDep_BC_to_A(),
-				this.setUpObject.dfJoint_1()));
+				this.setUpObject.dfJoint_01()));
 	}
 
 	//Test isRareInConsequent()
@@ -239,27 +239,27 @@ public class AttributeTests {
 	public void isRare_B_InConsequentInDFJointFour_AtoBC() {
 		Attribute B = this.setUpObject.attr_B();
 		assertTrue(B.isRareInConsequent(this.setUpObject.funcDep_A_to_BC(),
-				this.setUpObject.dfJoint_4()));
+				this.setUpObject.dfJoint_04()));
 	}
 	
 	@Test
 	public void isRare_C_InConsequentInDFJointFour_AtoBC() {
 		Attribute C = this.setUpObject.attr_C();
 		assertTrue(C.isRareInConsequent(this.setUpObject.funcDep_A_to_BC(),
-				this.setUpObject.dfJoint_4()));
+				this.setUpObject.dfJoint_04()));
 	}
 	
 	@Test
 	public void isRareFalse_C_InConsequentInDFJointOne_AtoBC() {
 		Attribute C = this.setUpObject.attr_C();
 		assertFalse(C.isRareInConsequent(this.setUpObject.funcDep_A_to_BC(),
-				this.setUpObject.dfJoint_1()));
+				this.setUpObject.dfJoint_01()));
 	}
 	
 	@Test
 	public void isRareFalse_B_InConsequentInDFJointOne_AtoBC() {
 		Attribute B = this.setUpObject.attr_B();
 		assertFalse(B.isRareInConsequent(this.setUpObject.funcDep_A_to_BC(),
-				this.setUpObject.dfJoint_1()));
+				this.setUpObject.dfJoint_01()));
 	}
 }

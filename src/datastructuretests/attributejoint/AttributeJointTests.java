@@ -52,8 +52,8 @@ public class AttributeJointTests {
 		attrVector.add(new Attribute("A"));
 		attrVector.add(new Attribute("B"));
 		
-		AttributeJoint vectorConstructor = new AttributeJoint(attrVector);
-		ArrayList<Attribute> getterJoint = vectorConstructor.getAttributeJoint();
+		AttributeJoint arrayListConstructor = new AttributeJoint(attrVector);
+		ArrayList<Attribute> getterJoint = arrayListConstructor.getAttributeJoint();
 		assertEquals(attrVector.size(), getterJoint.size());
 		for (int i = 0; i < getterJoint.size(); i++)
 			assertEquals(attrVector.get(i).getAttribute(), getterJoint.get(i).getAttribute());	
@@ -650,19 +650,19 @@ public class AttributeJointTests {
 	//Test isKey()
 	@Test
 	public void isKeyResult_0_ABCRelationFive() {
-		assertEquals(0, this.mainAttributeJoint.isKey(this.setUpObject.relation_5()));
+		assertEquals(0, this.mainAttributeJoint.isKey(this.setUpObject.relation_05()));
 	}
 	
 	@Test
 	public void isKeyResult_1_ARelationFive() {
 		AttributeJoint attrJoint = this.setUpObject.attrJnt_A();
-		assertEquals(1, attrJoint.isKey(this.setUpObject.relation_5()));
+		assertEquals(1, attrJoint.isKey(this.setUpObject.relation_05()));
 	}
 	
 	@Test
 	public void isKeyResult_neg1_ARelationFive() {
 		AttributeJoint attrJoint = this.setUpObject.attrJnt_C();
-		assertEquals(-1, attrJoint.isKey(this.setUpObject.relation_5()));
+		assertEquals(-1, attrJoint.isKey(this.setUpObject.relation_05()));
 	}
 	
 	//Test isPartOf()

@@ -16,7 +16,7 @@ public class SimpleUllmanTest_3 {
 	@Before
 	public void setup() {
 		this.testObject = new SetUpClass();
-		this.dfJoint = this.testObject.dfJoint_3();
+		this.dfJoint = this.testObject.dfJoint_03();
 	}
 	
 	@Test

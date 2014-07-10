@@ -40,7 +40,7 @@ public class DFJointTests {
 	public void setUp() {
 		this.setUpObject = new SetUpClass();
 		nullDFJoint = new DFJoint();
-		dfJoint = this.setUpObject.dfJoint_1();
+		dfJoint = this.setUpObject.dfJoint_01();
 		
 		this.one = this.setUpObject.funcDep_A_to_B();
 		this.two = this.setUpObject.funcDep_C_to_A();
@@ -50,10 +50,10 @@ public class DFJointTests {
 		DFJointVector.add(this.two);
 		
 		//firstDFJoint  = {A -> BC, B -> C, A -> B, AB -> C}
-		firstDFJoint = this.setUpObject.dfJoint_4();
+		firstDFJoint = this.setUpObject.dfJoint_04();
 		
 		//secondDFJoint = {A -> B, B -> C}
-		secondDFJoint = this.setUpObject.dfJoint_5();
+		secondDFJoint = this.setUpObject.dfJoint_05();
 	}
 	
 	@Test
@@ -162,7 +162,7 @@ public class DFJointTests {
 	
 	@Test
 	public void addFuncDepThatExist() {
-		DFJoint expected = this.setUpObject.dfJoint_4();
+		DFJoint expected = this.setUpObject.dfJoint_04();
 		this.firstDFJoint.addFunctionalDependency(this.setUpObject.funcDep_A_to_BC());
 		assertEquals(expected, this.firstDFJoint);
 	}
@@ -187,7 +187,7 @@ public class DFJointTests {
 	//Test hashCode()
 	@Test
 	public void hashCodeDFJointsWithSameValues() {
-		DFJoint auxDFJoint = new SetUpClass().dfJoint_1();
+		DFJoint auxDFJoint = new SetUpClass().dfJoint_01();
 		assertEquals(dfJoint.hashCode(), auxDFJoint.hashCode());
 	}
 	
@@ -233,7 +233,7 @@ public class DFJointTests {
 	
 	@Test
 	public void equalsTrueDFJoints() {
-		DFJoint auxDFJoint = new SetUpClass().dfJoint_1();
+		DFJoint auxDFJoint = new SetUpClass().dfJoint_01();
 		assertTrue(dfJoint.equals(auxDFJoint));
 	}
 	
@@ -280,7 +280,7 @@ public class DFJointTests {
 	
 	@Test
 	public void removeDFJoint_FiveMinusBtoC() {
-		this.dfJoint = this.setUpObject.dfJoint_5();
+		this.dfJoint = this.setUpObject.dfJoint_05();
 		this.dfJoint.removeDF(this.setUpObject.funcDep_B_to_C());
 		assertEquals(this.setUpObject.dfJoint_5MinusBtoC(), this.dfJoint);
 	}
@@ -362,7 +362,7 @@ public class DFJointTests {
 	//Test removeRareAttributesAuto()
 	@Test
 	public void removeRareAttributesAutoDFJoint24() {
-		DFJoint expected = this.setUpObject.dfJoint_5();
+		DFJoint expected = this.setUpObject.dfJoint_05();
 		DFJoint toBeMinimal = this.setUpObject.dfJoint_24();
 		toBeMinimal.removeRareAttributes(true);
 		assertEquals(expected, toBeMinimal);
@@ -370,8 +370,8 @@ public class DFJointTests {
 	
 	@Test
 	public void removeRareAttributesAutoDFJoint4() {
-		DFJoint expected = this.setUpObject.dfJoint_5();
-		DFJoint toBeMinimal = this.setUpObject.dfJoint_4();
+		DFJoint expected = this.setUpObject.dfJoint_05();
+		DFJoint toBeMinimal = this.setUpObject.dfJoint_04();
 		toBeMinimal.removeRareAttributes(true);
 		assertEquals(expected, toBeMinimal);
 	}
@@ -390,19 +390,19 @@ public class DFJointTests {
 	
 	@Test
 	public void isMinimalDFJoint1() {
-		this.dfJoint = this.setUpObject.dfJoint_1();
+		this.dfJoint = this.setUpObject.dfJoint_01();
 		assertTrue(this.dfJoint.isMinimal());
 	}
 	
 	@Test
 	public void isMinimalDFJoint2() {
-		this.dfJoint = this.setUpObject.dfJoint_2();
+		this.dfJoint = this.setUpObject.dfJoint_02();
 		assertTrue(this.dfJoint.isMinimal());
 	}
 	
 	@Test
 	public void isMinimalDFJoint3() {
-		this.dfJoint = this.setUpObject.dfJoint_3();
+		this.dfJoint = this.setUpObject.dfJoint_03();
 		assertTrue(this.dfJoint.isMinimal());
 	}
 	
@@ -421,66 +421,66 @@ public class DFJointTests {
 	//Test getNonBCNF_DFs
 	@Test
 	public void getNonBCNF_DFs_DFJoint1() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint1();
-		this.dfJoint = this.setUpObject.dfJoint_1();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationOne()));	
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint1();
+		this.dfJoint = this.setUpObject.dfJoint_01();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_01()));	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint2() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint2();		
-		this.dfJoint = this.setUpObject.dfJoint_2();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationTwo()));	
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint2();		
+		this.dfJoint = this.setUpObject.dfJoint_02();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_02()));	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint3() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint3();		
-		this.dfJoint = this.setUpObject.dfJoint_3();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationThree()));	
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint3();		
+		this.dfJoint = this.setUpObject.dfJoint_03();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_03()));	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint4() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint4_5();		
-		this.dfJoint = this.setUpObject.dfJoint_4();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationFour()));
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint4_5();		
+		this.dfJoint = this.setUpObject.dfJoint_04();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_04()));
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint5() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint4_5();		
-		this.dfJoint = this.setUpObject.dfJoint_5();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_5()));	
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint4_5();		
+		this.dfJoint = this.setUpObject.dfJoint_05();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_05()));	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint6() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint6();		
-		this.dfJoint = this.setUpObject.dfJoint_6();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationSix()));	
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint6();		
+		this.dfJoint = this.setUpObject.dfJoint_06();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_06()));	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint7() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint7();		
-		this.dfJoint = this.setUpObject.dfJoint_7();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationSeven()));
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint7();		
+		this.dfJoint = this.setUpObject.dfJoint_07();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_07()));
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint8() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint8();		
-		this.dfJoint = this.setUpObject.dfJoint_8();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationEight()));	
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint8();		
+		this.dfJoint = this.setUpObject.dfJoint_08();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_08()));	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint9() {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		
-		this.dfJoint = this.setUpObject.dfJoint_9();
-		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relationNine()));
+		this.dfJoint = this.setUpObject.dfJoint_09();
+		assertEquals(expected, this.dfJoint.getNonBCNF_DFs(this.setUpObject.relation_09()));
 	}
 	
 	//Test getNon3NF_DFs
@@ -488,8 +488,8 @@ public class DFJointTests {
 	public void getNon3NF_DFs_DFJoint1() {
 		ArrayList<ADependency> expected = new ArrayList<>();
 				
-		this.dfJoint = this.setUpObject.dfJoint_1();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationOne()));	
+		this.dfJoint = this.setUpObject.dfJoint_01();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_01()));	
 	}
 	
 	@Test
@@ -498,16 +498,16 @@ public class DFJointTests {
 		expected.add(this.setUpObject.funcDep_A_to_BC());
 		expected.add(this.setUpObject.funcDep_BC_to_E());
 		
-		this.dfJoint = this.setUpObject.dfJoint_2();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationTwo()));	
+		this.dfJoint = this.setUpObject.dfJoint_02();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_02()));	
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint3() {
 		ArrayList<ADependency> expected = new ArrayList<>();
 				
-		this.dfJoint = this.setUpObject.dfJoint_3();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationThree()));	
+		this.dfJoint = this.setUpObject.dfJoint_03();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_03()));	
 	}
 	
 	@Test
@@ -515,8 +515,8 @@ public class DFJointTests {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		expected.add(this.setUpObject.funcDep_B_to_C());
 		
-		this.dfJoint = this.setUpObject.dfJoint_4();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationFour()));
+		this.dfJoint = this.setUpObject.dfJoint_04();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_04()));
 	}
 	
 	@Test
@@ -524,8 +524,8 @@ public class DFJointTests {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		expected.add(this.setUpObject.funcDep_B_to_C());
 		
-		this.dfJoint = this.setUpObject.dfJoint_5();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_5()));	
+		this.dfJoint = this.setUpObject.dfJoint_05();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_05()));	
 	}
 	
 	@Test
@@ -533,8 +533,8 @@ public class DFJointTests {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		expected.add(this.setUpObject.funcDep_B_to_E());
 		
-		this.dfJoint = this.setUpObject.dfJoint_6();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationSix()));	
+		this.dfJoint = this.setUpObject.dfJoint_06();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_06()));	
 	}
 	
 	@Test
@@ -543,24 +543,24 @@ public class DFJointTests {
 		expected.add(this.setUpObject.funcDep_B_to_C());
 		expected.add(this.setUpObject.funcDep_C_to_D());
 		
-		this.dfJoint = this.setUpObject.dfJoint_7();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationSeven()));
+		this.dfJoint = this.setUpObject.dfJoint_07();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_07()));
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint8() {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		
-		this.dfJoint = this.setUpObject.dfJoint_8();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationEight()));	
+		this.dfJoint = this.setUpObject.dfJoint_08();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_08()));	
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint9() {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		
-		this.dfJoint = this.setUpObject.dfJoint_9();
-		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relationNine()));
+		this.dfJoint = this.setUpObject.dfJoint_09();
+		assertEquals(expected, this.dfJoint.getNon3NF_DFs(this.setUpObject.relation_09()));
 	}
 	
 	//getAttributesDFJoint

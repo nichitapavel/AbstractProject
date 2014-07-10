@@ -112,7 +112,7 @@ public class ProjectionOnAttributeJointTests {
 	
 	@Test
 	public void projectionDFJointFourToAttributeJointAC() {
-		DFJoint dfJoint = this.setUpObject.dfJoint_4();
+		DFJoint dfJoint = this.setUpObject.dfJoint_04();
 		AttributeJoint attrJoint = this.setUpObject.attrJnt_AC();
 		
 		DFJoint expected = this.setUpObject.dfJoint_21();
@@ -121,7 +121,7 @@ public class ProjectionOnAttributeJointTests {
 	
 	@Test
 	public void projectionDFJointFourToAttributeJointAB() {
-		DFJoint dfJoint = this.setUpObject.dfJoint_4();
+		DFJoint dfJoint = this.setUpObject.dfJoint_04();
 		AttributeJoint attrJoint = this.setUpObject.attrJnt_AB();
 		
 		DFJoint expected = this.setUpObject.dfJoint_13();
@@ -130,7 +130,7 @@ public class ProjectionOnAttributeJointTests {
 	
 	@Test
 	public void projectionDFJointFourToAttributeJointBC() {
-		DFJoint dfJoint = this.setUpObject.dfJoint_4();
+		DFJoint dfJoint = this.setUpObject.dfJoint_04();
 		AttributeJoint attrJoint = this.setUpObject.attrJnt_BC();
 		
 		DFJoint expected = this.setUpObject.dfJoint_22();

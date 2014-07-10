@@ -55,11 +55,11 @@ public class RelationTests {
 		SetUpClass setUpObject = new SetUpClass();
 		
 		//DFJoints
-		this.secondFormRelationDFJoint = setUpObject.dfJoint_7();
+		this.secondFormRelationDFJoint = setUpObject.dfJoint_07();
 				
-		this.thirdFormRelationDFJoint = setUpObject.dfJoint_8();
+		this.thirdFormRelationDFJoint = setUpObject.dfJoint_08();
 		
-		this.boyceCoddFormRelationDFJoint = setUpObject.dfJoint_9();
+		this.boyceCoddFormRelationDFJoint = setUpObject.dfJoint_09();
 		
 		//AttributeJoints attributes of a relation
 		this.secondAndThirdFormRelationAttributes = setUpObject.attrJnt_ABCD();
@@ -67,11 +67,11 @@ public class RelationTests {
 		this.boyceCoddFormRelationAttributes = setUpObject.attrJnt_ABC();
 
 		//Relations
-		this.firstFormRelation = new Relation(setUpObject.attrJnt_ABCDE(), setUpObject.dfJoint_6());
+		this.firstFormRelation = new Relation(setUpObject.attrJnt_ABCDE(), setUpObject.dfJoint_06());
 		this.secondFormRelation = new Relation(secondAndThirdFormRelationAttributes, secondFormRelationDFJoint);
 		this.thirdFormRelation = new Relation(secondAndThirdFormRelationAttributes, thirdFormRelationDFJoint);
 		this.boyceCoddFormRelation = new Relation(boyceCoddFormRelationAttributes, boyceCoddFormRelationDFJoint);
-		this.one = this.setUpObject.relationOne();
+		this.one = this.setUpObject.relation_01();
 		
 		//KeyJoint
 		ArrayList<AttributeJoint> keysVector = new ArrayList<>();
@@ -253,8 +253,8 @@ public class RelationTests {
 	@Test
 	public void splitRelation_1_UsingAtoBC() {
 		ArrayList<Relation> expected = new ArrayList<>();
-		expected.add(this.setUpObject.relationOneABC());
-		expected.add(this.setUpObject.relationOneADE());
+		expected.add(this.setUpObject.relation_1ABC());
+		expected.add(this.setUpObject.relation_1ADE());
 		ArrayList<Relation> result = this.one.split(this.setUpObject.funcDep_A_to_BC());
 		assertEquals(expected, result);
 	}
@@ -262,8 +262,8 @@ public class RelationTests {
 	@Test
 	public void splitRelation_1_UsingBCtoA() {
 		ArrayList<Relation> expected = new ArrayList<>();
-		expected.add(this.setUpObject.relationOneABC());
-		expected.add(this.setUpObject.relationOneBCDE());
+		expected.add(this.setUpObject.relation_1ABC());
+		expected.add(this.setUpObject.relation_1BCDE());
 		ArrayList<Relation> result = this.one.split(this.setUpObject.funcDep_BC_to_A());
 		assertEquals(expected, result);
 	}
@@ -271,8 +271,8 @@ public class RelationTests {
 	@Test
 	public void splitRelation_1_UsingBCDtoE() {
 		ArrayList<Relation> expected = new ArrayList<>();
-		expected.add(this.setUpObject.relationOneBCDE());
-		expected.add(this.setUpObject.relationOneABCD());
+		expected.add(this.setUpObject.relation_1BCDE());
+		expected.add(this.setUpObject.relation_1ABCD());
 		ArrayList<Relation> result = this.one.split(this.setUpObject.funcDep_BCD_to_E());
 		assertEquals(expected, result);
 	}
@@ -280,8 +280,8 @@ public class RelationTests {
 	@Test
 	public void splitRelation_1_UsingEtoC() {
 		ArrayList<Relation> expected = new ArrayList<>();
-		expected.add(this.setUpObject.relationOneCE());
-		expected.add(this.setUpObject.relationOneABDE());
+		expected.add(this.setUpObject.relation_1CE());
+		expected.add(this.setUpObject.relation_1ABDE());
 		ArrayList<Relation> result = this.one.split(this.setUpObject.funcDep_E_to_C());
 		assertEquals(expected, result);
 	}
@@ -289,64 +289,64 @@ public class RelationTests {
 	//Test getNonBCNF_DFs
 	@Test
 	public void getNonBCNF_DFs_DFJoint1() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint1();
-		Relation relation = this.setUpObject.relationOne();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint1();
+		Relation relation = this.setUpObject.relation_01();
 		assertEquals(expected, relation.getNonBCNF_DFs());	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint2() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint2();		
-		Relation relation  = this.setUpObject.relationTwo();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint2();		
+		Relation relation  = this.setUpObject.relation_02();
 		assertEquals(expected, relation.getNonBCNF_DFs());	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint3() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint3();		
-		Relation relation  = this.setUpObject.relationThree();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint3();		
+		Relation relation  = this.setUpObject.relation_03();
 		assertEquals(expected, relation.getNonBCNF_DFs());	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint4() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint4_5();		
-		Relation relation  = this.setUpObject.relationFour();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint4_5();		
+		Relation relation  = this.setUpObject.relation_04();
 		assertEquals(expected, relation.getNonBCNF_DFs());
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint5() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint4_5();		
-		Relation relation  = this.setUpObject.relation_5();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint4_5();		
+		Relation relation  = this.setUpObject.relation_05();
 		assertEquals(expected, relation.getNonBCNF_DFs());	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint6() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint6();		
-		Relation relation  = this.setUpObject.relationSix();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint6();		
+		Relation relation  = this.setUpObject.relation_06();
 		assertEquals(expected, relation.getNonBCNF_DFs());	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint7() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint7();		
-		Relation relation  = this.setUpObject.relationSeven();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint7();		
+		Relation relation  = this.setUpObject.relation_07();
 		assertEquals(expected, relation.getNonBCNF_DFs());
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint8() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint8();		
-		Relation relation  = this.setUpObject.relationEight();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint8();		
+		Relation relation  = this.setUpObject.relation_08();
 		assertEquals(expected, relation.getNonBCNF_DFs());	
 	}
 	
 	@Test
 	public void getNonBCNF_DFs_DFJoint9() {
 		ArrayList<ADependency> expected = new ArrayList<>();
-		Relation relation  = this.setUpObject.relationNine();
+		Relation relation  = this.setUpObject.relation_09();
 		assertEquals(expected, relation.getNonBCNF_DFs());
 	}
 	
@@ -354,35 +354,35 @@ public class RelationTests {
 	@Test
 	public void getNon3NF_DFs_DFJoint1() {
 		ArrayList<ADependency> expected = new ArrayList<>();
-		Relation relation = this.setUpObject.relationOne();
+		Relation relation = this.setUpObject.relation_01();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint2() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint2();		
-		Relation relation  = this.setUpObject.relationTwo();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint2();		
+		Relation relation  = this.setUpObject.relation_02();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint3() {
 		ArrayList<ADependency> expected = new ArrayList<>();
-		Relation relation  = this.setUpObject.relationThree();
+		Relation relation  = this.setUpObject.relation_03();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint4() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint4_5();
-		Relation relation  = this.setUpObject.relationFour();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint4_5();
+		Relation relation  = this.setUpObject.relation_04();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint5() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint4_5();
-		Relation relation  = this.setUpObject.relation_5();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint4_5();
+		Relation relation  = this.setUpObject.relation_05();
 		assertEquals(expected, relation.getNonBCNF_DFs());
 	}
 	
@@ -390,28 +390,28 @@ public class RelationTests {
 	public void getNon3NF_DFs_DFJoint6() {
 		ArrayList<ADependency> expected = new ArrayList<>();
 		expected.add(this.setUpObject.funcDep_B_to_E());
-		Relation relation  = this.setUpObject.relationSix();
+		Relation relation  = this.setUpObject.relation_06();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint7() {
-		ArrayList<ADependency> expected = this.setUpObject.vectorNonBCNFDFJoint7();
-		Relation relation  = this.setUpObject.relationSeven();
+		ArrayList<ADependency> expected = this.setUpObject.arrayListNonBCNFDFJoint7();
+		Relation relation  = this.setUpObject.relation_07();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint8() {
 		ArrayList<ADependency> expected = new ArrayList<>();
-		Relation relation  = this.setUpObject.relationEight();
+		Relation relation  = this.setUpObject.relation_08();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 	
 	@Test
 	public void getNon3NF_DFs_DFJoint9() {
 		ArrayList<ADependency> expected = new ArrayList<>();
-		Relation relation  = this.setUpObject.relationNine();
+		Relation relation  = this.setUpObject.relation_09();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
 }
