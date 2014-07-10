@@ -1,40 +1,40 @@
 package datastructures;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Vector;
 
-import normalformalgorithms.NormalFormAlgorithms;
+import normalization.Normalization;
 
 public class AttributeJoint implements Iterable<Attribute> {
-	private Vector<Attribute> joint;
+	private ArrayList<Attribute> joint;
 	
 	//Constructors
 	public AttributeJoint() { };
 	
 	public AttributeJoint(String [] stringArray) {
-		joint = new Vector<Attribute>();
+		joint = new ArrayList<Attribute>();
 		for (String attr : stringArray)
-			joint.addElement(new Attribute(attr));
+			joint.add(new Attribute(attr));
 		sort();
 	}
 	
-	public AttributeJoint(Vector<Attribute> joint) {
-		this.joint = new Vector<Attribute>(joint) ;
+	public AttributeJoint(ArrayList<Attribute> joint) {
+		this.joint = new ArrayList<>(joint) ;
 		sort();
 	}
 	
 	public AttributeJoint(AttributeJoint obj) {
-		joint = new Vector<Attribute>(obj.getAttributeJoint());
+		this.joint = new ArrayList<>(obj.getAttributeJoint());
 	}
 	
 	//Getter
-	public Vector<Attribute> getAttributeJoint() {
+	public ArrayList<Attribute> getAttributeJoint() {
 		return this.joint;
 	}
 	
-	public void setAttributeJoint(Vector<Attribute> joint) {
-		this.joint = new Vector<Attribute>(joint);
+	public void setAttributeJoint(ArrayList<Attribute> joint) {
+		this.joint = new ArrayList<>(joint);
 	}
 
 	//Remove Duplicated Attribute
@@ -43,7 +43,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 		for (int i = 0; i < joint.size(); i++){
 			j = i + 1;
 			while (j < joint.size()) {
-				if (joint.elementAt(i).equals(joint.elementAt(j))) {
+				if (joint.get(i).equals(joint.get(j))) {
 					joint.remove(j);
 					j--;
 				}
@@ -58,9 +58,9 @@ public class AttributeJoint implements Iterable<Attribute> {
 		if (this.joint == null || this.joint.size() == 0)
 			return "null";
 		
-		String stringJoint = "{" + joint.firstElement().toString();
+		String stringJoint = "{" + joint.get(0).toString();
 		for (int i = 1; i < joint.size(); i++)
-			stringJoint = stringJoint + ", " + joint.elementAt(i).toString();
+			stringJoint = stringJoint + ", " + joint.get(i).toString();
 		return stringJoint + "}";
 	}
 	
@@ -107,17 +107,17 @@ public class AttributeJoint implements Iterable<Attribute> {
 	public void addAttributes(Attribute attr) {
 		//Attribute newAttr = 
 		if (joint == null)
-			joint = new Vector<Attribute>();
+			joint = new ArrayList<>();
 		
 		if (joint.indexOf(attr) == -1)
-			joint.addElement(attr);
+			joint.add(attr);
 		
 		sort();
 	}
 	
 	public void addAttributes(AttributeJoint attrJoint) {
 		if (joint == null)
-			joint = new Vector<Attribute>();
+			joint = new ArrayList<>();
 		
 		if (attrJoint.getAttributeJoint() != null)		
 			for (Attribute attr : attrJoint)
@@ -176,7 +176,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 
 	public Attribute getLastAttribute() {
 		try {
-			return this.joint.lastElement();
+			return this.joint.get(this.joint.size() - 1);
 		}
 		catch (NullPointerException ex) { }
 		
@@ -188,7 +188,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 			return -1;
 		
 		for (int i = 0; i < this.joint.size(); i++)
-			if (attribute.equals(this.joint.elementAt(i)))
+			if (attribute.equals(this.joint.get(i)))
 				return i;
 		return -1;
 	}
@@ -212,7 +212,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 	 * +1 key
 	 */
 	public int isKey(Relation relation) {
-		AttributeJoint ullman = NormalFormAlgorithms.simpleUllman(this, relation.getDFJoint());
+		AttributeJoint ullman = Normalization.simpleUllman(this, relation.getDFJoint());
 		KeyJoint keyJoint = relation.calculateKeyJoint();
 		
 		if (ullman.equals(relation.getAttrJoint()))
@@ -239,7 +239,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 		try {
 			AttributeJoint resultAttrJoint = new AttributeJoint();
 			
-			Vector<Attribute> auxJoint = new Vector<>(this.joint);
+			ArrayList<Attribute> auxJoint = new ArrayList<>(this.joint);
 			auxJoint.retainAll(consequent.getAttributeJoint());
 			
 			resultAttrJoint.setAttributeJoint(auxJoint);
@@ -253,7 +253,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 		try {
 			AttributeJoint resultAttrJoint = new AttributeJoint();
 			
-			Vector<Attribute> auxJoint = new Vector<>(this.joint);
+			ArrayList<Attribute> auxJoint = new ArrayList<>(this.joint);
 			auxJoint.removeAll(attrJoint.getAttributeJoint());
 			
 			resultAttrJoint.setAttributeJoint(auxJoint);

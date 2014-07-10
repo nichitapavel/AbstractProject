@@ -1,8 +1,9 @@
 package datastructures;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
-import normalformalgorithms.NormalFormAlgorithms;
+import datastructures.dependency.ADependency;
+import normalization.Normalization;
 
 
 public class Relation {
@@ -34,7 +35,7 @@ public class Relation {
 
 	public boolean isBCNF() {
 		try {
-			for (AFunctionalDependency funcDep : this.dfJoint) {
+			for (ADependency funcDep : this.dfJoint) {
 				if (!funcDep.isBCNF(this))
 					return false;
 			}
@@ -75,12 +76,12 @@ public class Relation {
 
 		AttributeJoint nonKeyAttributes = new AttributeJoint();
 		
-		Vector<AttributeJoint> list = new Vector<AttributeJoint>();
+		ArrayList<AttributeJoint> list = new ArrayList<>();
 		
 		for(Attribute attr : this.attrJoint) {
 			attrJointToCheck = new AttributeJoint();
 			attrJointToCheck.addAttributes(attr);
-			ullman = NormalFormAlgorithms.simpleUllman(attrJointToCheck, this.dfJoint);
+			ullman = Normalization.simpleUllman(attrJointToCheck, this.dfJoint);
 			if(!ullman.equals(this.attrJoint)) {
 				nonKeyAttributes.addAttributes(attr);
 				list.add(attrJointToCheck);
@@ -92,7 +93,7 @@ public class Relation {
 		
 		int i = 0;
 		do {
-			AttributeJoint attrJoint = list.elementAt(i);
+			AttributeJoint attrJoint = list.get(i);
 			Attribute lastAttribute = attrJoint.getLastAttribute();
 			
 			for (int j = nonKeyAttributes.getAttributePosition(lastAttribute) + 1;
@@ -102,7 +103,7 @@ public class Relation {
 				attrJointToCheck.addAttributes(nonKeyAttributes.getAttributeAt(j));
 				
 				if (!attrJointToCheck.containsJoinsFrom(result)) {
-					ullman = NormalFormAlgorithms.simpleUllman(attrJointToCheck, this.dfJoint);
+					ullman = Normalization.simpleUllman(attrJointToCheck, this.dfJoint);
 					if (ullman.equals(this.attrJoint))
 						result.addKey(attrJointToCheck);
 					else
@@ -121,7 +122,7 @@ public class Relation {
 		
 		KeyJoint keyJoint = this.calculateKeyJoint();
 		
-		for (AFunctionalDependency funcDep : this.dfJoint) {
+		for (ADependency funcDep : this.dfJoint) {
 			if (!funcDep.is3NF(this, keyJoint))
 					return false;
 		}
@@ -136,7 +137,7 @@ public class Relation {
 		KeyJoint keyJoint = this.calculateKeyJoint();
 		
 		
-		for (AFunctionalDependency funcDep : this.dfJoint) {
+		for (ADependency funcDep : this.dfJoint) {
 			if (!funcDep.is2NF(this, keyJoint))
 				return false;
 		}
@@ -144,18 +145,22 @@ public class Relation {
 		return true;
 	}
 
-	public Vector<Relation> split(AFunctionalDependency fd) {
-		Vector<Relation> relationVector = new Vector<>();
+	public ArrayList<Relation> split(ADependency fd) {
+		ArrayList<Relation> relationVector = new ArrayList<>();
 		
 		Relation first = new Relation();
 		first.settAttrJoint(fd.getAttributeJoint());
 		relationVector.add(first);
+		
+		//first.setDFJoint(this.dfJoint.projectionOnAttributeJoint(fd.getAttributeJoint()));
 		
 		Relation second = new Relation();
 		AttributeJoint newAttrJoint = new AttributeJoint(this.attrJoint);
 		newAttrJoint.removeAttributes(fd.getConsequent());
 		second.settAttrJoint(newAttrJoint);
 		relationVector.add(second);
+		
+		//second.setDFJoint(this.dfJoint.projectionOnAttributeJoint(newAttrJoint));
 		
 		/*
 		 * Falta la proyeccion del conjunto de dependecias funcionales sobre el 
@@ -165,11 +170,11 @@ public class Relation {
 		return relationVector;
 	}
 	
-	public Vector<AFunctionalDependency> getNonBCNF_DFs() {
+	public ArrayList<ADependency> getNonBCNF_DFs() {
 		return this.dfJoint.getNonBCNF_DFs(this);
 	}
 	
-	public Vector<AFunctionalDependency> getNon3NF_DFs() {
+	public ArrayList<ADependency> getNon3NF_DFs() {
 		return this.dfJoint.getNon3NF_DFs(this);
 	}
 

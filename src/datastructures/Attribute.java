@@ -1,6 +1,8 @@
 package datastructures;
 
-import normalformalgorithms.NormalFormAlgorithms;
+import datastructures.dependency.ADependency;
+import datastructures.dependency.FunctionalDependency;
+import normalization.Normalization;
 
 public class Attribute implements Comparable<Attribute>{
 	private String attribute;
@@ -78,11 +80,11 @@ public class Attribute implements Comparable<Attribute>{
 		return false;
 	}
 
-	public boolean isRareInAntecedent(AFunctionalDependency fd, DFJoint dfJoint) {
+	public boolean isRareInAntecedent(ADependency fd, DFJoint dfJoint) {
 		AttributeJoint ullman = new AttributeJoint(fd.getAntecedent());
 		ullman.removeAttributes(this);
 		
-		AttributeJoint ullmanResult = NormalFormAlgorithms.simpleUllman(ullman, dfJoint);
+		AttributeJoint ullmanResult = Normalization.simpleUllman(ullman, dfJoint);
 		
 		if (fd.getConsequent().isContained(ullmanResult))
 			return true;
@@ -90,7 +92,7 @@ public class Attribute implements Comparable<Attribute>{
 		return false;
 	}
 
-	public boolean isRareInConsequent(AFunctionalDependency fd, DFJoint dfJoint) {
+	public boolean isRareInConsequent(ADependency fd, DFJoint dfJoint) {
 		AttributeJoint consequent = fd.getConsequent();
 		AttributeJoint antecedent = fd.getAntecedent();
 		AttributeJoint newConsecuent = new AttributeJoint(consequent);
@@ -99,10 +101,10 @@ public class Attribute implements Comparable<Attribute>{
 		DFJoint dfJointPrima = new DFJoint(dfJoint);					
 		dfJointPrima.removeDF(fd);
 		
-		AFunctionalDependency newFD = new SingleDependency(antecedent, newConsecuent);
+		ADependency newFD = new FunctionalDependency(antecedent, newConsecuent);
 		dfJointPrima.addFunctionalDependency(newFD);
 		
-		AttributeJoint ullmanResult = NormalFormAlgorithms.simpleUllman(antecedent, dfJointPrima);
+		AttributeJoint ullmanResult = Normalization.simpleUllman(antecedent, dfJointPrima);
 		
 		if (consequent.isContained(ullmanResult))
 			return true;

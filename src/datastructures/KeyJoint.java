@@ -1,20 +1,20 @@
 package datastructures;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
 
 public class KeyJoint implements Iterable<AttributeJoint> {
-	private Vector<AttributeJoint> keyJoint;
+	private ArrayList<AttributeJoint> keyJoint;
 
 	//Constructors
 	public KeyJoint() {	}
 	
-	public KeyJoint(Vector<AttributeJoint> keyJoint) {
-		this.keyJoint = new Vector<>(keyJoint);
+	public KeyJoint(ArrayList<AttributeJoint> keyJoint) {
+		this.keyJoint = new ArrayList<>(keyJoint);
 	}
 	
 	//Getter
-	public Vector<AttributeJoint> getKeyJoint() {
+	public ArrayList<AttributeJoint> getKeyJoint() {
 		return this.keyJoint;
 	}
 	
@@ -23,9 +23,9 @@ public class KeyJoint implements Iterable<AttributeJoint> {
 		String msg = "null";
 		
 		try {
-			msg = "{" + this.keyJoint.firstElement();
+			msg = "{" + this.keyJoint.get(0);
 			for (int i = 1; i < this.keyJoint.size(); i++)
-				msg += ", " + this.keyJoint.elementAt(i);
+				msg += ", " + this.keyJoint.get(i);
 			msg += "}";
 		}
 		catch(NullPointerException e){ }
@@ -52,7 +52,7 @@ public class KeyJoint implements Iterable<AttributeJoint> {
 
 	public void addKey(AttributeJoint key) {
 		if (this.keyJoint == null)
-			this.keyJoint = new Vector<>();
+			this.keyJoint = new ArrayList<>();
 		this.keyJoint.add(key);
 	}
 

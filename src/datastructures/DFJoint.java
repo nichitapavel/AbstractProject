@@ -1,38 +1,38 @@
 package datastructures;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
 
-import normalformalgorithms.RareElement;
-import datastructures.AFunctionalDependency;
+import datastructures.dependency.ADependency;
+import datastructures.dependency.FunctionalDependency;
 
-public class DFJoint implements Iterable<AFunctionalDependency> {
-	private Vector<AFunctionalDependency> df;
+public class DFJoint implements Iterable<ADependency> {
+	private ArrayList<ADependency> df;
 	private String name;
 
-	public DFJoint(Vector<AFunctionalDependency> dfJoint) {
-		this.df = new Vector<>(dfJoint);
+	public DFJoint(ArrayList<ADependency> dfJoint) {
+		this.df = new ArrayList<>(dfJoint);
 	}
 	
 	public DFJoint() {
-		this.df = new Vector<AFunctionalDependency>();
+		this.df = new ArrayList<>();
 	}
 	
 	public DFJoint(DFJoint dfJoint) {
-		this.df = new Vector<>(dfJoint.getDFJoint());
+		this.df = new ArrayList<>(dfJoint.getDFJoint());
 		this.name = dfJoint.getName();
 	}
 
-	public void addFunctionalDependency(AFunctionalDependency df) {
+	public void addFunctionalDependency(ADependency df) {
 		if (!contains(df))
 			this.df.add(df);
 	}
 	
-	public Vector<AFunctionalDependency> getDFJoint() {
+	public ArrayList<ADependency> getDFJoint() {
 		return df;
 	}
 
-	public void setDFJoint(Vector<AFunctionalDependency> df) {
+	public void setDFJoint(ArrayList<ADependency> df) {
 		this.df = df;
 	}
 	
@@ -55,7 +55,7 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 			}
 			msg += " }";
 		}
-		catch (ArrayIndexOutOfBoundsException e) { }
+		catch (IndexOutOfBoundsException e) { }
 		catch (NullPointerException e) { }
 		
 		return msg;
@@ -92,12 +92,12 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 		return this.df.size();
 	}
 	
-	public Iterator<AFunctionalDependency> iterator() {
+	public Iterator<ADependency> iterator() {
 		return this.df.iterator();
 	}
 
 	public boolean isImplied(DFJoint dfJoint) {
-		for (AFunctionalDependency fd : this.df) {
+		for (ADependency fd : this.df) {
 			if (!fd.belongsTo(dfJoint))
 				return false;
 		}
@@ -109,7 +109,7 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 		AttributeJoint oldAntecedent;
 		AttributeJoint oldConsequent;
 		
-		for (AFunctionalDependency df : this.df) {
+		for (ADependency df : this.df) {
 			oldAntecedent = df.getAntecedent();
 			oldConsequent = df.getConsequent();
 			
@@ -123,14 +123,14 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 				boolean added = false;
 				AttributeJoint newAntecedent = oldAntecedent.intersect(attrJoint);
 				AttributeJoint substract = oldAntecedent.substract(attrJoint);
-				for (AFunctionalDependency dfConsequent : this.df) {
+				for (ADependency dfConsequent : this.df) {
 					if (substract.isContained(dfConsequent.getConsequent())) {
 						newAntecedent.addAttributes(dfConsequent.getAntecedent());
 						added = true;
 					}
 				}
 				
-				AFunctionalDependency addDF = new SingleDependency(newAntecedent, oldConsequent);
+				ADependency addDF = new FunctionalDependency(newAntecedent, oldConsequent);
 				addDF.clearTrivialElements();
 				
 				if (added && !addDF.getAntecedent().isNull()
@@ -145,12 +145,12 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 				
 				if (newConsequent.isNull()) {
 					AttributeJoint substract = oldConsequent.substract(attrJoint);
-					for (AFunctionalDependency dfAntecedent : this.df)
+					for (ADependency dfAntecedent : this.df)
 						if (substract.isContained(dfAntecedent.getAntecedent()))
 							newConsequent.addAttributes(dfAntecedent.getAntecedent());
 				}
 				
-				AFunctionalDependency addDF = new SingleDependency(oldAntecedent, newConsequent);
+				ADependency addDF = new FunctionalDependency(oldAntecedent, newConsequent);
 				addDF.clearTrivialElements();
 				
 				if (!addDF.getConsequent().isNull() && newConsequent.isContained(attrJoint))
@@ -161,22 +161,22 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 		return result;
 	}
 
-	public boolean contains(AFunctionalDependency funcDep) {
-		for (AFunctionalDependency df : this.df)
+	public boolean contains(ADependency funcDep) {
+		for (ADependency df : this.df)
 			if (df.equals(funcDep))
 				return true;
 		return false;
 	}
 
 	public DFJoint regroupDFJoint() {
-		Vector<AFunctionalDependency> copyDFJoint = new Vector<>(this.df); 
+		ArrayList<ADependency> copyDFJoint = new ArrayList<>(this.df); 
 		DFJoint regroupedDFJoint = new DFJoint();
 		for (int i = 0; i < copyDFJoint.size(); i++) {
-			AFunctionalDependency dfI = copyDFJoint.elementAt(i);
+			ADependency dfI = copyDFJoint.get(i);
 			AttributeJoint antecedentI = dfI.getAntecedent();
 			AttributeJoint regroupedConsequent = new AttributeJoint(dfI.getConsequent());
 			for (int j = i + 1; j < copyDFJoint.size(); j++) {
-				AFunctionalDependency dfJ = copyDFJoint.elementAt(j);
+				ADependency dfJ = copyDFJoint.get(j);
 				AttributeJoint antecedentJ = dfJ.getAntecedent();
 				if (antecedentI.equals(antecedentJ)) {
 					regroupedConsequent.addAttributes(dfJ.getConsequent());
@@ -184,24 +184,24 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 					j--;
 				}
 			}
-			regroupedDFJoint.addFunctionalDependency(new SingleDependency(antecedentI, regroupedConsequent));
+			regroupedDFJoint.addFunctionalDependency(new FunctionalDependency(antecedentI, regroupedConsequent));
 			copyDFJoint.remove(i);
 			i--;
 		}
 		return regroupedDFJoint;
 	}
 
-	public void removeDF(AFunctionalDependency fd) {
+	public void removeDF(ADependency fd) {
 		try {
 			this.df.remove(fd);
 		} catch (NullPointerException ex) { }
 	}
 	
-	public Vector<RareElement> findRareAttributes() {
-		Vector<RareElement> rareElVector = new Vector<>();
+	public ArrayList<RareElement> findRareAttributes() {
+		ArrayList<RareElement> rareElVector = new ArrayList<>();
 		
 		if (this.df.size() > 1) {
-			for(AFunctionalDependency fd : this.df) {
+			for(ADependency fd : this.df) {
 				AttributeJoint antecedent = fd.getAntecedent();
 				AttributeJoint consecuent = fd.getConsequent();
 				if (antecedent.getSize() != 1) {
@@ -228,7 +228,7 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 		 		
 		this.df = regroupDFJoint().getDFJoint();
 		
-		Vector<RareElement> rareAttrVector = findRareAttributes();
+		ArrayList<RareElement> rareAttrVector = findRareAttributes();
 		
 		while (rareAttrVector.size() != 0) {
 			if (!auto) {
@@ -237,7 +237,7 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 				 */
 			}
 			
-			removeAttribute(rareAttrVector.elementAt(option));
+			removeAttribute(rareAttrVector.get(option));
 			rareAttrVector = findRareAttributes();
 		}
 	}
@@ -245,24 +245,24 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 	public void removeAttribute(RareElement rareAttr) {
 		int pos = this.df.indexOf(rareAttr.getFD());
 		if (rareAttr.getPosition() == "Antecedent")
-			this.df.elementAt(pos).removeAttributeFromAntecedent(rareAttr.getAttribute());
+			this.df.get(pos).removeAttributeFromAntecedent(rareAttr.getAttribute());
 		else
-			this.df.elementAt(pos).removeAttributeFromConsequent(rareAttr.getAttribute());
+			this.df.get(pos).removeAttributeFromConsequent(rareAttr.getAttribute());
 		this.df = regroupDFJoint().getDFJoint();
 	}
 	
 	public boolean isMinimal() {
-		Vector<RareElement> rareAttributes = findRareAttributes();
+		ArrayList<RareElement> rareAttributes = findRareAttributes();
 		
 		if (rareAttributes.size() != 0)
 			return false;
 		return true;
 	}
 
-	public Vector<AFunctionalDependency> getNonBCNF_DFs(Relation relation) {
-		Vector<AFunctionalDependency> result = new Vector<>();
+	public ArrayList<ADependency> getNonBCNF_DFs(Relation relation) {
+		ArrayList<ADependency> result = new ArrayList<>();
 		
-		for (AFunctionalDependency fd : this.df) {
+		for (ADependency fd : this.df) {
 			if (!fd.isBCNF(relation))
 				result.add(fd);
 		}
@@ -270,12 +270,12 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 		return result;
 	}
 
-	public Vector<AFunctionalDependency> getNon3NF_DFs(Relation relation) {
-		Vector<AFunctionalDependency> result = new Vector<>();
+	public ArrayList<ADependency> getNon3NF_DFs(Relation relation) {
+		ArrayList<ADependency> result = new ArrayList<>();
 		
 		KeyJoint keyJoint = relation.calculateKeyJoint();
 		
-		for (AFunctionalDependency fd : this.df) {
+		for (ADependency fd : this.df) {
 			if (!fd.is3NF(relation, keyJoint))
 				result.add(fd);
 		}
@@ -285,10 +285,16 @@ public class DFJoint implements Iterable<AFunctionalDependency> {
 	
 	public AttributeJoint getAttributesDFJoint() {
 		AttributeJoint attrJoint = new AttributeJoint();
-		for (AFunctionalDependency df : this.df) {
+		for (ADependency df : this.df) {
 				attrJoint.addAttributes(df.getAntecedent());
 				attrJoint.addAttributes(df.getConsequent());
 		}
 		return attrJoint;
+	}
+	
+	public boolean isEquivalent(DFJoint dfJoint) {
+		if (this.isImplied(dfJoint) && dfJoint.isImplied(this))
+			return true;
+		return false;		
 	}
 }
