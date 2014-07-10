@@ -232,14 +232,6 @@ public class SetUpClass {
 		attrJoint.addAttributes(attr_F());
 		return attrJoint;
 	}
-	
-	//AttributeJoint GH
-	public AttributeJoint attrJnt_GH() {
-		AttributeJoint attrJoint = new AttributeJoint();
-		attrJoint.addAttributes(attr_G());
-		attrJoint.addAttributes(attr_H());
-		return attrJoint;
-	}
 
 	//AttributeJoint ABC
 	public AttributeJoint attrJnt_ABC() {
@@ -1385,14 +1377,6 @@ public class SetUpClass {
 				"Antecedent");
 	}
 	
-	//B Consequent A->BC DFJoint Four
-	public RareElement rareElementB_AtoBC_DFJoint4_Consequent() {
-		return new RareElement(
-				attr_B(),
-				funcDep_A_to_BC(),
-				dfJoint_4(),
-				"Consequent");
-	}
 	//C Consequent A->BC DFJoint Four
 	public RareElement rareElementC_AtoBC_DFJoint4_Consequent() {
 		return new RareElement(
