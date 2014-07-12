@@ -121,6 +121,6 @@ public class FunctionalDependency extends PluralDependency {
 
 	@Override
 	public boolean is4NF(Relation relation) {
-		return true;
+		return isBCNF(relation);
 	};
 }
