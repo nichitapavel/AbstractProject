@@ -1,5 +1,6 @@
 package datastructures.dependency;
 
+import datastructures.Attribute;
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
 import datastructures.KeyJoint;
@@ -15,7 +16,7 @@ public class PluralDependency extends ADependency {
 
 	@Override
 	public String toString() {
-		return super.antecedent.toString() + " ->-> " + super.consequent.toString();
+		return super.antecedent.toString() + " ->> " + super.consequent.toString();
 	}
 
 	@Override
@@ -52,8 +53,17 @@ public class PluralDependency extends ADependency {
 	}
 
 	@Override
-	public boolean isTrivial() {
-		// TODO Auto-generated method stub
+	public boolean isTrivial(Relation relation) {
+		if (super.antecedent.isNull() || super.consequent.isNull())
+			return true;
+
+		for (Attribute attr : super.consequent)
+			if (attr.isContained(super.antecedent))
+				return true;
+
+		if (super.antecedent.union(super.consequent).equals(relation.getAttrJoint()))
+			return true;
+		
 		return false;
 	}
 

@@ -14,7 +14,7 @@ import datastructuretests.setupclass.SetUpClass;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PluralDependencyTests {
-	private ADependency fd;
+	private ADependency pd;
 	
 	private AttributeJoint antecedent;
 	private AttributeJoint consecuent;
@@ -31,14 +31,28 @@ public class PluralDependencyTests {
 		String [] consecuentArray = {"D", "E", "F"};
 		consecuent = new AttributeJoint(consecuentArray);
 		
-		fd = new PluralDependency(antecedent, consecuent);
+		pd = new PluralDependency(antecedent, consecuent);
 	}
 	
 	//Test constructors
 	@Test
 	public void constructorVoid() {
 		this.setUpObject.AB_AtoB();
-		this.fd.clear();
+		this.pd.clear();
 		fail();
+	}
+	
+	//Test toString()
+	@Test
+	public void toStringPluralDependency() {
+		String expected = "{A, B, C} ->> {D, E, F}";
+		assertEquals(expected, this.pd.toString());
+	}
+	
+	//Test isTrivial()
+	@Test
+	public void isTrivialAtoCDinRelation30() {
+		this.pd = this.setUpObject.pluDep_A_to_CD();
+		assertFalse(this.pd.isTrivial(this.setUpObject.relation_30()));
 	}
 }
