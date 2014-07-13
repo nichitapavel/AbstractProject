@@ -37,6 +37,7 @@ ACD
 ADE
 BCD
 BDE
+BEF
 CDE
 ABCD
 ABDE
@@ -74,6 +75,7 @@ AB -> CD
 AB -> BCD
 AD -> C
 AD -> E
+AE -> D
 AE -> F
 BC -> A
 BC -> E
@@ -87,6 +89,9 @@ BCD -> E
 
 Plural Dependency:
 A ->> CD
+A ->> BEF
+A ->> B
+A ->> EF
 
 DFJoint:
 DFJoint 01 = {A -> BC, BC -> A, BCD -> E, E -> C}
@@ -137,6 +142,7 @@ DFJoint ADtoE = {AD -> E}
 DFJoint ABEtoGH = {ABE -> GH}
 
 DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
+DPJoint 31 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD}
 
 Relation:
 Relation One = DFJoint One, AttributeJoint ABCDE -> Key: AD, BCD, BDE | Normal Form: 3FN
@@ -194,6 +200,8 @@ Relation ABEE_ABEtoGH
 
 Relation 30 = DPJoint 30, AttributeJoint ABCDEF -> Key: DE | Normal Form:
 	 A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD
+Relation 31 = DPJoint 31, AttributeJoint ABCDEF -> Key: DE, AE | Normal Form:
+	A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD
 
 KeyJoints:
 KeyJoint AD_BCD_BDE

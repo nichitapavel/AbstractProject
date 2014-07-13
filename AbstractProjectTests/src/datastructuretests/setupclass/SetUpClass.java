@@ -305,7 +305,16 @@ public class SetUpClass {
 		attrJoint.addAttributes(attr_E());
 		return attrJoint;
 	}
-
+	
+	//AttributeJoint BEF
+	public AttributeJoint attrJnt_BEF() {
+		AttributeJoint attrJoint = new AttributeJoint();
+		attrJoint.addAttributes(attr_B());
+		attrJoint.addAttributes(attr_E());
+		attrJoint.addAttributes(attr_F());
+		return attrJoint;
+	}
+	
 	//AttributeJoint CDE
 	public AttributeJoint attrJnt_CDE() {
 		AttributeJoint attrJoint = new AttributeJoint();
@@ -569,6 +578,12 @@ public class SetUpClass {
 		return funcDep;
 	}
 	
+	//Functional Dependency AE -> D
+	public ADependency funcDep_AE_to_D() {
+		ADependency funcDep = new FunctionalDependency(attrJnt_AE(), attrJnt_D());
+		return funcDep;
+	}
+	
 	//Functional Dependency AE -> F
 	public ADependency funcDep_AE_to_F() {
 		ADependency funcDep = new PluralDependency(attrJnt_AE(), attrJnt_F());
@@ -641,10 +656,27 @@ public class SetUpClass {
 
 	//Plural Dependency A ->> CD	
 	public ADependency pluDep_A_to_CD() {
-		ADependency pluDep = new FunctionalDependency(attrJnt_A(), attrJnt_CD());
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_CD());
 		return pluDep;
 	}
 	
+	//A ->> BEF
+	public ADependency pluDep_A_to_BEF() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_BEF());
+		return pluDep;
+	}
+
+	//A ->> B
+	public ADependency pluDep_A_to_B() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_B());
+		return pluDep;
+	}
+	
+	//A ->> EF
+	public ADependency pluDep_A_to_EF() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_EF());
+		return pluDep;
+	}
 	
 	/******************/
 	//DFJoint
@@ -1076,12 +1108,26 @@ public class SetUpClass {
 	//DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
 	public DFJoint dpJoint_30() {
 		DFJoint dpJoint = new DFJoint();
-		dpJoint.setName("DFJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}");
+		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}");
 		dpJoint.addFunctionalDependency(funcDep_A_to_B());
 		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
 		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
 		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
 		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dpJoint.addFunctionalDependency(pluDep_A_to_CD());
+		return dpJoint;
+	}
+	
+	//DPJoint 31 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD}
+	public DFJoint dpJoint_31() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD}");
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
+		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
+		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dpJoint.addFunctionalDependency(funcDep_AE_to_D());
 		dpJoint.addFunctionalDependency(pluDep_A_to_CD());
 		return dpJoint;
 	}
