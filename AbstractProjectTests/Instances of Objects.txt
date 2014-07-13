@@ -1,0 +1,232 @@
+Attributes:
+A
+B
+C
+D
+E
+F
+G
+H
+
+AttributeJoint:
+A
+B
+C
+D
+E
+F
+G
+H
+AB
+AC
+AD
+AE
+BC
+BD
+BE
+CD
+CE
+CF
+DE
+DF
+EF
+ABC
+ABD
+ABE
+ACD
+ADE
+BCD
+BDE
+CDE
+ABCD
+ABDE
+ACDE
+AEGH
+BCDE
+ABCDE
+ABCDEF
+ABCDEFGH
+
+Functional Dependency:
+A -> B
+A -> C
+A -> D
+A -> E
+B -> C
+B -> D
+B -> E
+B -> CE
+C -> A
+C -> B
+C -> D
+D -> E
+E -> C
+E -> D
+E -> F
+E -> DF
+F -> E
+A -> BC
+C -> AB
+AB -> B
+AB -> C
+AB -> D
+AB -> CD
+AB -> BCD
+AD -> C
+AD -> E
+AE -> F
+BC -> A
+BC -> E
+BD -> C
+CD -> A
+CF -> H
+DE -> C
+ABD -> G
+ABE -> GH
+BCD -> E
+
+Plural Dependency:
+A ->> CD
+
+DFJoint:
+DFJoint 01 = {A -> BC, BC -> A, BCD -> E, E -> C}
+DFJoint 02 = {A -> BC, BC -> E, CD -> A}
+DFJoint 03 = {AB -> C, C -> AB, E -> D, D -> E, E -> F, F -> E, ABD -> G, CF -> H}
+DFJoint 04 = {A -> BC, B -> C, A -> B, AB -> C}
+DFJoint 05 = {A -> B, B -> C}
+DFJoint 06 = {AB -> D, B -> C, C -> B, B -> E}
+DFJoint 07 = {A -> B, B -> C, C -> D}
+DFJoint 08 = {B -> C, AB -> D, C -> B}
+DFJoint 09 = {AB -> C}
+DFJoint 10 = {AB -> C, C -> A}
+DFJoint 11 = {C -> A}
+DFJoint 12 = {A -> B, CD -> A, BD -> C, DE -> C}
+DFJoint 13 = {A -> B}
+DFJoint 14 = {CD -> A, AD -> C, DE -> C}
+DFJoint 15 = {CD -> A, AD -> C}
+DFJoint 16 = {DE -> C}
+DFJoint 17 = {BCD -> E, E -> C}
+DFJoint 18 = {E -> C}
+DFJoint 19 = {AB -> C, C -> B}
+DFJoint 20 = {C -> B}
+DFJoint 21 = {A -> C}
+DFJoint 22 = {B -> C}
+DFJoint 23 = {AB -> C, C -> AB, E -> DF, D -> E, F -> E, ABD -> G, CF -> H}
+DFJoint 24 = {A -> BC, B -> C, AB -> C}
+DFJoint 25 = {A -> B, A -> C, A -> D,  D -> E}
+DFJoint 26 = {A -> BCD, D -> E}
+DFJoint 27 = {AB -> D, B -> CE, C -> B}
+DFJoint 01MinusAtoBC = {BC -> A, BCD -> E, E -> C}
+DFJoint 05MinusBtoC = {A -> B}
+DFJoint 28 = {A -> BCD}
+DFJoint 04RegroupedWithoutCinAtoBC = {A -> B, B -> C, AB -> C}
+DFJoint 04RegroupedWithoutAinABtoC = {A -> BC, B -> C}
+DFJoint AtoBC = {A -> BC}
+DFJoint AtoE = {A -> E}
+DFJoint BtoD = {B -> D}
+DFJoint BtoE = {B -> E}
+DFJoint ABtoD_BtoC_CtoB = {AB -> D, B -> C, C -> B}
+DFJoint ABtoC_CtoAB = {AB -> C, C -> AB}
+DFJoint EtoD_DtoE = {E -> D, D -> E}
+DFJoint EtoF_FtoE = {E -> F, F -> E}
+DFJoint EtoD_DtoE = {E -> D, D -> E}
+DFJoint BtoC_CtoB = {B -> C, C -> B}
+DFJoint ABtoD = {AB -> D}
+DFJoint AtoBC_BCtoA = {A -> BC, BC -> A}
+DFJoint ADtoE = {AD -> E}
+DFJoint ABEtoGH = {ABE -> GH}
+
+DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
+
+Relation:
+Relation One = DFJoint One, AttributeJoint ABCDE -> Key: AD, BCD, BDE | Normal Form: 3FN
+	A -> BC = 3FN, BC -> A = 3FN, BCD -> E = BCFN, E -> C = 3FN
+Relation Two = DFJoint Two, AttributeJoint ABCDE -> Key: AD, CD | Normal Form: 1FN
+	A -> BC = 1FN, BC -> E = 2FN, CD -> A = BCFN
+Relation Three = DFJoint Three, AttributeJoint ABCDEFGH -> Key: CD, CE, CF, ABD, ABE, ABF | Normal Form: 3FN
+	AB -> C = 3FN, C -> AB = 3FN, E -> D = 3FN, D -> E = 3FN, E -> F = 3FN, F -> E = 3FN, ABD -> G = BCFN, CF -> H = BCFN
+Relation Four = DFJoint Four, AttributeJoint ABC -> Key: A | Normal Form: 2FN
+	A -> BC = BCFN, B -> C = 2FN, A -> B = BCFN, AB -> C = BCFN
+Relation Five = DFJoint Five, AttributeJoint ABC -> Key: A | Normal Form: 2FN
+	A -> B = BCFN, B -> C = 2FN
+Relation Six = DFJoint Six, AttributeJoint ABCDE -> Key: AB, AC | Normal Form: 1FN
+	AB -> D = BCFN, B -> C = 3FN, C -> B = 3FN, B -> E = 1FN
+Relation Seven = DFJoint Seven, AttributeJoint ABCD -> Key: A | Normal Form: 2FN
+	A -> B = BCFN, B -> C = 2FN, C -> D = 2FN
+Relation Eight = DFJoint Eight, AttributeJoint ABCD -> Key: AB, AC | Normal Form: 3FN
+	B -> C = 3FN, AB -> D = BCFN, C -> B = 3FN
+Relation Nine = DFJoint Nine, AttributeJoint ABC -> Key: AB | Normal Form:BCFN
+	AB -> C = BCFN
+Relation OneABC
+Relation OneADE
+Relation OneBCDE
+Relation OneABCD
+Relation OneCE
+Relation OneABDE
+Relation AE
+Relation AD
+Relation BC
+Relation BD
+Relation AB
+Relation BE
+Relation DE
+Relation EF
+Relation AEGH
+Relation ABD
+Relation ABC_AtoBC
+Relation AE_AtoE
+Relation AD_null
+Relation BC_BtoC
+Relation BD_BtoD
+Relation AB_AtoB
+Relation BE_BtoE
+Relation ABCD_ABtoD_BtoC_CtoB
+Relation ABC_AtoBC
+Relation ABC_ABtoC_CtoAB
+Relation DE_EtoD_DtoE
+Relation EF_EtoF_FtoE
+Relation AEGH_null
+Relation BC_BtoC_CtoB
+Relation ABD_ABtoD
+Relation ABC_AtoBC_BCtoA
+Relation ADE_ADtoE
+Relation ABEE_ABEtoGH
+
+Relation 30 = DPJoint 30, AttributeJoint ABCDEF -> Key: DE | Normal Form:
+	 A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD
+
+KeyJoints:
+KeyJoint AD_BCD_BDE
+KeyJoint AB_AC
+KeyJoint A
+KeyJoint AB
+KeyJoint AD_CD
+KeyJoint CD_CE_CF_ABD_ABE_ABF
+
+RareElements:
+C Consequent A->BC DFJoint TwentyFour
+A Antecedent AB->C DFJoint TwentyFour
+B Antecedent AB->C DFJoint TwentyFour
+B Consequent A->BC DFJoint Four
+C Consequent A->BC DFJoint Four
+A Antecedent AB->C DFJoint Four
+B Antecedent AB->C DFJoint Four
+
+VectorNonBCNF_DFs:
+vectorNonBCNFDFJoint1() : A -> BC, BC -> A, E -> C
+vectorNonBCNFDFJoint2() : A -> BC, BC -> E
+vectorNonBCNFDFJoint3() : AB -> C, C -> AB, E -> D, D -> E, E -> F, F -> E
+vectorNonBCNFDFJoint4_5() : B -> C
+vectorNonBCNFDFJoint6() : B -> C, C -> B, B -> E
+vectorNonBCNFDFJoint7() : B -> C, C -> D
+vectorNonBCNFDFJoint8() : B -> C, C -> B
+
+VectorNormalize:
+VectorR_ABC_AtoBC_AE_AtoE_AD_null
+VectorR_BC_BtoC_AB_AtoB
+VectorR_BE_BtoE_ABCD_ABtoD_BtoC_CtoB
+VectorR_BC_BtoC_BD_BtoD_AB_AtoB
+VectorR_ABC_ABtoC_CtoAB_DE_EtoD_DtoE_EF_EtoF_FtoE_ABEGH_ABEtoGH
+VectorR_BC_BtoC_CtoB_BE_BtoE_ABD_ABtoD
+VectorR_BC_BtoC_CtoB_ABD_ABtoD
+VectorR_ABC_AtoBC_BCtoA_ADE_ADtoE

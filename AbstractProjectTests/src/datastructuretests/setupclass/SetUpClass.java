@@ -12,6 +12,7 @@ import datastructures.DFJoint;
 import datastructures.RareElement;
 import datastructures.dependency.ADependency;
 import datastructures.dependency.FunctionalDependency;
+import datastructures.dependency.PluralDependency;
 import datastructures.KeyJoint;
 import datastructures.Relation;
 
@@ -365,6 +366,18 @@ public class SetUpClass {
 		return attrJoint;
 	}
 	
+	//AttributeJoint ABCDEF
+	public AttributeJoint attrJnt_ABCDEF() {
+		AttributeJoint attrJoint = new AttributeJoint();
+		attrJoint.addAttributes(attr_A());
+		attrJoint.addAttributes(attr_B());
+		attrJoint.addAttributes(attr_C());
+		attrJoint.addAttributes(attr_D());
+		attrJoint.addAttributes(attr_E());
+		attrJoint.addAttributes(attr_F());
+		return attrJoint;
+	}	
+	
 	//AttributeJoint ABEGH
 	public AttributeJoint attrJnt_ABEGH() {
 		AttributeJoint attrJoint = new AttributeJoint();
@@ -556,6 +569,12 @@ public class SetUpClass {
 		return funcDep;
 	}
 	
+	//Functional Dependency AE -> F
+	public ADependency funcDep_AE_to_F() {
+		ADependency funcDep = new PluralDependency(attrJnt_AE(), attrJnt_F());
+		return funcDep;
+	}
+	
 	//Functional Dependency BC -> A
 	public ADependency funcDep_BC_to_A() {
 		ADependency funcDep = new FunctionalDependency(attrJnt_BC(), attrJnt_A());
@@ -615,6 +634,17 @@ public class SetUpClass {
 		ADependency funcDep = new FunctionalDependency(attrJnt_BCD(), attrJnt_E());
 		return funcDep;
 	}
+	
+	/******************/
+	//Plural Dependency
+	/******************/
+
+	//Plural Dependency A ->> CD	
+	public ADependency pluDep_A_to_CD() {
+		ADependency pluDep = new FunctionalDependency(attrJnt_A(), attrJnt_CD());
+		return pluDep;
+	}
+	
 	
 	/******************/
 	//DFJoint
@@ -1040,6 +1070,23 @@ public class SetUpClass {
 	}
 	
 	/******************/
+	//DPJoints
+	/******************/
+	
+	//DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
+	public DFJoint dpJoint_30() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DFJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}");
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
+		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
+		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dpJoint.addFunctionalDependency(pluDep_A_to_CD());
+		return dpJoint;
+	}
+	
+	/******************/
 	//KeyJoint
 	/******************/
 	
@@ -1343,6 +1390,14 @@ public class SetUpClass {
 	public Relation ABC_AtoBC_BCtoA() {
 		Relation relation = relation_1ABC();
 		relation.setDFJoint(AtoBC_BCtoA());
+		return relation;
+	}
+	
+	//Relation 30
+	public Relation relation_30() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_30());
+		relation.settAttrJoint(attrJnt_ABCDEF());
 		return relation;
 	}
 	
