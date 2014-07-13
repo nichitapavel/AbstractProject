@@ -51,8 +51,33 @@ public class PluralDependencyTests {
 	
 	//Test isTrivial()
 	@Test
-	public void isTrivialAtoCDinRelation30() {
+	public void isTrivialAtooCDinRelation30() {
 		this.pd = this.setUpObject.pluDep_A_to_CD();
 		assertFalse(this.pd.isTrivial(this.setUpObject.relation_30()));
+	}
+	
+	//Test belongsTo()
+	@Test
+	public void belongsToAtooCD() {
+		this.pd = this.setUpObject.pluDep_A_to_CD();
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+	}
+	
+	@Test
+	public void belongsToAtooBEF() {
+		this.pd = this.setUpObject.pluDep_A_to_BEF();
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+	}
+	
+	@Test
+	public void belongsToAtooB() {
+		this.pd = this.setUpObject.pluDep_A_to_B();
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+	}
+	
+	@Test
+	public void belongsToAtooEF() {
+		this.pd = this.setUpObject.pluDep_A_to_EF();
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
 	}
 }
