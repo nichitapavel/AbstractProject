@@ -152,7 +152,7 @@ public class Relation {
 		first.settAttrJoint(fd.getAttributeJoint());
 		relationVector.add(first);
 		
-		//first.setDFJoint(this.dfJoint.projectionOnAttributeJoint(fd.getAttributeJoint()));
+		first.setDFJoint(this.dfJoint.projectionOnAttributeJoint(fd.getAttributeJoint()));
 		
 		Relation second = new Relation();
 		AttributeJoint newAttrJoint = new AttributeJoint(this.attrJoint);
@@ -160,7 +160,7 @@ public class Relation {
 		second.settAttrJoint(newAttrJoint);
 		relationVector.add(second);
 		
-		//second.setDFJoint(this.dfJoint.projectionOnAttributeJoint(newAttrJoint));
+		second.setDFJoint(this.dfJoint.projectionOnAttributeJoint(newAttrJoint));
 		
 		/*
 		 * Falta la proyeccion del conjunto de dependecias funcionales sobre el 

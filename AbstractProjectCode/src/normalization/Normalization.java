@@ -78,15 +78,6 @@ public class Normalization {
 			}
 							
 			if (currentState) {
-				Relation R1 = newRelations.get(0);
-				Relation R2 = newRelations.get(1);
-				
-				AttributeJoint attrJoint_R1 = R1.getAttrJoint(); 
-				AttributeJoint attrJoint_R2 = R2.getAttrJoint();
-				
-				R1.setDFJoint(newRelation.getDFJoint().projectionOnAttributeJoint(attrJoint_R1));
-				R2.setDFJoint(newRelation.getDFJoint().projectionOnAttributeJoint(attrJoint_R2));
-				
 				normalizedRelation.remove(newRelation);
 				normalizedRelation.addAll(newRelations);
 				i--;
