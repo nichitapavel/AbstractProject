@@ -1101,6 +1101,15 @@ public class SetUpClass {
 		return dfJoint;
 	}
 	
+	//DFJoint BCDtoE_EtoC = {BCD -> E, E -> C}
+	public DFJoint BCDtoE_EtoC() {
+		DFJoint dfJoint = new DFJoint();
+		dfJoint.setName("DFJoint BCDtoE_EtoC");
+		dfJoint.addFunctionalDependency(funcDep_BCD_to_E());
+		dfJoint.addFunctionalDependency(funcDep_E_to_C());
+		return dfJoint;
+	}
+	
 	/******************/
 	//DPJoints
 	/******************/
@@ -1240,6 +1249,7 @@ public class SetUpClass {
 	public Relation relation_1ABC() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABC());
+		relation.setDFJoint(AtoBC_BCtoA());
 		return relation;
 	}
 	
@@ -1247,6 +1257,7 @@ public class SetUpClass {
 	public Relation relation_1ADE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ADE());
+		relation.setDFJoint(ADtoE());
 		return relation;
 	}
 	
@@ -1254,6 +1265,7 @@ public class SetUpClass {
 	public Relation relation_1BCDE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_BCDE());
+		relation.setDFJoint(BCDtoE_EtoC());
 		return relation;
 	}
 	
@@ -1261,6 +1273,7 @@ public class SetUpClass {
 	public Relation relation_1ABCD() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABCD());
+		relation.setDFJoint(AtoBC_BCtoA());
 		return relation;
 	}
 	

@@ -139,7 +139,7 @@ DFJoint BtoC_CtoB = {B -> C, C -> B}
 DFJoint ABtoD = {AB -> D}
 DFJoint AtoBC_BCtoA = {A -> BC, BC -> A}
 DFJoint ADtoE = {AD -> E}
-DFJoint ABEtoGH = {ABE -> GH}
+DFJoint BCDtoE_EtoC = {BCD -> E, E -> C}
 
 DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
 DPJoint 31 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD}
