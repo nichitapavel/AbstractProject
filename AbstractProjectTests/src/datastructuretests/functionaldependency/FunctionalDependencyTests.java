@@ -349,24 +349,24 @@ public class FunctionalDependencyTests {
 	//Test isTrivial
 	@Test
 	public void isTrivialFalseAtoB() {
-		assertFalse(this.setUpObject.funcDep_A_to_B().isTrivial());
+		assertFalse(this.setUpObject.funcDep_A_to_B().isTrivial(null));
 	}
 	
 	@Test
 	public void isTrivialTrueABtoB() {
-		assertTrue(this.setUpObject.funcDep_AB_to_B().isTrivial());
+		assertTrue(this.setUpObject.funcDep_AB_to_B().isTrivial(null));
 	}
 		
 	@Test
 	public void isTrivialTrueVoidAntedent() {
 		this.fd.setAntecedent(new AttributeJoint());
-		assertTrue(this.fd.isTrivial());
+		assertTrue(this.fd.isTrivial(null));
 	}
 	
 	@Test
 	public void isTrivialTrueVoidConsequent() {
 		this.fd.setConsequent(new AttributeJoint());
-		assertTrue(this.fd.isTrivial());
+		assertTrue(this.fd.isTrivial(null));
 	}
 	
 	//Test clearTrivialElements()

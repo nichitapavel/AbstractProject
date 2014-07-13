@@ -80,7 +80,7 @@ public abstract class ADependency {
 		return attrJoint;
 	}
 
-	public abstract boolean isTrivial();
+	public abstract boolean isTrivial(Relation relation);
 
 	public abstract void clearTrivialElements();
 	

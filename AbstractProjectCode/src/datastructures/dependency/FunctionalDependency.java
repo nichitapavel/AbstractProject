@@ -56,7 +56,7 @@ public class FunctionalDependency extends PluralDependency {
 	};
 
 	@Override
-	public boolean isTrivial() {
+	public boolean isTrivial(Relation relation) {
 		if (super.antecedent.isNull() || super.consequent.isNull())
 			return true;
 
