@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
+import datastructures.KeyJoint;
 import datastructures.Relation;
 import datastructures.dependency.ADependency;
 
@@ -27,16 +28,6 @@ public class Normalization {
 	}
 
 	public static ArrayList<Relation> normalizeBCNF(Relation relation, boolean auto) {
-		Normalization object = new Normalization();
-		return object.normalize(1, relation, auto);
-	}
-	
-	public static ArrayList<Relation> normalize3NF(Relation relation, boolean auto) {
-		Normalization object = new Normalization();
-		return object.normalize(0, relation, auto);
-	}
-	
-	private ArrayList<Relation> normalize(int whatToDo, Relation relation, boolean auto) {
 		ArrayList<Relation> normalizedRelation = new ArrayList<>();
 		normalizedRelation.add(relation);
 		ArrayList<Relation> newRelations = null;
@@ -44,44 +35,66 @@ public class Normalization {
 		int option = 0;
 		
 		for (int i = 0; i < normalizedRelation.size(); i++) {
-			boolean  currentState = false;
 			Relation newRelation = normalizedRelation.get(i);
 			ArrayList<ADependency> nonNF_DFs;
 			
-			if (whatToDo == 0) {
-				if (!newRelation.is3NF()) {
-					nonNF_DFs = newRelation.getNon3NF_DFs();
+			if (!newRelation.isBCNF()) {
+				nonNF_DFs = newRelation.getNonBCNF_DFs();
 					
-					if (!auto) {
-						/*
-						 * option = get.stdin()
-						 */
-					}
-					
-					newRelations = newRelation.split(nonNF_DFs.get(option));
-					currentState = true;
+				if (!auto) {
+					/*
+					 * option = get.stdin()
+					 */
 				}
-			}
-			else {
-				if (!newRelation.isBCNF()) {
-					nonNF_DFs = newRelation.getNonBCNF_DFs();
 					
-					if (!auto) {
-						/*
-						 * option = get.stdin()
-						 */
-					}
-					
-					newRelations = newRelation.split(nonNF_DFs.get(option));
-					currentState = true;
-				}
-			}
-							
-			if (currentState) {
+				newRelations = newRelation.split(nonNF_DFs.get(option));
 				normalizedRelation.remove(newRelation);
 				normalizedRelation.addAll(newRelations);
 				i--;
 			}
+		}						
+			
+		return normalizedRelation;
+	}
+
+	public static ArrayList<Relation> normalize3NF(Relation relation, boolean auto) {
+		ArrayList<Relation> normalizedRelation = new ArrayList<>();
+		normalizedRelation.add(relation);
+		ArrayList<Relation> newRelations = null;
+		
+		KeyJoint keyJoint = relation.calculateKeyJoint();
+				
+		int option = 0;
+		
+		for (int i = 0; i < normalizedRelation.size(); i++) {
+			Relation newRelation = normalizedRelation.get(i);
+			ArrayList<ADependency> nonNF_DFs;
+
+			if (!newRelation.is3NF()) {
+				nonNF_DFs = newRelation.getNon3NF_DFs();
+					
+				if (!auto) {
+					/*
+					 * option = get.stdin()
+					 */
+				}
+					
+				newRelations = newRelation.split(nonNF_DFs.get(option));
+				normalizedRelation.remove(newRelation);
+				normalizedRelation.addAll(newRelations);
+				i--;
+			}
+		}
+		
+		boolean projectionOnKey = false;
+		for (Relation r : normalizedRelation) {
+			if (r.getAttrJoint().containsJoinsFrom(keyJoint))
+				projectionOnKey = true;
+		}
+
+		if (!projectionOnKey) {
+			AttributeJoint key = keyJoint.getKey(0);
+			normalizedRelation.add(relation.splitByKey(key));
 		}
 		
 		return normalizedRelation;
