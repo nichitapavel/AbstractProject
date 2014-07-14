@@ -121,14 +121,33 @@ public class DFJoint implements Iterable<ADependency> {
 			if (!oldAntecedent.isContained(attrJoint) && 
 					oldConsequent.isContained(attrJoint)) {
 				boolean added = false;
+				ArrayList<AttributeJoint> newAntecedentElements = new ArrayList<>();
 				AttributeJoint newAntecedent = oldAntecedent.intersect(attrJoint);
 				AttributeJoint substract = oldAntecedent.substract(attrJoint);
 				for (ADependency dfConsequent : this.df) {
 					if (substract.isContained(dfConsequent.getConsequent())) {
-						newAntecedent.addAttributes(dfConsequent.getAntecedent());
+						newAntecedentElements.add(dfConsequent.getAntecedent());
+					}
+				}
+				
+				for (int i = 0; i < newAntecedentElements.size(); i++) {
+					AttributeJoint attrJnt = newAntecedentElements.get(i);
+					if (!attrJnt.isContained(oldConsequent)) {
+						newAntecedent.addAttributes(attrJnt);
+						newAntecedentElements.remove(attrJnt);
 						added = true;
 					}
 				}
+				
+				if (!added) {
+					for (AttributeJoint attrJnt : newAntecedentElements) {
+						if (attrJnt.isContained(oldConsequent)) {
+							newAntecedent.addAttributes(attrJnt);
+							added = true;
+						}
+					}					
+				}
+				
 				
 				ADependency addDF = new FunctionalDependency(newAntecedent, oldConsequent);
 				addDF.clearTrivialElements();
