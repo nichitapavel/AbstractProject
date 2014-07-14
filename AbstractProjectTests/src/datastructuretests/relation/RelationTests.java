@@ -290,6 +290,31 @@ public class RelationTests {
 		assertEquals(expected, result);
 	}
 	
+	//Test splitByKey()
+	@Test
+	public void splitByKeyR1KeyAD() {
+		Relation expected = this.setUpObject.relationAD();
+		this.one = this.setUpObject.relationAD();
+		AttributeJoint key = this.setUpObject.attrJnt_AD();
+		assertEquals(expected, this.one.splitByKey(key));
+	}
+	
+	@Test
+	public void splitByKeyR1KeyBCD() {
+		Relation expected = this.setUpObject.relationBCD();
+		this.one = this.setUpObject.relation_01();
+		AttributeJoint key = this.setUpObject.attrJnt_BCD();
+		assertEquals(expected, this.one.splitByKey(key));
+	}
+	
+	@Test
+	public void splitByKeyR1KeyBDE() {
+		Relation expected = this.setUpObject.relationBDE();
+		this.one = this.setUpObject.relation_01();
+		AttributeJoint key = this.setUpObject.attrJnt_BDE();
+		assertEquals(expected, this.one.splitByKey(key));
+	}
+	
 	//Test getNonBCNF_DFs
 	@Test
 	public void getNonBCNF_DFs_DFJoint1() {

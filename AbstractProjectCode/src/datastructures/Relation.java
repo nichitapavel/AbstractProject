@@ -145,6 +145,16 @@ public class Relation {
 		return true;
 	}
 
+	public Relation splitByKey(AttributeJoint attrJoint) {
+		Relation r = new Relation();
+		
+		r.settAttrJoint(attrJoint);
+		r.setDFJoint(this.dfJoint.projectionOnAttributeJoint(attrJoint));
+		
+		return r;
+	}
+	
+	
 	public ArrayList<Relation> split(ADependency fd) {
 		ArrayList<Relation> relationVector = new ArrayList<>();
 		
@@ -161,11 +171,6 @@ public class Relation {
 		relationVector.add(second);
 		
 		second.setDFJoint(this.dfJoint.projectionOnAttributeJoint(newAttrJoint));
-		
-		/*
-		 * Falta la proyeccion del conjunto de dependecias funcionales sobre el 
-		 * nuevo conjunto de attributos
-		 */
 		
 		return relationVector;
 	}
