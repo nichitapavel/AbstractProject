@@ -608,6 +608,12 @@ public class SetUpClass {
 		return funcDep;
 	}
 	
+	//Functional Dependency BE -> A
+	public ADependency funcDep_BE_to_A() {
+		ADependency funcDep = new FunctionalDependency(attrJnt_BE(), attrJnt_A());
+		return funcDep;
+	}
+	
 	//Functional Dependency CD -> A
 	public ADependency funcDep_CD_to_A() {
 		ADependency funcDep = new FunctionalDependency(attrJnt_CD(), attrJnt_A());
@@ -623,6 +629,12 @@ public class SetUpClass {
 	//Functional Dependency DE -> C
 	public ADependency funcDep_DE_to_C() {
 		ADependency funcDep = new FunctionalDependency(attrJnt_DE(), attrJnt_C());
+		return funcDep;
+	}
+
+	//Functional Dependency ABD -> E
+	public ADependency funcDep_ABD_to_E() {
+		ADependency funcDep = new FunctionalDependency(attrJnt_ABD(), attrJnt_E());
 		return funcDep;
 	}
 	
@@ -1110,6 +1122,16 @@ public class SetUpClass {
 		return dfJoint;
 	}
 	
+	//DFJoint AtoB_BEtoA_ABDtoE = {A -> B, BE -> A, ABD -> E}
+	public DFJoint AtoB_BEtoA_ABDtoE() {
+		DFJoint dfJoint = new DFJoint();
+		dfJoint.setName("DFJoint AtoB_BEtoA_ABDtoE");
+		dfJoint.addFunctionalDependency(funcDep_A_to_B());
+		dfJoint.addFunctionalDependency(funcDep_BE_to_A());
+		dfJoint.addFunctionalDependency(funcDep_ABD_to_E());
+		return dfJoint;
+	}
+	
 	/******************/
 	//DPJoints
 	/******************/
@@ -1281,6 +1303,7 @@ public class SetUpClass {
 	public Relation relation_1CE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_CE());
+		relation.setDFJoint(dfJoint_18());
 		return relation;
 	}
 	
@@ -1288,6 +1311,7 @@ public class SetUpClass {
 	public Relation relation_1ABDE() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABDE());
+		relation.setDFJoint(AtoB_BEtoA_ABDtoE());
 		return relation;
 	}
 	
