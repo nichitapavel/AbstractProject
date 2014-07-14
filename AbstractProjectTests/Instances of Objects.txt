@@ -180,8 +180,10 @@ Relation AB
 Relation BE
 Relation DE
 Relation EF
-Relation AEGH
 Relation ABD
+Relation BCD
+Relation BDE
+Relation AEGH
 Relation ABC_AtoBC
 Relation AE_AtoE
 Relation AD_null

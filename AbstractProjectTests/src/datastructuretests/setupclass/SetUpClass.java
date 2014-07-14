@@ -1372,18 +1372,34 @@ public class SetUpClass {
 		return relation;
 	}
 	
+	//Relation ABD
+	public Relation relationABD() {
+		Relation relation = new Relation();
+		relation.settAttrJoint(attrJnt_ABD());
+		return relation;
+	}
+	
+	//Relation BCD
+	public Relation relationBCD() {
+		Relation relation = new Relation();
+		relation.settAttrJoint(attrJnt_BCD());
+		relation.setDFJoint(new DFJoint());
+		return relation;
+	}
+	
+	//Relation BDE
+	public Relation relationBDE() {
+		Relation relation = new Relation();
+		relation.settAttrJoint(attrJnt_BDE());
+		relation.setDFJoint(new DFJoint());
+		return relation;
+	}
+	
 	//Relation AEGH
 	public Relation relationABEGH() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_ABEGH());
 		relation.setDFJoint(ABEtoGH());
-		return relation;
-	}
-	
-	//Relation ABD
-	public Relation relationABD() {
-		Relation relation = new Relation();
-		relation.settAttrJoint(attrJnt_ABD());
 		return relation;
 	}
 	
