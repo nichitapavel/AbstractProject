@@ -68,5 +68,14 @@ public class KeyJoint implements Iterable<AttributeJoint> {
 		catch (NullPointerException e) { }
 		return 0;
 	}
+
+	public AttributeJoint getKey(int index) {
+		try {
+			return this.keyJoint.get(index);
+		}
+		catch (IndexOutOfBoundsException ex) { }
+		
+		return null;
+	}
 	
 }

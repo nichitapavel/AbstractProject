@@ -154,4 +154,17 @@ public class KeyJointTests {
 		assertEquals(0, this.nullKeyJoint.getSize());
 	}
 	
+	
+	//Test getKey()
+	@Test
+	public void getKey() {
+		this.keyJoint = this.setUpObject.keyJoint_AD_BCD_BDE();
+		assertEquals(this.setUpObject.attrJnt_AD(), this.keyJoint.getKey(0));
+	}
+	
+	@Test
+	public void getKeyOutOfBoundsError() {
+		this.keyJoint = this.setUpObject.keyJoint_AD_BCD_BDE();
+		assertNull(this.keyJoint.getKey(5));
+	}
 }
