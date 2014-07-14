@@ -92,12 +92,12 @@ public class AttributeJoint implements Iterable<Attribute> {
 	}
 
 	//
-	public boolean isContained(AttributeJoint attr) {
-		if (attr.getAttributeJoint() == null || joint == null)
+	public boolean isContained(AttributeJoint attrJoint) {
+		if (attrJoint.getAttributeJoint() == null || joint == null)
 			return false;
 		
 		for (Attribute attribute : joint){
-			if (attr.getAttributeJoint().indexOf(attribute) == -1)
+			if (attrJoint.getAttributePosition(attribute) == -1)
 				return false;
 		}
 		return true;
