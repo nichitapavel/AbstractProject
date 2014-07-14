@@ -277,6 +277,10 @@ public class RelationTests {
 		assertEquals(expected, result);
 	}
 	
+	/*
+	 * La siguiente prueba tiene grandes dudas existenciales
+	 */
+	
 	@Test
 	public void splitRelation_1_UsingEtoC() {
 		ArrayList<Relation> expected = new ArrayList<>();
