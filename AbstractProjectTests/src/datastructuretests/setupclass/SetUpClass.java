@@ -288,6 +288,15 @@ public class SetUpClass {
 		return attrJoint;
 	}
 	
+	//AttributeJoint AEF
+	public AttributeJoint attrJnt_AEF() {
+		AttributeJoint attrJoint = new AttributeJoint();
+		attrJoint.addAttributes(attr_A());
+		attrJoint.addAttributes(attr_E());
+		attrJoint.addAttributes(attr_F());
+		return attrJoint;
+	}
+	
 	//AttributeJoint BCD
 	public AttributeJoint attrJnt_BCD() {
 		AttributeJoint attrJoint = new AttributeJoint();
@@ -344,6 +353,16 @@ public class SetUpClass {
 		return attrJoint;
 	}
 	
+	//AttributeJoint ABEF
+	public AttributeJoint attrJnt_ABEF() {
+		AttributeJoint attrJoint = new AttributeJoint();
+		attrJoint.addAttributes(attr_A());
+		attrJoint.addAttributes(attr_B());
+		attrJoint.addAttributes(attr_E());
+		attrJoint.addAttributes(attr_F());
+		return attrJoint;
+	}
+	
 	//AttributeJoint ACDE
 	public AttributeJoint attrJnt_ACDE() {
 		AttributeJoint attrJoint = new AttributeJoint();
@@ -372,6 +391,17 @@ public class SetUpClass {
 		attrJoint.addAttributes(attr_C());
 		attrJoint.addAttributes(attr_D());
 		attrJoint.addAttributes(attr_E());
+		return attrJoint;
+	}
+	
+	//AttributeJoint BCDEF
+	public AttributeJoint attrJnt_BCDEF() {
+		AttributeJoint attrJoint = new AttributeJoint();
+		attrJoint.addAttributes(attr_B());
+		attrJoint.addAttributes(attr_C());
+		attrJoint.addAttributes(attr_D());
+		attrJoint.addAttributes(attr_E());
+		attrJoint.addAttributes(attr_F());
 		return attrJoint;
 	}
 	
@@ -666,27 +696,56 @@ public class SetUpClass {
 	//Plural Dependency
 	/******************/
 
+	//Plural Dependency A ->> B
+	public ADependency pluDep_A_to_B() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_B());
+		return pluDep;
+	}
+	
+	//A ->> E
+	public ADependency pluDep_A_to_E() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_E());
+		return pluDep;
+	}
+	
 	//Plural Dependency A ->> CD	
 	public ADependency pluDep_A_to_CD() {
 		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_CD());
 		return pluDep;
 	}
 	
-	//A ->> BEF
+	//Plural Dependency A ->> EF
+	public ADependency pluDep_A_to_EF() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_EF());
+		return pluDep;
+	}
+	
+	//Plural Dependency A ->> BEF
 	public ADependency pluDep_A_to_BEF() {
 		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_BEF());
 		return pluDep;
 	}
-
-	//A ->> B
-	public ADependency pluDep_A_to_B() {
-		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_B());
+	
+	//Plural Dependency A ->> BCDEF
+	public ADependency pluDep_A_to_BCDEF() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_BCDEF());
 		return pluDep;
 	}
 	
-	//A ->> EF
-	public ADependency pluDep_A_to_EF() {
-		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_EF());
+	//Plural Dependency B ->> A
+	public ADependency pluDep_B_to_A() {
+		ADependency pluDep = new PluralDependency(attrJnt_B(), attrJnt_A());
+		return pluDep;
+	}	
+	//Plural Dependency B ->> C
+	public ADependency pluDep_B_to_C() {
+		ADependency pluDep = new PluralDependency(attrJnt_B(), attrJnt_C());
+		return pluDep;
+	}
+	
+	//Plural Dependency BE ->> B
+	public ADependency pluDep_BE_to_B() {
+		ADependency pluDep = new PluralDependency(attrJnt_BE(), attrJnt_B());
 		return pluDep;
 	}
 	
@@ -1149,6 +1208,32 @@ public class SetUpClass {
 		return dpJoint;
 	}
 	
+	//DPJoint 30_A = {AD -> C, CD -> A}
+	public DFJoint dpJoint_30_A() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {AD -> C, CD -> A}");
+		dpJoint.addFunctionalDependency(funcDep_AD_to_C());
+		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
+		return dpJoint;
+	}
+	
+	//DPJoint 30_B = {A -> B, AE -> F}
+	public DFJoint dpJoint_30_B() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {A -> B, AE -> F}");
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		return dpJoint;
+	}
+	
+	//DPJoint 30_C = {AE -> F}
+	public DFJoint dpJoint_30_C() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {AE -> F}");
+		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		return dpJoint;
+	}
+	
 	//DPJoint 31 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD}
 	public DFJoint dpJoint_31() {
 		DFJoint dpJoint = new DFJoint();
@@ -1160,6 +1245,47 @@ public class SetUpClass {
 		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
 		dpJoint.addFunctionalDependency(funcDep_AE_to_D());
 		dpJoint.addFunctionalDependency(pluDep_A_to_CD());
+		return dpJoint;
+	}
+	
+	//DPJoint 31_A = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A -> D, A -> C}
+	public DFJoint dpJoint_31_A() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A -> D, A -> C}");
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
+		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
+		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dpJoint.addFunctionalDependency(funcDep_A_to_D());
+		dpJoint.addFunctionalDependency(funcDep_A_to_C());
+		return dpJoint;
+	}
+	
+	//DPJoint 32 = {A -> B, B ->> C}
+	public DFJoint dpJoint_32() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {A -> B, B ->> C}");
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addFunctionalDependency(pluDep_B_to_C());
+		return dpJoint;
+	}
+	
+	//DPJoint 33 = {A -> B, A -> C, B ->> C}
+	public DFJoint dpJoint_33() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {A -> B, A -> C, B ->> C}");
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addFunctionalDependency(funcDep_A_to_C());
+		dpJoint.addFunctionalDependency(pluDep_B_to_C());
+		return dpJoint;
+	}
+	
+	//DPJoint 34 = {B ->> C}
+	public DFJoint dpJoint_34() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {B ->> C}");
+		dpJoint.addFunctionalDependency(pluDep_B_to_C());
 		return dpJoint;
 	}
 	
@@ -1492,11 +1618,63 @@ public class SetUpClass {
 		return relation;
 	}
 	
+	/******************/
+	//Relation 4NF 
+	/******************/
+	
 	//Relation 30
 	public Relation relation_30() {
 		Relation relation = new Relation();
 		relation.setDFJoint(dpJoint_30());
 		relation.settAttrJoint(attrJnt_ABCDEF());
+		return relation;
+	}
+
+	//Relation 30_A
+	public Relation relation_30_A() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_30_A());
+		relation.settAttrJoint(attrJnt_ACD());
+		return relation;
+	}
+
+	//Relation 30_B
+	public Relation relation_30_B() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_30_B());
+		relation.settAttrJoint(attrJnt_ABEF());
+		return relation;
+	}
+	
+	//Relation 30_C
+	public Relation relation_30_C() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_30_C());
+		relation.settAttrJoint(attrJnt_AEF());
+		return relation;
+	}
+
+	//Relation 32
+	public Relation relation_32() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_32());
+		relation.settAttrJoint(attrJnt_ABC());
+		return relation;
+	}
+	
+	//Relation 33
+	public Relation relation_33() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_33());
+		relation.settAttrJoint(attrJnt_ABC());
+		return relation;
+	}
+
+	//Relation 34
+	public Relation relation_34() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_34());
+		relation.settAttrJoint(attrJnt_ABC());
 		return relation;
 	}
 	
@@ -1560,7 +1738,7 @@ public class SetUpClass {
 	/******************/
 	//Vector<FunctionalDependency>
 	/******************/
-	
+	 
 	public ArrayList<ADependency> arrayListNonBCNFDFJoint1() {
 		ArrayList<ADependency> arrayList = new ArrayList<>();
 		arrayList.add(funcDep_A_to_BC());
@@ -1608,6 +1786,45 @@ public class SetUpClass {
 		ArrayList<ADependency> arrayList = new ArrayList<>();
 		arrayList.add(funcDep_B_to_C());
 		arrayList.add(funcDep_C_to_B());
+		return arrayList;
+	}
+	
+	/******************/
+	//ArrayList<ADependency>
+	/******************/
+	
+	public ArrayList<ADependency> arrayListNon4NFDPJoint30() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(pluDep_A_to_CD());
+		arrayList.add(funcDep_A_to_B());
+		arrayList.add(funcDep_CD_to_A());
+		arrayList.add(funcDep_BD_to_C());
+		arrayList.add(funcDep_AE_to_F());
+		return arrayList;
+	}
+	
+	public ArrayList<ADependency> arrayListNon4NFDPJoint30_A() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_A_to_B());
+		return arrayList;
+	}
+	
+	public ArrayList<ADependency> arrayListNon4NFDPJoint32() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(pluDep_B_to_C());
+		arrayList.add(funcDep_A_to_B());
+		return arrayList;
+	}
+	
+	public ArrayList<ADependency> arrayListNon4NFDPJoint33() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(funcDep_B_to_C());
+		return arrayList;
+	}
+	
+	public ArrayList<ADependency> arrayListNon4NFDPJoint34() {
+		ArrayList<ADependency> arrayList = new ArrayList<>();
+		arrayList.add(pluDep_B_to_C());
 		return arrayList;
 	}
 	
@@ -1676,5 +1893,39 @@ public class SetUpClass {
 		relation.setDFJoint(ADtoE());
 		arrayList.add(relation);
 		return arrayList;
+	}
+	
+	
+	/******************/
+	//ArrayList Normalize 4NF
+	/******************/
+	
+	public ArrayList<Relation> ACD_ADtoC_CDtoA_AB_AtoB_AEF_AEtoF() {
+		ArrayList<Relation> aList = new ArrayList<>();
+		aList.add(relation_30_A());
+		aList.add(AB_AtoB());
+		aList.add(relation_30_C());
+		return aList;
+	}
+
+	public ArrayList<Relation> BC_null_AB_AtoB() {
+		ArrayList<Relation> aList = new ArrayList<>();
+		aList.add(relationBC());
+		aList.add(AB_AtoB());
+		return aList;
+	}
+	
+	public ArrayList<Relation> BC_BtoC_AB_AtoB() {
+		ArrayList<Relation> aList = new ArrayList<>();
+		aList.add(BC_BtoC());
+		aList.add(AB_AtoB());
+		return aList;
+	}
+	
+	public ArrayList<Relation> BC_null_AB_null() {
+		ArrayList<Relation> aList = new ArrayList<>();
+		aList.add(relationBC());
+		aList.add(relationAB());
+		return aList;
 	}
 }
