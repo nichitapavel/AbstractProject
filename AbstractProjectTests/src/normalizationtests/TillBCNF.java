@@ -26,7 +26,7 @@ public class TillBCNF {
 	@Test
 	public void normalizeRelation_1() {
 		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_01(), true);
-		assertEquals(this.setUpObject.VectorR_ABC_AtoBC_BCtoA_ADE_ADtoE(), result);
+		assertEquals(this.setUpObject.ArrayListR_ABC_AtoBC_BCtoA_ADE_ADtoE(), result);
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class TillBCNF {
 	@Test
 	public void normalizeRelation_6() {
 		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_06(), true);
-		assertEquals(this.setUpObject.VectorR_BC_BtoC_CtoB_BE_BtoE_ABD_ABtoD(), result);
+		assertEquals(this.setUpObject.ArrayListR_BC_BtoC_CtoB_BE_BtoE_ABD_ABtoD(), result);
 	}
 	
 	@Test
@@ -68,7 +68,7 @@ public class TillBCNF {
 	@Test
 	public void normalizeRelation_8() {
 		ArrayList<Relation> result = Normalization.normalizeBCNF(this.setUpObject.relation_08(), true);
-		assertEquals(this.setUpObject.VectorR_BC_BtoC_CtoB_ABD_ABtoD(), result);
+		assertEquals(this.setUpObject.ArrayListR_BC_BtoC_CtoB_ABD_ABtoD(), result);
 	}
 	
 	@Test
