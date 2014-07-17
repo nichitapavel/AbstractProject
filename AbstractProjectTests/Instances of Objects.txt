@@ -59,10 +59,12 @@ A -> E
 B -> C
 B -> D
 B -> E
+B -> AC
 B -> CE
 C -> A
 C -> B
 C -> D
+D -> C
 D -> E
 E -> C
 E -> D
@@ -85,6 +87,7 @@ BC -> E
 BD -> C
 BE -> A
 CD -> A
+CD -> E
 CF -> H
 DE -> C
 ABD -> E
@@ -95,12 +98,15 @@ BCD -> E
 Plural Dependency:
 A ->> B
 A ->> E
+A ->> BC
 A ->> CD
 A ->> EF
+A ->> BCD
 A ->> BEF
 A ->> BCDEF
 B ->> A
 B ->> C
+D ->> F
 BE ->> B
 
 DFJoint:
@@ -138,6 +144,7 @@ DFJoint 04RegroupedWithoutCinAtoBC = {A -> B, B -> C, AB -> C}
 DFJoint 04RegroupedWithoutAinABtoC = {A -> BC, B -> C}
 DFJoint AtoBC = {A -> BC}
 DFJoint AtoE = {A -> E}
+DFJoint CtoA = {C -> A}
 DFJoint BtoD = {B -> D}
 DFJoint BtoE = {B -> E}
 DFJoint ABtoD_BtoC_CtoB = {AB -> D, B -> C, C -> B}
@@ -151,6 +158,10 @@ DFJoint AtoBC_BCtoA = {A -> BC, BC -> A}
 DFJoint ADtoE = {AD -> E}
 DFJoint BCDtoE_EtoC = {BCD -> E, E -> C}
 DFJoint AtoB_BEtoA_ABDtoE = {A -> B, BE -> A, ABD -> E}
+DFJoint CDtoE = {CD -> E}
+DFJoint CtoD = {C -> D}
+DPJoint BtoAC = {B -> AC}
+DFJoint AtoC = {A -> C}
 
 DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
 DPJoint 30_A = {AD -> C, CD -> A}
@@ -161,6 +172,9 @@ DPJoint 31_A = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A -> D, A -> C}
 DPJoint 32 = {A -> B, B ->> C}
 DPJoint 33 = {A -> B, A -> C, B ->> C}
 DPJoint 34 = {B ->> C}
+DPJoint 35 = {D ->> F, C -> A, CD -> E, A -> B}
+DPJoint 36 = {A ->> BCD, B -> AC, C -> D}
+DPJoint 37 = {A ->> BC, D -> C}
 
 Relation:
 Relation One = DFJoint One, AttributeJoint ABCDE -> Key: AD, BCD, BDE | Normal Form: 3FN
@@ -194,18 +208,24 @@ Relation BC
 Relation BD
 Relation BE
 Relation DE
+Relation DF
 Relation EF
 Relation ABD
 Relation BCD
 Relation BDE
+Relation CDE_CDtoE
 Relation AEGH
 Relation ABC_AtoBC
+Relation AC_AtoC
 Relation AE_AtoE
+Relation AC_CtoA
 Relation AD_null
 Relation BC_BtoC
+Relation BC_CtoB
 Relation BD_BtoD
 Relation AB_AtoB
 Relation BE_BtoE
+Relation CD_CtoD
 Relation ABCD_ABtoD_BtoC_CtoB
 Relation ABC_AtoBC
 Relation ABC_ABtoC_CtoAB
@@ -217,6 +237,8 @@ Relation ABD_ABtoD
 Relation ABC_AtoBC_BCtoA
 Relation ADE_ADtoE
 Relation ABEE_ABEtoGH
+Relation ABC_BtoAC
+Relation AEF
 
 Relation 30 = DPJoint 30, AttributeJoint ABCDEF -> Key: DE | Normal Form: 2NF
 	 A -> B = 2FN, CD -> A = 2FN, BD -> C = 2FN, AE -> F = 2FN, DE -> C = 4FN, A ->> CD = 2FN
@@ -234,7 +256,13 @@ Relation 33 = DPJoint 33, AttributeJoint ABC -> Key: A | Normal Form: 2FN
 	A -> B = BCFN, A -> C = BCFN, B ->> C = 2FN
 Relation 34 = DPJoint 34, AttributeJoint ABC -> Key: ABC | Normal Form: 3NF
 	B ->> C = 3FN
-
+Relation 35 = DPJoint 35, AttributeJoint ABCDEF -> Key: CDF | Normal Form: 1NF
+	D ->> F = 3FN, C -> A = 1FN, CD -> E = 1FN, A -> B = 2FN
+Relation 36 = DPJoint 36, AttributeJoint ABCDEF -> Key: BEF | Normal Form: 1NF
+	A ->> BCD = 2FN, B -> AC = 1FN, C -> D = 2FN
+Relation 37 = DPJoint 37, AttributeJoint ABCDE -> Key: ABDE | Normal Form: 1NF
+	A ->> BC = 1FN, D -> C = 1FN
+	
 KeyJoints:
 KeyJoint AD_BCD_BDE
 KeyJoint AB_AC
@@ -267,6 +295,8 @@ arrayListNon4NFDPJoint30_A : A -> B
 arrayListNon4NFDPJoint32 : B ->> C, A -> B
 arrayListNon4NFDPJoint33 : B -> C
 arrayListNon4NFDPJoint34 : B ->> C
+arrayListNon4NFDPJoint35 : D ->> F, C -> A, CD -> E, A -> B
+arrayListNon4NFDPJoint36 : A ->> BCD, B -> AC, C -> D
 
 VectorNormalize:
 VectorR_ABC_AtoBC_AE_AtoE_AD_null
@@ -283,3 +313,6 @@ ACD_ADtoC_CDtoA_AB_AtoB_AEF_AEtoF
 BC_null_AB_AtoB
 BC_BtoC_AB_AtoB
 BC_null_AB_null
+DF_null_AC_CtoA_BC_CtoB_CDE_CDtoE
+CD_CtoD_ABC_BtoAC_AEF_null
+AC_AtoC_AB_null_ADE_null
