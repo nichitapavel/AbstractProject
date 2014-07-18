@@ -3,8 +3,11 @@ package datastructures;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.text.PlainDocument;
+
 import datastructures.dependency.ADependency;
 import datastructures.dependency.FunctionalDependency;
+import datastructures.dependency.PluralDependency;
 
 public class DFJoint implements Iterable<ADependency> {
 	private ArrayList<ADependency> df;
@@ -315,5 +318,25 @@ public class DFJoint implements Iterable<ADependency> {
 		if (this.isImplied(dfJoint) && dfJoint.isImplied(this))
 			return true;
 		return false;		
+	}
+
+	public ArrayList<ADependency> getNon4NF_DFs(Relation relation) {
+		ArrayList<ADependency> result = new ArrayList<>();
+		KeyJoint keyJoint = relation.calculateKeyJoint();
+		
+		
+		for (ADependency fd : this.df) {
+			if (fd.getClass() == new PluralDependency().getClass())
+				if (!fd.is4NF(relation, keyJoint))
+					result.add(fd);
+		}
+		
+		for (ADependency fd : this.df) {
+			if (fd.getClass() == new FunctionalDependency().getClass())
+				if (!fd.is4NF(relation, null))
+					result.add(fd);
+		}
+		
+		return result;
 	}
 }
