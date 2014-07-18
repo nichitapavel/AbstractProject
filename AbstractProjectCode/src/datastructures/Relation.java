@@ -36,7 +36,7 @@ public class Relation {
 	public boolean isBCNF() {
 		try {
 			for (ADependency funcDep : this.dfJoint) {
-				if (!funcDep.isBCNF(this))
+				if (!funcDep.isBCNF(this, null))
 					return false;
 			}
 		}

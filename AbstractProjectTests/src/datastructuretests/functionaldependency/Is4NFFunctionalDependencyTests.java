@@ -24,84 +24,84 @@ public class Is4NFFunctionalDependencyTests {
 	public void is4NFTrue_BCD_E_InRelationOne() {
 		ADependency funcDep = this.setUpObject.funcDep_BCD_to_E();
 		Relation relationOne = this.setUpObject.relation_01(); 
-		assertTrue(funcDep.is4NF(relationOne));
+		assertTrue(funcDep.is4NF(relationOne, null));
 	}
 	
 	@Test
 	public void is4NFTrue_CD_A_InRelationTwo() {
 		ADependency funcDep = this.setUpObject.funcDep_CD_to_A();
 		Relation relation = this.setUpObject.relation_02(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_ABD_G_InRelationThree() {
 		ADependency funcDep = this.setUpObject.funcDep_ABD_to_G();
 		Relation relation = this.setUpObject.relation_03(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_CF_H_InRelationThree() {
 		ADependency funcDep = this.setUpObject.funcDep_CF_to_H();
 		Relation relation = this.setUpObject.relation_03(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_A_BC_InRelationFour() {
 		ADependency funcDep = this.setUpObject.funcDep_A_to_BC();
 		Relation relation = this.setUpObject.relation_04(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_A_B_InRelationFour() {
 		ADependency funcDep = this.setUpObject.funcDep_A_to_B();
 		Relation relation = this.setUpObject.relation_04(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_AB_C_InRelationFour() {
 		ADependency funcDep = this.setUpObject.funcDep_AB_to_C();
 		Relation relation = this.setUpObject.relation_04(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_A_B_InRelationFive() {
 		ADependency funcDep = this.setUpObject.funcDep_A_to_B();
 		Relation relation = this.setUpObject.relation_05(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_AB_D_InRelationSix() {
 		ADependency funcDep = this.setUpObject.funcDep_AB_to_D();
 		Relation relation = this.setUpObject.relation_06(); 
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_A_B_InRelationSeven() {
 		ADependency funcDep = this.setUpObject.funcDep_A_to_B();
 		Relation relation = this.setUpObject.relation_07();
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_AB_D_InRelationEight() {
 		ADependency funcDep = this.setUpObject.funcDep_AB_to_D();
 		Relation relation = this.setUpObject.relation_08();
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
 	public void is4NFTrue_AB_C_InRelationNine() {
 		ADependency funcDep = this.setUpObject.funcDep_AB_to_C();
 		Relation relation = this.setUpObject.relation_09();
-		assertTrue(funcDep.is4NF(relation));
+		assertTrue(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_A_to_BC();
 		Relation relation = this.setUpObject.relation_01();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -117,7 +117,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_BC_to_A();
 		Relation relation = this.setUpObject.relation_01();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -125,7 +125,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_E_to_C();
 		Relation relation = this.setUpObject.relation_01();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -133,7 +133,7 @@ public class Is4NFFunctionalDependencyTests {
 		//1FN
 		ADependency funcDep = this.setUpObject.funcDep_A_to_BC();
 		Relation relation = this.setUpObject.relation_02();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -141,7 +141,7 @@ public class Is4NFFunctionalDependencyTests {
 		//2FN
 		ADependency funcDep = this.setUpObject.funcDep_BC_to_E();
 		Relation relation = this.setUpObject.relation_02();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -149,7 +149,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_AB_to_C();
 		Relation relation = this.setUpObject.relation_03();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -157,7 +157,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_C_to_AB();
 		Relation relation = this.setUpObject.relation_03();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -165,7 +165,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_E_to_D();
 		Relation relation = this.setUpObject.relation_03();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -173,7 +173,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_D_to_E();
 		Relation relation = this.setUpObject.relation_03();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -181,7 +181,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_E_to_F();
 		Relation relation = this.setUpObject.relation_03();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -189,7 +189,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_F_to_E();
 		Relation relation = this.setUpObject.relation_03();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -197,7 +197,7 @@ public class Is4NFFunctionalDependencyTests {
 		//2FN
 		ADependency funcDep = this.setUpObject.funcDep_B_to_C();
 		Relation relation = this.setUpObject.relation_04();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -205,7 +205,7 @@ public class Is4NFFunctionalDependencyTests {
 		//2FN
 		ADependency funcDep = this.setUpObject.funcDep_B_to_C();
 		Relation relation = this.setUpObject.relation_05();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -213,7 +213,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_B_to_C();
 		Relation relation = this.setUpObject.relation_06();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -221,7 +221,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_C_to_B();
 		Relation relation = this.setUpObject.relation_06();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -229,7 +229,7 @@ public class Is4NFFunctionalDependencyTests {
 		//1FN
 		ADependency funcDep = this.setUpObject.funcDep_B_to_E();
 		Relation relation = this.setUpObject.relation_06();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -237,7 +237,7 @@ public class Is4NFFunctionalDependencyTests {
 		//2FN
 		ADependency funcDep = this.setUpObject.funcDep_B_to_C();
 		Relation relation = this.setUpObject.relation_07();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -245,7 +245,7 @@ public class Is4NFFunctionalDependencyTests {
 		//2FN
 		ADependency funcDep = this.setUpObject.funcDep_C_to_D();
 		Relation relation = this.setUpObject.relation_07();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -253,7 +253,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_B_to_C();
 		Relation relation = this.setUpObject.relation_08();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 	@Test
@@ -261,7 +261,7 @@ public class Is4NFFunctionalDependencyTests {
 		//3FN
 		ADependency funcDep = this.setUpObject.funcDep_C_to_B();
 		Relation relation = this.setUpObject.relation_08();
-		assertFalse(funcDep.is4NF(relation));
+		assertFalse(funcDep.is4NF(relation, null));
 	}
 	
 }

@@ -98,7 +98,7 @@ public abstract class ADependency {
 	
 	public abstract boolean is3NF(Relation relation, KeyJoint keyJoint);
 	
-	public abstract boolean isBCNF(Relation relation);
+	public abstract boolean isBCNF(Relation relation, KeyJoint keyJoint);
 
-	public abstract boolean is4NF(Relation relation);
+	public abstract boolean is4NF(Relation relation, KeyJoint keyJoint);
 }

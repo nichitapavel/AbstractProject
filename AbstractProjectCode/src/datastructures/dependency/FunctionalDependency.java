@@ -116,7 +116,7 @@ public class FunctionalDependency extends PluralDependency {
 	};
 	
 	@Override
-	public boolean isBCNF(Relation relation) {
+	public boolean isBCNF(Relation relation, KeyJoint keyJoint) {
 		AttributeJoint ullmanResult = Normalization.simpleUllman(super.antecedent, relation.getDFJoint());
 		if (!relation.getAttrJoint().equals(ullmanResult))
 			return false;
@@ -124,8 +124,8 @@ public class FunctionalDependency extends PluralDependency {
 	};
 
 	@Override
-	public boolean is4NF(Relation relation) {
-		return isBCNF(relation);
+	public boolean is4NF(Relation relation, KeyJoint keyJoint) {
+		return isBCNF(relation, null);
 	};
 	
 	@Override

@@ -282,7 +282,7 @@ public class DFJoint implements Iterable<ADependency> {
 		ArrayList<ADependency> result = new ArrayList<>();
 		
 		for (ADependency fd : this.df) {
-			if (!fd.isBCNF(relation))
+			if (!fd.isBCNF(relation, null))
 				result.add(fd);
 		}
 		
