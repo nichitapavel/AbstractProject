@@ -787,6 +787,13 @@ public class SetUpClass {
 		ADependency pluDep = new PluralDependency(attrJnt_D(), attrJnt_F());
 		return pluDep;
 	}
+
+	//Plural Dependency BC ->> AD
+	public ADependency pluDep_BC_to_AD() {
+		ADependency pluDep = new PluralDependency(attrJnt_BC(), attrJnt_AD());
+		return pluDep;
+	}
+
 	
 	//Plural Dependency BE ->> B
 	public ADependency pluDep_BE_to_B() {
@@ -1413,6 +1420,16 @@ public class SetUpClass {
 		return dpJoint;
 	}
 	
+	//DFJoint 38 = {B -> AC, C -> D, BC ->> AD}
+	public DFJoint dpJoint_38() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {B -> AC, C -> D, BC ->> AD}");
+		dpJoint.addFunctionalDependency(funcDep_B_to_AC());
+		dpJoint.addFunctionalDependency(funcDep_C_to_D());
+		dpJoint.addFunctionalDependency(pluDep_BC_to_AD());
+		return dpJoint;
+	}
+	
 	/******************/
 	//KeyJoint
 	/******************/
@@ -1959,7 +1976,15 @@ public class SetUpClass {
 		relation.settAttrJoint(attrJnt_ABCDE());
 		return relation;
 	}
-
+	
+	//Relation 38 {B -> AC, C -> D, BC ->> AD}
+	public Relation relation_38() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_38());
+		relation.settAttrJoint(attrJnt_ABCD());
+		return relation;
+	}
+	
 	/******************/
 	//RareElement
 	/******************/

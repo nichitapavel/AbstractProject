@@ -108,6 +108,7 @@ A ->> BCDEF
 B ->> A
 B ->> C
 D ->> F
+BC ->> AD
 BE ->> B
 
 DFJoint:
@@ -177,6 +178,8 @@ DPJoint 34 = {B ->> C}
 DPJoint 35 = {D ->> F, C -> A, CD -> E, A -> B}
 DPJoint 36 = {A ->> BCD, B -> AC, C -> D}
 DPJoint 37 = {A ->> BC, D -> C}
+DFJoint 38 = {B -> AC, C -> D, BC ->> AD}
+
 
 Relation:
 Relation One = DFJoint One, AttributeJoint ABCDE -> Key: AD, BCD, BDE | Normal Form: 3FN
@@ -266,6 +269,8 @@ Relation 36 = DPJoint 36, AttributeJoint ABCDEF -> Key: BEF | Normal Form: 1NF
 	A ->> BCD = 2FN, B -> AC = 1FN, C -> D = 2FN
 Relation 37 = DPJoint 37, AttributeJoint ABCDE -> Key: ABDE | Normal Form: 1NF
 	A ->> BC = 1FN, D -> C = 1FN
+Relation 38 = DPJoint 38, AttributeJoint ABCD -> Key: B | Normal Form: 1NF
+	B -> AC = 4FN, C -> D = 2FN, BC ->> AD = 4FN
 	
 KeyJoints:
 KeyJoint AD_BCD_BDE
