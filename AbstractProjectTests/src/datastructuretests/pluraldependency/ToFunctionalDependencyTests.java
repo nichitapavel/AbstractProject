@@ -34,7 +34,7 @@ public class ToFunctionalDependencyTests {
 	@Test
 	public void AtooCD_In_DPJoint31_ProduceAtoD() {
 		this.pluDep = this.setUpObject.pluDep_A_to_CD();
-		this.dpJoint = this.setUpObject.dpJoint_30();
+		this.dpJoint = this.setUpObject.dpJoint_31();
 		this.expected = this.setUpObject.funcDep_A_to_D();
 		assertEquals(this.expected, this.pluDep.toFunctionalDependency(this.dpJoint));
 	}
