@@ -49,7 +49,7 @@ public class Normalization {
 					
 				newRelations = newRelation.split(nonNF_DFs.get(option));
 				normalizedRelation.remove(newRelation);
-				normalizedRelation.addAll(newRelations);
+				normalizedRelation.addAll(i, newRelations);
 				i--;
 			}
 		}						
@@ -81,7 +81,7 @@ public class Normalization {
 					
 				newRelations = newRelation.split(nonNF_DFs.get(option));
 				normalizedRelation.remove(newRelation);
-				normalizedRelation.addAll(newRelations);
+				normalizedRelation.addAll(i, newRelations);
 				i--;
 			}
 		}
