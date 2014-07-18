@@ -33,15 +33,7 @@ public class PluralDependencyTests {
 		
 		pd = new PluralDependency(antecedent, consecuent);
 	}
-	
-	//Test constructors
-	@Test
-	public void constructorVoid() {
-		this.setUpObject.AB_AtoB();
-		this.pd.clear();
-		fail();
-	}
-	
+
 	//Test toString()
 	@Test
 	public void toStringPluralDependency() {
@@ -61,6 +53,14 @@ public class PluralDependencyTests {
 	public void isTrivialAtooCDinRelation30() {
 		this.pd = this.setUpObject.pluDep_A_to_CD();
 		assertFalse(this.pd.isTrivial(this.setUpObject.relation_30()));
+	}
+	
+	//Test equals()
+	@Test
+	public void equalsAtooBandAtooB() {
+		this.pd = this.setUpObject.pluDep_A_to_B();
+		ADependency pd2 = this.setUpObject.pluDep_A_to_B();
+		assertTrue(this.pd.equals(pd2));
 	}
 	
 	//Test belongsTo()
