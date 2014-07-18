@@ -1820,6 +1820,15 @@ public class SetUpClass {
 		relation.settAttrJoint(attrJnt_AEF());
 		return relation;
 	}
+	
+	//Relation 31
+	public Relation relation_31() {
+		Relation relation = new Relation();
+		relation.setDFJoint(dpJoint_31());
+		relation.settAttrJoint(attrJnt_ABCDEF());
+		return relation;
+	}
+
 
 	//Relation 32
 	public Relation relation_32() {

@@ -249,7 +249,7 @@ Relation 30_B = DPJoint 30_B, AttributeJoint ABEF -> Key: AE | Normal Form: 1NF
 Relation 30_C = DPJoint 30_C, AttributeJoint ADEF -> Key: AE | Normal Form: 4NF
 	AE -> F = 4FN
 Relation 31 = DPJoint 31, AttributeJoint ABCDEF -> Key: DE, AE | Normal Form:
-	A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD
+	A -> B = 1FN, CD -> A = 3FN, BD -> C = 2FN, AE -> F = 4FN, DE -> C = 4FN, AE -> D = 4FN, A ->> CD = 2FN
 Relation 32 = DPJoint 32, AttributeJoint ABC -> Key: AC | Normal Form: 1FN
 	A -> B = 1FN, B ->> C = 3FN
 Relation 33 = DPJoint 33, AttributeJoint ABC -> Key: A | Normal Form: 2FN
