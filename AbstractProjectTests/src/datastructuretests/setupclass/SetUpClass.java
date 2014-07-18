@@ -636,7 +636,7 @@ public class SetUpClass {
 	
 	//Functional Dependency AE -> F
 	public ADependency funcDep_AE_to_F() {
-		ADependency funcDep = new PluralDependency(attrJnt_AE(), attrJnt_F());
+		ADependency funcDep = new FunctionalDependency(attrJnt_AE(), attrJnt_F());
 		return funcDep;
 	}
 	
