@@ -7,6 +7,7 @@ import datastructures.DFJoint;
 import datastructures.KeyJoint;
 import datastructures.Relation;
 import datastructures.dependency.ADependency;
+import datastructures.dependency.FunctionalDependency;
 
 public class Normalization {
 	
@@ -17,10 +18,11 @@ public class Normalization {
 		do {
 			isChanged = false;
 			for (ADependency df:dfJoint) {
-				if (df.getAntecedent().isContained(result) && !(df.getConsequent().isContained(result))) {
-					result.addAttributes(df.getConsequent());
-					isChanged = true;
-				}
+				if (df.getClass() == new FunctionalDependency().getClass())
+					if (df.getAntecedent().isContained(result) && !(df.getConsequent().isContained(result))) {
+						result.addAttributes(df.getConsequent());
+						isChanged = true;
+					}
 			}
 		} while (isChanged);
 		
