@@ -49,6 +49,13 @@ public class PluralDependencyTests {
 		assertEquals(expected, this.pd.toString());
 	}
 	
+	@Test
+	public void toStringNullPluralDependency() {
+		this.pd = new PluralDependency();
+		String expected = "null ->> null";
+		assertEquals(expected, this.pd.toString());
+	}
+	
 	//Test isTrivial()
 	@Test
 	public void isTrivialAtooCDinRelation30() {

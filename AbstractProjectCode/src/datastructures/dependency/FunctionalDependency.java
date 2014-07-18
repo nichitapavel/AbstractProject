@@ -19,7 +19,11 @@ public class FunctionalDependency extends PluralDependency {
 
 	@Override
 	public String toString() {
-		return super.antecedent.toString() + " -> " + super.consequent.toString();
+		try {
+			return super.antecedent.toString() + " -> " + super.consequent.toString();			
+		}
+		catch (NullPointerException ex) { };
+		return "null -> null";
 	};
 
 	@Override

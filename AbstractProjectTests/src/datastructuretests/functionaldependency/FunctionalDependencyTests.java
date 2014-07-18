@@ -138,6 +138,13 @@ public class FunctionalDependencyTests {
 		assertEquals(expected, fd.toString());
 	}
 	
+	@Test
+	public void toStringNullFunctionalDependency() {
+		this.fd = new FunctionalDependency();
+		String expected = "null -> null";
+		assertEquals(expected, this.fd.toString());
+	}
+	
 	//Test isDestroyable()
 	@Test
 	public void funcDepIsNotDestroyable() {
