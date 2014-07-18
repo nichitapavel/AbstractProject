@@ -102,4 +102,10 @@ public class PluralDependency extends ADependency {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public FunctionalDependency toFunctionalDependency(DFJoint dfJoint) {
+		// TODO Auto-generated method stub
+		return new FunctionalDependency();
+	}
 }

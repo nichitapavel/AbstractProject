@@ -123,4 +123,10 @@ public class FunctionalDependency extends PluralDependency {
 	public boolean is4NF(Relation relation) {
 		return isBCNF(relation);
 	};
+	
+	@Override
+	public FunctionalDependency toFunctionalDependency(DFJoint dfJoint) {
+		// TODO Auto-generated method stub
+		return new FunctionalDependency();
+	}
 }

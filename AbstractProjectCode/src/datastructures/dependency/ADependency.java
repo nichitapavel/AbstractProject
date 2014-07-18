@@ -90,6 +90,8 @@ public abstract class ADependency {
 
 	public abstract boolean equals(Object obj);
 	
+	public abstract FunctionalDependency toFunctionalDependency(DFJoint dfJoint);
+	
 	public abstract boolean belongsTo(DFJoint dfJoint);
 
 	public abstract boolean is2NF(Relation relation, KeyJoint keyJoint);
