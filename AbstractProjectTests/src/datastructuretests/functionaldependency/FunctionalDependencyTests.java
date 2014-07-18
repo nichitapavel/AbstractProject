@@ -19,7 +19,7 @@ public class FunctionalDependencyTests {
 	private ADependency fd;
 	
 	private AttributeJoint antecedent;
-	private AttributeJoint consecuent;
+	private AttributeJoint consequent;
 	
 	private DFJoint firstDFJoint;
 	private DFJoint secondDFJoint;
@@ -34,9 +34,9 @@ public class FunctionalDependencyTests {
 		antecedent = new AttributeJoint(antecedentArray);
 		
 		String [] consecuentArray = {"D", "E", "F"};
-		consecuent = new AttributeJoint(consecuentArray);
+		consequent = new AttributeJoint(consecuentArray);
 		
-		fd = new FunctionalDependency(antecedent, consecuent);
+		fd = new FunctionalDependency(antecedent, consequent);
 		
 		//firstDFJoint  = {A -> BC, B -> C, A -> B, AB -> C}
 		firstDFJoint = this.setUpObject.dfJoint_04();
@@ -63,7 +63,7 @@ public class FunctionalDependencyTests {
 	@Test
 	public void getTest() {
 		assertEquals(this.antecedent, fd.getAntecedent());
-		assertEquals(this.consecuent, fd.getConsequent());
+		assertEquals(this.consequent, fd.getConsequent());
 	}
 	
 	//Test setters
@@ -164,9 +164,9 @@ public class FunctionalDependencyTests {
 	@Test
 	public void funcDepIsDestroyableConsequent() {
 		String [] consecuentArray = {"D", "E", "F"};
-		this.consecuent = new AttributeJoint(consecuentArray);
+		this.consequent = new AttributeJoint(consecuentArray);
 		
-		fd.removeAttributeFromConsequent(this.consecuent);
+		fd.removeAttributeFromConsequent(this.consequent);
 		
 		assertTrue(fd.isDestroyable());
 	}
@@ -188,9 +188,9 @@ public class FunctionalDependencyTests {
 		antecedent = new AttributeJoint(antecedentArray);
 		
 		String [] consecuentArray = {"D", "E", "F"};
-		consecuent = new AttributeJoint(consecuentArray);
+		consequent = new AttributeJoint(consecuentArray);
 		
-		ADependency auxFD = new FunctionalDependency(antecedent, consecuent);
+		ADependency auxFD = new FunctionalDependency(antecedent, consequent);
 		
 		assertEquals(fd.hashCode(), auxFD.hashCode());
 	}
@@ -206,9 +206,9 @@ public class FunctionalDependencyTests {
 		antecedent = new AttributeJoint(antecedentArray);
 		
 		String [] consecuentArray = {"E", "F"};
-		consecuent = new AttributeJoint(consecuentArray);
+		consequent = new AttributeJoint(consecuentArray);
 		
-		ADependency auxFD = new FunctionalDependency(antecedent, consecuent);
+		ADependency auxFD = new FunctionalDependency(antecedent, consequent);
 		
 		assertNotEquals(fd.hashCode(), auxFD.hashCode());
 	}
@@ -231,9 +231,9 @@ public class FunctionalDependencyTests {
 		antecedent = new AttributeJoint(antecedentArray);
 		
 		String [] consecuentArray = {"D", "E", "F"};
-		consecuent = new AttributeJoint(consecuentArray);
+		consequent = new AttributeJoint(consecuentArray);
 		
-		ADependency auxFD = new FunctionalDependency(antecedent, consecuent);
+		ADependency auxFD = new FunctionalDependency(antecedent, consequent);
 		
 		assertTrue(fd.equals(auxFD));
 		assertTrue(auxFD.equals(fd));
@@ -251,9 +251,9 @@ public class FunctionalDependencyTests {
 		antecedent = new AttributeJoint(antecedentArray);
 		
 		String [] consecuentArray = {"E", "F"};
-		consecuent = new AttributeJoint(consecuentArray);
+		consequent = new AttributeJoint(consecuentArray);
 		
-		ADependency auxFD = new FunctionalDependency(antecedent, consecuent);
+		ADependency auxFD = new FunctionalDependency(antecedent, consequent);
 		
 		assertFalse(fd.equals(auxFD));
 	}
@@ -397,5 +397,12 @@ public class FunctionalDependencyTests {
 		this.fd.setConsequent(new AttributeJoint());
 		this.fd.clearTrivialElements();
 		assertEquals(this.fd, this.fd);
+	}
+	
+	//Test toFunctionalDependency
+	@Test
+	public void toFunctionalDependency() {
+		ADependency expected = new FunctionalDependency(this.antecedent, this.consequent);
+		assertEquals(expected, this.fd.toFunctionalDependency(null));
 	}
 }
