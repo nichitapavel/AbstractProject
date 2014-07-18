@@ -51,7 +51,7 @@ public class PluralDependency extends ADependency {
 		if (super.consequent == null) {
 			if (other.consequent != null)
 				return false;
-		} else if (super.consequent.equals(other.consequent))
+		} else if (!super.consequent.equals(other.consequent))
 			return false;
 		return true;
 	}
