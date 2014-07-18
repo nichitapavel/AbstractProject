@@ -40,6 +40,7 @@ BCD
 BDE
 BEF
 CDE
+CDF
 ABCD
 ABDE
 ABEF
@@ -162,6 +163,7 @@ DFJoint CDtoE = {CD -> E}
 DFJoint CtoD = {C -> D}
 DPJoint BtoAC = {B -> AC}
 DFJoint AtoC = {A -> C}
+DFJoint BtoAC_CtoD = {B -> AC, C -> D}
 
 DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
 DPJoint 30_A = {AD -> C, CD -> A}
@@ -239,6 +241,8 @@ Relation ADE_ADtoE
 Relation ABEE_ABEtoGH
 Relation ABC_BtoAC
 Relation AEF
+Relation ABCD_BtoAC_CtoD
+Relation ABC_AtoC
 
 Relation 30 = DPJoint 30, AttributeJoint ABCDEF -> Key: DE | Normal Form: 2NF
 	 A -> B = 2FN, CD -> A = 2FN, BD -> C = 2FN, AE -> F = 2FN, DE -> C = 4FN, A ->> CD = 2FN
@@ -270,6 +274,13 @@ KeyJoint A
 KeyJoint AB
 KeyJoint AD_CD
 KeyJoint CD_CE_CF_ABD_ABE_ABF
+KeyJoint DE
+KeyJoint AE_DE
+KeyJoint AC
+KeyJoint ABC
+KeyJoint CDF
+KeyJoint BEF
+KeyJoint ABDE
 
 RareElements:
 C Consequent A->BC DFJoint TwentyFour

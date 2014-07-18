@@ -332,6 +332,15 @@ public class SetUpClass {
 		return attrJoint;
 	}
 	
+	//AttributeJoint CDF
+	public AttributeJoint attrJnt_CDF() {
+		AttributeJoint attrJoint = new AttributeJoint();
+		attrJoint.addAttributes(attr_C());
+		attrJoint.addAttributes(attr_D());
+		attrJoint.addAttributes(attr_F());
+		return attrJoint;
+	}
+	
 	//AttributeJoint ABCD
 	public AttributeJoint attrJnt_ABCD() {
 		AttributeJoint attrJoint = new AttributeJoint();
@@ -1267,6 +1276,15 @@ public class SetUpClass {
 		return dfJoint;
 	}
 	
+	//DFJoint BtoAC_CtoD = {B -> AC, C -> D}
+	public DFJoint BtoAC_CtoD() {
+		DFJoint dfJoint = new DFJoint();
+		dfJoint.setName("DFJoint {B -> AC, C -> D}");
+		dfJoint.addFunctionalDependency(funcDep_B_to_AC());
+		dfJoint.addFunctionalDependency(funcDep_C_to_D());
+		return dfJoint;
+	}
+	
 	/******************/
 	//DPJoints
 	/******************/
@@ -1449,7 +1467,57 @@ public class SetUpClass {
 		keyJoint.addKey(attrJnt_ABF());
 		return keyJoint;
 	}
-
+	
+	//KeyJoint DE
+	public KeyJoint keyJoint_DE() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_DE());
+		return keyJoint;
+	}
+	
+	//KeyJoint AE_DE
+	public KeyJoint keyJoint_AE_DE() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_AE());
+		keyJoint.addKey(attrJnt_DE());
+		return keyJoint;
+	}
+	
+	//KeyJoint AC
+	public KeyJoint keyJoint_AC() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_AC());
+		return keyJoint;
+	}
+	
+	//KeyJoint ABC
+	public KeyJoint keyJoint_ABC() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_ABC());
+		return keyJoint;
+	}
+	
+	//KeyJoint CDF
+	public KeyJoint keyJoint_CDF() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_CDF());
+		return keyJoint;
+	}
+	
+	//KeyJoint BEF
+	public KeyJoint keyJoint_BEF() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_BEF());
+		return keyJoint;
+	}
+	
+	//KeyJoint ABDE
+	public KeyJoint keyJoint_ABDE() {
+		KeyJoint keyJoint = new KeyJoint();
+		keyJoint.addKey(attrJnt_ABDE());
+		return keyJoint;
+	}
+	
 	/******************/
 	//Relation
 	/******************/
@@ -1784,7 +1852,21 @@ public class SetUpClass {
 		relation.setDFJoint(AtoC());
 		return relation;
 	}
-		
+	
+	//Relation ABCD_BtoAC_CtoD
+	public Relation r_ABCD_BtoAC_CtoD() {
+		Relation relation = relation_1ABCD();
+		relation.setDFJoint(BtoAC_CtoD());
+		return relation;
+	}
+	
+	//Relation ABC_AtoC
+	public Relation r_ABC_AtoC() {
+		Relation relation = relation_1ABC();
+		relation.setDFJoint(AtoC());
+		return relation;
+	}
+	
 	/******************/
 	//Relation 4NF 
 	/******************/
