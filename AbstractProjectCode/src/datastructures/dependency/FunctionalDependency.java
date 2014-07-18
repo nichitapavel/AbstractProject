@@ -130,7 +130,6 @@ public class FunctionalDependency extends PluralDependency {
 	
 	@Override
 	public FunctionalDependency toFunctionalDependency(DFJoint dfJoint) {
-		// TODO Auto-generated method stub
-		return new FunctionalDependency();
+		return this;
 	}
 }
