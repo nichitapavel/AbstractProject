@@ -73,6 +73,7 @@ E -> F
 E -> DF
 F -> E
 A -> BC
+A -> CD
 C -> AB
 AB -> B
 AB -> C
@@ -101,6 +102,7 @@ A ->> B
 A ->> E
 A ->> BC
 A ->> CD
+A ->> DE
 A ->> EF
 A ->> BCD
 A ->> BEF

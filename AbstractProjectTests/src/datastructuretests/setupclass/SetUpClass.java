@@ -580,6 +580,12 @@ public class SetUpClass {
 		return funcDep;
 	}
 	
+	//Functional Dependency A -> CD
+	public ADependency funcDep_A_to_CD() {
+		ADependency funcDep = new FunctionalDependency(attrJnt_A(), attrJnt_CD());
+		return funcDep;
+	}
+	
 	//Functional Dependency C -> AB
 	public ADependency funcDep_C_to_AB() {
 		ADependency funcDep = new FunctionalDependency(attrJnt_C(), attrJnt_AB());
@@ -743,6 +749,12 @@ public class SetUpClass {
 	//Plural Dependency A ->> CD	
 	public ADependency pluDep_A_to_CD() {
 		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_CD());
+		return pluDep;
+	}
+	
+	//Plural Dependency A ->> DE	
+	public ADependency pluDep_A_to_DE() {
+		ADependency pluDep = new PluralDependency(attrJnt_A(), attrJnt_DE());
 		return pluDep;
 	}
 	
