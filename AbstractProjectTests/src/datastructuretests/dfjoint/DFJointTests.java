@@ -8,7 +8,6 @@ import datastructuretests.setupclass.SetUpClass;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -300,7 +299,7 @@ public class DFJointTests {
 		assertEquals(this.nullDFJoint, this.dfJoint);
 	}
 	
-	@Ignore
+	@Test
 	public void removeDFJointException() {
 		this.nullDFJoint.removeDF(this.one);
 	}
