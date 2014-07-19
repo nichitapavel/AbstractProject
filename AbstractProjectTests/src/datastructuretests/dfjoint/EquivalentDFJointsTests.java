@@ -13,9 +13,12 @@ import datastructures.Attribute;
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
 import datastructures.dependency.FunctionalDependency;
+import datastructuretests.setupclass.SetUpClass;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EquivalentDFJointsTests {
+	private SetUpClass setUpObject;
+	
 	private DFJoint firstDFJoint;
 	private DFJoint secondDFJoint;
 	private DFJoint thirdDFJoint;
@@ -31,6 +34,8 @@ public class EquivalentDFJointsTests {
 	//fifthDFJoint  = {A -> B, B -> AC, C -> B }
 	@Before
 	public void setUp() {
+		this.setUpObject = new SetUpClass();
+		
 		Attribute A = new Attribute("A");
 		Attribute B = new Attribute("B");
 		Attribute C = new Attribute("C");
@@ -187,5 +192,36 @@ public class EquivalentDFJointsTests {
 	@Test
 	public void isNotEquivalentFifthAndSecondDFJoints() {
 		assertFalse(fifthDFJoint.isEquivalent(secondDFJoint));
+	}
+
+	//DFJoints with plural dependency
+	@Test
+	public void isEquivalentDPJoint31andDFJoint31_Equi() {
+		assertTrue(this.setUpObject.dpJoint_31().isEquivalent(this.setUpObject.dpJoint_31_Equi()));
+	}
+	
+	@Test
+	public void isEquivalentDPJoint31_EquiandDFJoint31() {
+		assertTrue(this.setUpObject.dpJoint_31_Equi().isEquivalent(this.setUpObject.dpJoint_31()));
+	}
+	
+	@Test
+	public void isEquivalentDPJoint33andDFJointAtoB_BtoC() {
+		assertTrue(this.setUpObject.dpJoint_33().isEquivalent(this.setUpObject.dfJoint_05()));
+	}
+	
+	@Test
+	public void isEquivalentDPJointAtoB_BtoCandDFJoint33() {
+		assertTrue(this.setUpObject.dfJoint_05().isEquivalent(this.setUpObject.dpJoint_33()));
+	}
+	
+	@Test
+	public void isEquivalentDPJoint37andDFJointAtoC() {
+		assertTrue(this.setUpObject.dpJoint_37().isEquivalent(this.setUpObject.AtoC()));
+	}
+	
+	@Test
+	public void isEquivalentDPJointAtoCandDFJoint37() {
+		assertTrue(this.setUpObject.dpJoint_37().isEquivalent(this.setUpObject.AtoC()));
 	}
 }
