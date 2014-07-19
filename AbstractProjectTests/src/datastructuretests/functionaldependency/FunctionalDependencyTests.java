@@ -405,4 +405,41 @@ public class FunctionalDependencyTests {
 		ADependency expected = new FunctionalDependency(this.antecedent, this.consequent);
 		assertEquals(expected, this.fd.toFunctionalDependency(null));
 	}
+	
+	//Test belongsTo in a DPJoint
+	@Test
+	public void belongsToAtoBinDPJoint30() {
+		this.fd = this.setUpObject.funcDep_A_to_B();
+		assertTrue(this.fd.belongsTo(this.setUpObject.dpJoint_30()));
+	}
+	
+	@Test
+	public void belongsToAtoDinDPJoint31() {
+		this.fd = this.setUpObject.funcDep_A_to_D();
+		assertTrue(this.fd.belongsTo(this.setUpObject.dpJoint_31()));
+	}
+	
+	@Test
+	public void belongsToAtoCinDPJoint31() {
+		this.fd = this.setUpObject.funcDep_A_to_C();
+		assertTrue(this.fd.belongsTo(this.setUpObject.dpJoint_31()));
+	}
+	
+	@Test
+	public void belongsToAtoCDinDPJoint31() {
+		this.fd = this.setUpObject.funcDep_A_to_CD();
+		assertTrue(this.fd.belongsTo(this.setUpObject.dpJoint_31()));
+	}
+
+	@Test
+	public void belongsToBtoCinDPJoint33() {
+		this.fd = this.setUpObject.funcDep_B_to_C();
+		assertTrue(this.fd.belongsTo(this.setUpObject.dpJoint_33()));
+	}
+	
+	@Test
+	public void belongsToAtoCinDPJoint37() {
+		this.fd = this.setUpObject.funcDep_A_to_C();
+		assertTrue(this.fd.belongsTo(this.setUpObject.dpJoint_37()));
+	}
 }
