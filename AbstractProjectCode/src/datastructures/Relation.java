@@ -204,4 +204,21 @@ public class Relation {
 			return false;
 		return true;
 	}
+
+	public ArrayList<ADependency> getNon4NF_DFs() {
+		return this.dfJoint.getNon4NF_DFs(this);
+	}
+
+	public boolean is4NF() {
+		try {
+			KeyJoint keyJoint = this.calculateKeyJoint();
+			
+			for (ADependency fd : this.dfJoint)
+				if (!fd.is4NF(this, keyJoint))
+					return false;
+		}
+		catch  (NullPointerException ex) { };
+		
+		return true;
+	}
 }
