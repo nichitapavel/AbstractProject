@@ -54,6 +54,72 @@ public class PluralDependencyTests {
 		this.pd = this.setUpObject.pluDep_A_to_CD();
 		assertFalse(this.pd.isTrivial(this.setUpObject.relation_30()));
 	}
+
+	@Test
+	public void isTrivialAtooBCDEFinRelation30() {
+		this.pd = this.setUpObject.pluDep_A_to_BCDEF();
+		assertTrue(this.pd.isTrivial(this.setUpObject.relation_30()));
+	}
+	
+	@Test
+	public void isTrivialAtooBEFinRelation30() {
+		this.pd = this.setUpObject.pluDep_A_to_BEF();
+		assertFalse(this.pd.isTrivial(this.setUpObject.relation_30()));
+	}
+	
+	@Test
+	public void isTrivialBEtooBinRelation30() {
+		this.pd = this.setUpObject.pluDep_BE_to_B();
+		assertTrue(this.pd.isTrivial(this.setUpObject.relation_30()));
+	}
+	
+	@Test
+	public void isTrivialAtooCDinRelation30_A() {
+		this.pd = this.setUpObject.pluDep_A_to_CD();
+		assertTrue(this.pd.isTrivial(this.setUpObject.relation_30_A()));
+	}
+	
+	@Test
+	public void isTrivialAtooCDinRelation31() {
+		this.pd = this.setUpObject.pluDep_A_to_CD();
+		assertFalse(this.pd.isTrivial(this.setUpObject.relation_31()));
+	}
+	
+	@Test
+	public void isTrivialBtooCinRelationBC() {
+		this.pd = this.setUpObject.pluDep_B_to_C();
+		assertTrue(this.pd.isTrivial(this.setUpObject.relationBC()));
+	}
+	
+	@Test
+	public void isTrivialBtooCinRelation32() {
+		this.pd = this.setUpObject.pluDep_B_to_C();
+		assertFalse(this.pd.isTrivial(this.setUpObject.relation_32()));
+	}
+	
+	@Test
+	public void isTrivialBtooAinRelationAB() {
+		this.pd = this.setUpObject.pluDep_B_to_A();
+		assertTrue(this.pd.isTrivial(this.setUpObject.relationAB()));
+	}
+	
+	@Test
+	public void isTrivialDtooFinRelationDF() {
+		this.pd = this.setUpObject.pluDep_D_to_F();
+		assertTrue(this.pd.isTrivial(this.setUpObject.relationDF()));
+	}
+	
+	@Test
+	public void isTrivialAtooBCDinRelationABCD() {
+		this.pd = this.setUpObject.pluDep_A_to_BCD();
+		assertTrue(this.pd.isTrivial(this.setUpObject.r_ABCD_BtoAC_CtoD()));
+	}
+	
+	@Test
+	public void isTrivialAtooBCinRelationABC() {
+		this.pd = this.setUpObject.pluDep_A_to_BC();
+		assertTrue(this.pd.isTrivial(this.setUpObject.r_ABC_AtoC()));
+	}
 	
 	//Test equals()
 	@Test
