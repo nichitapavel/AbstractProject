@@ -101,4 +101,34 @@ public class Normalization {
 		
 		return normalizedRelation;
 	}
+
+	public static ArrayList<Relation> normalize4NF(Relation relation, boolean auto) {
+		ArrayList<Relation> normalizedRelation = new ArrayList<>();
+		normalizedRelation.add(relation);
+		ArrayList<Relation> newRelations = null;
+		
+		int option = 0;
+		
+		for (int i = 0; i < normalizedRelation.size(); i++) {
+			Relation newRelation = normalizedRelation.get(i);
+			ArrayList<ADependency> nonNF_DFs;
+			
+			if (!newRelation.is4NF()) {
+				nonNF_DFs = newRelation.getNon4NF_DFs();
+					
+				if (!auto) {
+					/*
+					 * option = get.stdin()
+					 */
+				}
+					
+				newRelations = newRelation.split(nonNF_DFs.get(option));
+				normalizedRelation.remove(newRelation);
+				normalizedRelation.addAll(i, newRelations);
+				i--;
+			}
+		}						
+			
+		return normalizedRelation;
+	}
 }
