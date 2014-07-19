@@ -136,4 +136,122 @@ public class ProjectionOnAttributeJointTests {
 		DFJoint expected = this.setUpObject.dfJoint_22();
 		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
 	}
+	
+	@Test
+	public void projectionDFJoint35_AToAttributeJointAC() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_35_A();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_AC();
+		
+		DFJoint expected = this.setUpObject.CtoA();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	//Projection with PluralDependency
+	@Test
+	public void projectionDFJoint30ToAttributeJointACD() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_30();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_ACD();
+		
+		DFJoint expected = this.setUpObject.dpJoint_30_A();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint30ToAttributeJointABEF() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_30();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_ABEF();
+		
+		DFJoint expected = this.setUpObject.dpJoint_30_B();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint32ToAttributeJointBC() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_32();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_BC();
+		
+		DFJoint expected = new DFJoint();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint32ToAttributeJointAB() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_32();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_AB();
+		
+		DFJoint expected = this.setUpObject.AtoB();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint34ToAttributeJointBC() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_34();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_BC();
+		
+		DFJoint expected = new DFJoint();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint34ToAttributeJointAB() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_34();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_AB();
+		
+		DFJoint expected = new DFJoint();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint35ToAttributeJointDF() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_35();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_DF();
+		
+		DFJoint expected = new DFJoint();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint35ToAttributeJointABCDE() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_35();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_ABCDE();
+		
+		DFJoint expected = this.setUpObject.dpJoint_35_A();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint36ToAttributeJointABCD() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_36();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_ABCD();
+		
+		DFJoint expected = this.setUpObject.BtoAC_CtoD();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint36ToAttributeJointAEF() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_36();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_AEF();
+		
+		DFJoint expected = new DFJoint();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint37ToAttributeJointABC() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_37();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_ABC();
+		
+		DFJoint expected = this.setUpObject.AtoC();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
+	
+	@Test
+	public void projectionDFJoint37ToAttributeJointADE() {
+		DFJoint dfJoint = this.setUpObject.dpJoint_37();
+		AttributeJoint attrJoint = this.setUpObject.attrJnt_ADE();
+		
+		DFJoint expected = new DFJoint();
+		assertEquals(expected, dfJoint.projectionOnAttributeJoint(attrJoint));
+	}
 }
