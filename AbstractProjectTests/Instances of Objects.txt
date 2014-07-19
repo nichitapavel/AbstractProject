@@ -164,6 +164,7 @@ DFJoint CDtoE = {CD -> E}
 DFJoint CtoD = {C -> D}
 DPJoint BtoAC = {B -> AC}
 DFJoint AtoC = {A -> C}
+DFJoint AtoB = {A -> B}
 DFJoint BtoAC_CtoD = {B -> AC, C -> D}
 
 DPJoint 30 = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}
@@ -176,6 +177,7 @@ DPJoint 32 = {A -> B, B ->> C}
 DPJoint 33 = {A -> B, A -> C, B ->> C}
 DPJoint 34 = {B ->> C}
 DPJoint 35 = {D ->> F, C -> A, CD -> E, A -> B}
+DPJoint 35_A = {C -> A, CD -> E, A -> B}
 DPJoint 36 = {A ->> BCD, B -> AC, C -> D}
 DPJoint 37 = {A ->> BC, D -> C}
 DFJoint 38 = {B -> AC, C -> D, BC ->> AD}

@@ -1283,6 +1283,13 @@ public class SetUpClass {
 		return dfJoint;
 	}
 	
+	//DFJoint AtoB = {A -> B}
+	public DFJoint AtoB() {
+		DFJoint dfJoint = new DFJoint();
+		dfJoint.setName("DFJoint AtoB");
+		dfJoint.addFunctionalDependency(funcDep_A_to_B());
+		return dfJoint;
+	}
 	//DFJoint BtoAC_CtoD = {B -> AC, C -> D}
 	public DFJoint BtoAC_CtoD() {
 		DFJoint dfJoint = new DFJoint();
@@ -1313,8 +1320,8 @@ public class SetUpClass {
 	public DFJoint dpJoint_30_A() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {AD -> C, CD -> A}");
-		dpJoint.addFunctionalDependency(funcDep_AD_to_C());
 		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
+		dpJoint.addFunctionalDependency(funcDep_AD_to_C());
 		return dpJoint;
 	}
 	
@@ -1350,7 +1357,7 @@ public class SetUpClass {
 	}
 	
 	//DPJoint 31_A = {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A -> D, A -> C}
-	public DFJoint dpJoint_31_A() {
+	public DFJoint dpJoint_31_Equi() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A -> D, A -> C}");
 		dpJoint.addFunctionalDependency(funcDep_A_to_B());
@@ -1400,6 +1407,17 @@ public class SetUpClass {
 		dpJoint.addFunctionalDependency(funcDep_A_to_B());
 		return dpJoint;
 	}
+	
+	//DPJoint 35_A = {C -> A, CD -> E, A -> B}
+	public DFJoint dpJoint_35_A() {
+		DFJoint dpJoint = new DFJoint();
+		dpJoint.setName("DPJoint {C -> A, CD -> E, A -> B}");
+		dpJoint.addFunctionalDependency(funcDep_C_to_A());
+		dpJoint.addFunctionalDependency(funcDep_CD_to_E());
+		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		return dpJoint;
+	}	
+	
 	
 	//DPJoint 36 = {A ->> BCD, B -> AC, C -> D}
 	public DFJoint dpJoint_36() {
@@ -1651,6 +1669,7 @@ public class SetUpClass {
 	public Relation relationBC() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_BC());
+		relation.setDFJoint(new DFJoint());
 		return relation;
 	}
 	
@@ -1665,6 +1684,7 @@ public class SetUpClass {
 	public Relation relationAB() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_AB());
+		relation.setDFJoint(new DFJoint());
 		return relation;
 	}
 	
@@ -1754,7 +1774,7 @@ public class SetUpClass {
 	public Relation AC_CtoA() {
 		Relation relation = new Relation();
 		relation.settAttrJoint(attrJnt_AC());
-		relation.setDFJoint(AtoE());
+		relation.setDFJoint(CtoA());
 		return relation;
 	}
 	
@@ -1858,7 +1878,7 @@ public class SetUpClass {
 	
 	//Relation AEF
 	public Relation r_AEF() {
-		Relation relation = AE_AtoE();
+		Relation relation = relation_30_C();
 		relation.setDFJoint(new DFJoint());
 		return relation;
 	}
