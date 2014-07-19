@@ -443,4 +443,40 @@ public class RelationTests {
 		Relation relation  = this.setUpObject.relation_09();
 		assertEquals(expected, relation.getNon3NF_DFs());
 	}
+	
+	//Test is4NF
+	@Test
+	public void normalForm4True() {
+		assertTrue(this.boyceCoddFormRelation.is4NF());
+	}
+	
+	@Test
+	public void normalForm4FalseR30() {
+		assertFalse(this.setUpObject.relation_30().is4NF());
+	}
+	
+	@Test
+	public void normalForm4FalseR31() {
+		assertFalse(this.setUpObject.relation_31().is4NF());
+	}
+	
+	@Test
+	public void normalForm4FalseR32() {
+		assertFalse(this.setUpObject.relation_32().is4NF());
+	}
+	
+	@Test
+	public void normalForm4FalseR35() {
+		assertFalse(this.setUpObject.relation_35().is4NF());
+	}
+	
+	@Test
+	public void normalForm4FalseR36() {
+		assertFalse(this.setUpObject.relation_36().is4NF());
+	}
+	
+	@Test
+	public void normalForm4FalseR37() {
+		assertFalse(this.setUpObject.relation_37().is4NF());
+	}	
 }
