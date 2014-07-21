@@ -1,5 +1,7 @@
 package datastructures.dependency;
 
+import java.util.ArrayList;
+
 import datastructures.Attribute;
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
@@ -78,7 +80,39 @@ public class PluralDependency extends ADependency {
 
 	@Override
 	public boolean belongsTo(DFJoint dfJoint) {
-		// TODO Auto-generated method stub
+		//pertenece al conjunto?
+		if (dfJoint.contains(this))
+			return true;
+		
+		//paso de df a dp
+		for (ADependency fd: dfJoint) {
+			if (fd.getClass() != this.getClass())
+				if (fd.getAntecedent().equals(this.antecedent) &&
+					fd.getConsequent().equals(this.consequent))
+					return true;
+		}
+		
+		//es el complimentario de alguna del conjunto?
+		for (ADependency fd : dfJoint)
+			if (fd.getClass() == this.getClass())
+				if (this.antecedent.equals(fd.getAntecedent())) {
+					AttributeJoint intersect = this.consequent.intersect(fd.getConsequent());
+					AttributeJoint substract = dfJoint.getAttributesDFJoint().substract(fd.getAttributeJoint());
+					if (intersect.getSize() == 0 && substract.isContained(this.consequent))
+						return true;
+				}
+		
+		//
+		for (ADependency fd : dfJoint) {
+			ArrayList<ADependency> listSameAntedecent = new ArrayList<>();
+			if (fd.getAntecedent().equals(this.antecedent))
+				listSameAntedecent.add(fd);
+			if (listSameAntedecent.size() <= 1) {
+				
+			}
+		}
+			
+		
 		return false;
 	}
 
