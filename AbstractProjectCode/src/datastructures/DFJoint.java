@@ -24,7 +24,7 @@ public class DFJoint implements Iterable<ADependency> {
 		this.name = dfJoint.getName();
 	}
 
-	public void addFunctionalDependency(ADependency df) {
+	public void addDependency(ADependency df) {
 		if (!contains(df))
 			this.df.add(df);
 	}
@@ -117,7 +117,7 @@ public class DFJoint implements Iterable<ADependency> {
 				
 				if (oldAntecedent.isContained(attrJoint) && 
 						oldConsequent.isContained(attrJoint)) {
-					result.addFunctionalDependency(df); // añadir df
+					result.addDependency(df); // añadir df
 				}
 				
 				if (!oldAntecedent.isContained(attrJoint) && 
@@ -157,7 +157,7 @@ public class DFJoint implements Iterable<ADependency> {
 					if (added && !addDF.getAntecedent().isNull()
 							&& !addDF.getConsequent().isNull()
 							&& addDF.getAntecedent().isContained(attrJoint))
-						result.addFunctionalDependency(addDF); // añadir df
+						result.addDependency(addDF); // añadir df
 				}
 				
 				if (oldAntecedent.isContained(attrJoint) && 
@@ -175,7 +175,7 @@ public class DFJoint implements Iterable<ADependency> {
 					addDF.clearTrivialElements();
 					
 					if (!addDF.getConsequent().isNull() && newConsequent.isContained(attrJoint))
-						result.addFunctionalDependency(addDF); // añadir df
+						result.addDependency(addDF); // añadir df
 				}
 			}
 		}
@@ -206,7 +206,7 @@ public class DFJoint implements Iterable<ADependency> {
 					j--;
 				}
 			}
-			regroupedDFJoint.addFunctionalDependency(new FunctionalDependency(antecedentI, regroupedConsequent));
+			regroupedDFJoint.addDependency(new FunctionalDependency(antecedentI, regroupedConsequent));
 			copyDFJoint.remove(i);
 			i--;
 		}

@@ -821,10 +821,10 @@ public class SetUpClass {
 	public DFJoint dfJoint_01() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint One");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
-		dfJoint.addFunctionalDependency(funcDep_BC_to_A());
-		dfJoint.addFunctionalDependency(funcDep_BCD_to_E());
-		dfJoint.addFunctionalDependency(funcDep_E_to_C());
+		dfJoint.addDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_BC_to_A());
+		dfJoint.addDependency(funcDep_BCD_to_E());
+		dfJoint.addDependency(funcDep_E_to_C());
 		return dfJoint;
 	}
 	
@@ -832,9 +832,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_02() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Two");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
-		dfJoint.addFunctionalDependency(funcDep_BC_to_E());
-		dfJoint.addFunctionalDependency(funcDep_CD_to_A());
+		dfJoint.addDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_BC_to_E());
+		dfJoint.addDependency(funcDep_CD_to_A());
 		return dfJoint;
 	}
 	
@@ -842,14 +842,14 @@ public class SetUpClass {
 	public DFJoint dfJoint_03() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Three");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_AB());
-		dfJoint.addFunctionalDependency(funcDep_E_to_D());
-		dfJoint.addFunctionalDependency(funcDep_D_to_E());
-		dfJoint.addFunctionalDependency(funcDep_E_to_F());
-		dfJoint.addFunctionalDependency(funcDep_F_to_E());
-		dfJoint.addFunctionalDependency(funcDep_ABD_to_G());
-		dfJoint.addFunctionalDependency(funcDep_CF_to_H());
+		dfJoint.addDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_C_to_AB());
+		dfJoint.addDependency(funcDep_E_to_D());
+		dfJoint.addDependency(funcDep_D_to_E());
+		dfJoint.addDependency(funcDep_E_to_F());
+		dfJoint.addDependency(funcDep_F_to_E());
+		dfJoint.addDependency(funcDep_ABD_to_G());
+		dfJoint.addDependency(funcDep_CF_to_H());
 		return dfJoint;
 	}
 	
@@ -857,10 +857,10 @@ public class SetUpClass {
 	public DFJoint dfJoint_04() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Four");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_AB_to_C());
 		return dfJoint;
 	}
 	
@@ -868,8 +868,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_05() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Five");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_B_to_C());
 		return dfJoint;
 	}
 	
@@ -877,10 +877,10 @@ public class SetUpClass {
 	public DFJoint dfJoint_06() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Six");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_D());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
-		dfJoint.addFunctionalDependency(funcDep_B_to_E());
+		dfJoint.addDependency(funcDep_AB_to_D());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_B_to_E());
 		return dfJoint;
 	}
 	
@@ -888,9 +888,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_07() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Seven");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_D());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_C_to_D());
 		return dfJoint;
 	}
 	
@@ -898,9 +898,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_08() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Eight");
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_AB_to_D());
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_AB_to_D());
+		dfJoint.addDependency(funcDep_C_to_B());
 		return dfJoint;
 	}
 	
@@ -908,7 +908,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_09() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Nine");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_AB_to_C());
 		return dfJoint;
 	}
 	
@@ -916,8 +916,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_10() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Ten");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_A());
+		dfJoint.addDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_C_to_A());
 		return dfJoint;
 	}
 	
@@ -925,7 +925,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_11() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Eleven");
-		dfJoint.addFunctionalDependency(funcDep_C_to_A());
+		dfJoint.addDependency(funcDep_C_to_A());
 		return dfJoint;
 	}
 	
@@ -933,10 +933,10 @@ public class SetUpClass {
 	public DFJoint dfJoint_12() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twelve");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dfJoint.addFunctionalDependency(funcDep_BD_to_C());
-		dfJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_CD_to_A());
+		dfJoint.addDependency(funcDep_BD_to_C());
+		dfJoint.addDependency(funcDep_DE_to_C());
 		return dfJoint;
 	}
 	
@@ -944,7 +944,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_13() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Thirteen");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_A_to_B());
 		return dfJoint;
 	}
 	
@@ -952,9 +952,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_14() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Fourteen");
-		dfJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dfJoint.addFunctionalDependency(funcDep_AD_to_C());
-		dfJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dfJoint.addDependency(funcDep_CD_to_A());
+		dfJoint.addDependency(funcDep_AD_to_C());
+		dfJoint.addDependency(funcDep_DE_to_C());
 		return dfJoint;
 	}
 	
@@ -962,8 +962,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_15() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Fifteen");
-		dfJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dfJoint.addFunctionalDependency(funcDep_AD_to_C());
+		dfJoint.addDependency(funcDep_CD_to_A());
+		dfJoint.addDependency(funcDep_AD_to_C());
 		return dfJoint;
 	}
 	
@@ -971,7 +971,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_16() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Sixteen");
-		dfJoint.addFunctionalDependency(funcDep_DE_to_C());
+		dfJoint.addDependency(funcDep_DE_to_C());
 		return dfJoint;
 	}
 	
@@ -979,8 +979,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_17() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Seventeen");
-		dfJoint.addFunctionalDependency(funcDep_BCD_to_E());
-		dfJoint.addFunctionalDependency(funcDep_E_to_C());
+		dfJoint.addDependency(funcDep_BCD_to_E());
+		dfJoint.addDependency(funcDep_E_to_C());
 		return dfJoint;
 	}
 	
@@ -988,7 +988,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_18() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Eighteen");
-		dfJoint.addFunctionalDependency(funcDep_E_to_C());
+		dfJoint.addDependency(funcDep_E_to_C());
 		return dfJoint;
 	}
 	
@@ -996,8 +996,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_19() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Nineteen");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_C_to_B());
 		return dfJoint;
 	}
 	
@@ -1005,7 +1005,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_20() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twenty");
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_C_to_B());
 		return dfJoint;
 	}
 	
@@ -1013,7 +1013,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_21() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentyone");
-		dfJoint.addFunctionalDependency(funcDep_A_to_C());
+		dfJoint.addDependency(funcDep_A_to_C());
 		return dfJoint;
 	}
 	
@@ -1021,7 +1021,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_22() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentytwo");
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_B_to_C());
 		return dfJoint;
 	}
 	
@@ -1029,13 +1029,13 @@ public class SetUpClass {
 	public DFJoint dfJoint_23() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentythree");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_AB());
-		dfJoint.addFunctionalDependency(funcDep_E_to_DF());
-		dfJoint.addFunctionalDependency(funcDep_D_to_E());
-		dfJoint.addFunctionalDependency(funcDep_F_to_E());
-		dfJoint.addFunctionalDependency(funcDep_ABD_to_G());
-		dfJoint.addFunctionalDependency(funcDep_CF_to_H());
+		dfJoint.addDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_C_to_AB());
+		dfJoint.addDependency(funcDep_E_to_DF());
+		dfJoint.addDependency(funcDep_D_to_E());
+		dfJoint.addDependency(funcDep_F_to_E());
+		dfJoint.addDependency(funcDep_ABD_to_G());
+		dfJoint.addDependency(funcDep_CF_to_H());
 		return dfJoint;
 	}
 	
@@ -1043,9 +1043,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_24() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentyfour");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_AB_to_C());
 		return dfJoint;
 	}
 	
@@ -1053,10 +1053,10 @@ public class SetUpClass {
 	public DFJoint dfJoint_25() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentyfive");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_A_to_C());
-		dfJoint.addFunctionalDependency(funcDep_A_to_D());
-		dfJoint.addFunctionalDependency(funcDep_D_to_E());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_A_to_C());
+		dfJoint.addDependency(funcDep_A_to_D());
+		dfJoint.addDependency(funcDep_D_to_E());
 		return dfJoint;
 	}
 	
@@ -1064,8 +1064,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_26() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentysix");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BCD());
-		dfJoint.addFunctionalDependency(funcDep_D_to_E());
+		dfJoint.addDependency(funcDep_A_to_BCD());
+		dfJoint.addDependency(funcDep_D_to_E());
 		return dfJoint;
 	}
 	
@@ -1073,9 +1073,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_27() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentyseven");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_D());
-		dfJoint.addFunctionalDependency(funcDep_B_to_CE());
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_AB_to_D());
+		dfJoint.addDependency(funcDep_B_to_CE());
+		dfJoint.addDependency(funcDep_C_to_B());
 		return dfJoint;
 	}
 	
@@ -1083,9 +1083,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_1MinusAtoBC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint One minus A -> BC");
-		dfJoint.addFunctionalDependency(funcDep_BC_to_A());
-		dfJoint.addFunctionalDependency(funcDep_BCD_to_E());
-		dfJoint.addFunctionalDependency(funcDep_E_to_C());
+		dfJoint.addDependency(funcDep_BC_to_A());
+		dfJoint.addDependency(funcDep_BCD_to_E());
+		dfJoint.addDependency(funcDep_E_to_C());
 		return dfJoint;
 	}
 	
@@ -1093,7 +1093,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_5MinusBtoC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Five minus B -> C");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_A_to_B());
 		return dfJoint;
 	}
 	
@@ -1101,7 +1101,7 @@ public class SetUpClass {
 	public DFJoint dfJoint_28() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Twentyeight");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BCD());
+		dfJoint.addDependency(funcDep_A_to_BCD());
 		return dfJoint;
 	}
 	
@@ -1109,9 +1109,9 @@ public class SetUpClass {
 	public DFJoint dfJoint_4ReGroupedWithoutCinAtoBC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Four Regrouped Without C in A->BC");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_AB_to_C());
 		return dfJoint;
 	}
 	
@@ -1119,8 +1119,8 @@ public class SetUpClass {
 	public DFJoint dfJoint_4RegroupedWithoutAinABtoC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint Four Regrouped Without A in AB->C");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_B_to_C());
 		return dfJoint;
 	}
 	
@@ -1128,7 +1128,7 @@ public class SetUpClass {
 	public DFJoint AtoBC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint AtoBC");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_A_to_BC());
 		return dfJoint;
 	}
 	
@@ -1136,7 +1136,7 @@ public class SetUpClass {
 	public DFJoint AtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint AtoE");
-		dfJoint.addFunctionalDependency(funcDep_A_to_E());
+		dfJoint.addDependency(funcDep_A_to_E());
 		return dfJoint;
 	}
 	
@@ -1144,7 +1144,7 @@ public class SetUpClass {
 	public DFJoint CtoA() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint CtoA");
-		dfJoint.addFunctionalDependency(funcDep_C_to_A());
+		dfJoint.addDependency(funcDep_C_to_A());
 		return dfJoint;
 	}
 	
@@ -1152,7 +1152,7 @@ public class SetUpClass {
 	public DFJoint BtoD() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint BtoD");
-		dfJoint.addFunctionalDependency(funcDep_B_to_D());
+		dfJoint.addDependency(funcDep_B_to_D());
 		return dfJoint;
 	}
 	
@@ -1160,7 +1160,7 @@ public class SetUpClass {
 	public DFJoint BtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint BtoE");
-		dfJoint.addFunctionalDependency(funcDep_B_to_E());
+		dfJoint.addDependency(funcDep_B_to_E());
 		return dfJoint;
 	}
 	
@@ -1168,9 +1168,9 @@ public class SetUpClass {
 	public DFJoint ABtoD_BtoC_CtoB() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint ABtoD_BtoC_CtoB");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_D());
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_AB_to_D());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_C_to_B());
 		return dfJoint;
 	}
 	
@@ -1178,8 +1178,8 @@ public class SetUpClass {
 	public DFJoint ABtoC_CtoAB() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint ABtoC_CtoAB");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_AB());
+		dfJoint.addDependency(funcDep_AB_to_C());
+		dfJoint.addDependency(funcDep_C_to_AB());
 		return dfJoint;
 	}
 	
@@ -1187,8 +1187,8 @@ public class SetUpClass {
 	public DFJoint EtoD_DtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint EtoD_DtoE");
-		dfJoint.addFunctionalDependency(funcDep_E_to_D());
-		dfJoint.addFunctionalDependency(funcDep_D_to_E());
+		dfJoint.addDependency(funcDep_E_to_D());
+		dfJoint.addDependency(funcDep_D_to_E());
 		return dfJoint;
 	}
 
@@ -1196,8 +1196,8 @@ public class SetUpClass {
 	public DFJoint EtoF_FtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint EtoF_FtoE");
-		dfJoint.addFunctionalDependency(funcDep_E_to_F());
-		dfJoint.addFunctionalDependency(funcDep_F_to_E());
+		dfJoint.addDependency(funcDep_E_to_F());
+		dfJoint.addDependency(funcDep_F_to_E());
 		return dfJoint;
 	}
 	
@@ -1205,8 +1205,8 @@ public class SetUpClass {
 	public DFJoint BtoC_CtoB() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint BtoC_CtoB");
-		dfJoint.addFunctionalDependency(funcDep_B_to_C());
-		dfJoint.addFunctionalDependency(funcDep_C_to_B());
+		dfJoint.addDependency(funcDep_B_to_C());
+		dfJoint.addDependency(funcDep_C_to_B());
 		return dfJoint;
 	}
 	
@@ -1214,7 +1214,7 @@ public class SetUpClass {
 	public DFJoint ABtoD() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint ABtoD");
-		dfJoint.addFunctionalDependency(funcDep_AB_to_D());
+		dfJoint.addDependency(funcDep_AB_to_D());
 		return dfJoint;
 	}
 	
@@ -1222,8 +1222,8 @@ public class SetUpClass {
 	public DFJoint AtoBC_BCtoA() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint AtoBC_BCtoA");
-		dfJoint.addFunctionalDependency(funcDep_A_to_BC());
-		dfJoint.addFunctionalDependency(funcDep_BC_to_A());
+		dfJoint.addDependency(funcDep_A_to_BC());
+		dfJoint.addDependency(funcDep_BC_to_A());
 		return dfJoint;
 	}
 
@@ -1231,7 +1231,7 @@ public class SetUpClass {
 	public DFJoint ADtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint ADtoE");
-		dfJoint.addFunctionalDependency(funcDep_AD_to_E());
+		dfJoint.addDependency(funcDep_AD_to_E());
 		return dfJoint;
 	}
 	
@@ -1239,8 +1239,8 @@ public class SetUpClass {
 	public DFJoint ABEtoGH() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint ABEtoGH");
-		dfJoint.addFunctionalDependency(funcDep_ABE_to_G());
-		dfJoint.addFunctionalDependency(funcDep_ABE_to_H());
+		dfJoint.addDependency(funcDep_ABE_to_G());
+		dfJoint.addDependency(funcDep_ABE_to_H());
 		return dfJoint;
 	}
 	
@@ -1248,8 +1248,8 @@ public class SetUpClass {
 	public DFJoint BCDtoE_EtoC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint BCDtoE_EtoC");
-		dfJoint.addFunctionalDependency(funcDep_BCD_to_E());
-		dfJoint.addFunctionalDependency(funcDep_E_to_C());
+		dfJoint.addDependency(funcDep_BCD_to_E());
+		dfJoint.addDependency(funcDep_E_to_C());
 		return dfJoint;
 	}
 	
@@ -1257,9 +1257,9 @@ public class SetUpClass {
 	public DFJoint AtoB_BEtoA_ABDtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint AtoB_BEtoA_ABDtoE");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
-		dfJoint.addFunctionalDependency(funcDep_BE_to_A());
-		dfJoint.addFunctionalDependency(funcDep_ABD_to_E());
+		dfJoint.addDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_BE_to_A());
+		dfJoint.addDependency(funcDep_ABD_to_E());
 		return dfJoint;
 	}
 	
@@ -1267,7 +1267,7 @@ public class SetUpClass {
 	public DFJoint CDtoE() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint CDtoE");
-		dfJoint.addFunctionalDependency(funcDep_CD_to_E());
+		dfJoint.addDependency(funcDep_CD_to_E());
 		return dfJoint;
 	}
 	
@@ -1275,7 +1275,7 @@ public class SetUpClass {
 	public DFJoint CtoD() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint CtoD");
-		dfJoint.addFunctionalDependency(funcDep_C_to_D());
+		dfJoint.addDependency(funcDep_C_to_D());
 		return dfJoint;
 	}
 	
@@ -1283,7 +1283,7 @@ public class SetUpClass {
 	public DFJoint BtoAC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint BtoAC");
-		dfJoint.addFunctionalDependency(funcDep_B_to_AC());
+		dfJoint.addDependency(funcDep_B_to_AC());
 		return dfJoint;
 	}
 	
@@ -1291,7 +1291,7 @@ public class SetUpClass {
 	public DFJoint AtoC() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint AtoC");
-		dfJoint.addFunctionalDependency(funcDep_A_to_C());
+		dfJoint.addDependency(funcDep_A_to_C());
 		return dfJoint;
 	}
 	
@@ -1299,15 +1299,15 @@ public class SetUpClass {
 	public DFJoint AtoB() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint AtoB");
-		dfJoint.addFunctionalDependency(funcDep_A_to_B());
+		dfJoint.addDependency(funcDep_A_to_B());
 		return dfJoint;
 	}
 	//DFJoint BtoAC_CtoD = {B -> AC, C -> D}
 	public DFJoint BtoAC_CtoD() {
 		DFJoint dfJoint = new DFJoint();
 		dfJoint.setName("DFJoint {B -> AC, C -> D}");
-		dfJoint.addFunctionalDependency(funcDep_B_to_AC());
-		dfJoint.addFunctionalDependency(funcDep_C_to_D());
+		dfJoint.addDependency(funcDep_B_to_AC());
+		dfJoint.addDependency(funcDep_C_to_D());
 		return dfJoint;
 	}
 	
@@ -1319,12 +1319,12 @@ public class SetUpClass {
 	public DFJoint dpJoint_30() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A ->> CD}");
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
-		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
-		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
-		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
-		dpJoint.addFunctionalDependency(pluDep_A_to_CD());
+		dpJoint.addDependency(funcDep_A_to_B());
+		dpJoint.addDependency(funcDep_CD_to_A());
+		dpJoint.addDependency(funcDep_BD_to_C());
+		dpJoint.addDependency(funcDep_AE_to_F());
+		dpJoint.addDependency(funcDep_DE_to_C());
+		dpJoint.addDependency(pluDep_A_to_CD());
 		return dpJoint;
 	}
 	
@@ -1332,8 +1332,8 @@ public class SetUpClass {
 	public DFJoint dpJoint_30_A() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {AD -> C, CD -> A}");
-		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dpJoint.addFunctionalDependency(funcDep_AD_to_C());
+		dpJoint.addDependency(funcDep_CD_to_A());
+		dpJoint.addDependency(funcDep_AD_to_C());
 		return dpJoint;
 	}
 	
@@ -1341,8 +1341,8 @@ public class SetUpClass {
 	public DFJoint dpJoint_30_B() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, AE -> F}");
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
-		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		dpJoint.addDependency(funcDep_A_to_B());
+		dpJoint.addDependency(funcDep_AE_to_F());
 		return dpJoint;
 	}
 	
@@ -1350,7 +1350,7 @@ public class SetUpClass {
 	public DFJoint dpJoint_30_C() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {AE -> F}");
-		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
+		dpJoint.addDependency(funcDep_AE_to_F());
 		return dpJoint;
 	}
 	
@@ -1358,13 +1358,13 @@ public class SetUpClass {
 	public DFJoint dpJoint_31() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, AE -> D, A ->> CD}");
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
-		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
-		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
-		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
-		dpJoint.addFunctionalDependency(funcDep_AE_to_D());
-		dpJoint.addFunctionalDependency(pluDep_A_to_CD());
+		dpJoint.addDependency(funcDep_A_to_B());
+		dpJoint.addDependency(funcDep_CD_to_A());
+		dpJoint.addDependency(funcDep_BD_to_C());
+		dpJoint.addDependency(funcDep_AE_to_F());
+		dpJoint.addDependency(funcDep_DE_to_C());
+		dpJoint.addDependency(funcDep_AE_to_D());
+		dpJoint.addDependency(pluDep_A_to_CD());
 		return dpJoint;
 	}
 	
@@ -1372,13 +1372,13 @@ public class SetUpClass {
 	public DFJoint dpJoint_31_Equi() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, CD -> A, BD -> C, AE -> F, DE -> C, A -> D, A -> C}");
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
-		dpJoint.addFunctionalDependency(funcDep_CD_to_A());
-		dpJoint.addFunctionalDependency(funcDep_BD_to_C());
-		dpJoint.addFunctionalDependency(funcDep_AE_to_F());
-		dpJoint.addFunctionalDependency(funcDep_DE_to_C());
-		dpJoint.addFunctionalDependency(funcDep_A_to_D());
-		dpJoint.addFunctionalDependency(funcDep_A_to_C());
+		dpJoint.addDependency(funcDep_A_to_B());
+		dpJoint.addDependency(funcDep_CD_to_A());
+		dpJoint.addDependency(funcDep_BD_to_C());
+		dpJoint.addDependency(funcDep_AE_to_F());
+		dpJoint.addDependency(funcDep_DE_to_C());
+		dpJoint.addDependency(funcDep_A_to_D());
+		dpJoint.addDependency(funcDep_A_to_C());
 		return dpJoint;
 	}
 	
@@ -1386,8 +1386,8 @@ public class SetUpClass {
 	public DFJoint dpJoint_32() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, B ->> C}");
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
-		dpJoint.addFunctionalDependency(pluDep_B_to_C());
+		dpJoint.addDependency(funcDep_A_to_B());
+		dpJoint.addDependency(pluDep_B_to_C());
 		return dpJoint;
 	}
 	
@@ -1395,9 +1395,9 @@ public class SetUpClass {
 	public DFJoint dpJoint_33() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A -> B, A -> C, B ->> C}");
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
-		dpJoint.addFunctionalDependency(funcDep_A_to_C());
-		dpJoint.addFunctionalDependency(pluDep_B_to_C());
+		dpJoint.addDependency(funcDep_A_to_B());
+		dpJoint.addDependency(funcDep_A_to_C());
+		dpJoint.addDependency(pluDep_B_to_C());
 		return dpJoint;
 	}
 	
@@ -1405,7 +1405,7 @@ public class SetUpClass {
 	public DFJoint dpJoint_34() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {B ->> C}");
-		dpJoint.addFunctionalDependency(pluDep_B_to_C());
+		dpJoint.addDependency(pluDep_B_to_C());
 		return dpJoint;
 	}
 	
@@ -1413,10 +1413,10 @@ public class SetUpClass {
 	public DFJoint dpJoint_35() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {D ->> F, C -> A, CD -> E, A -> B}");
-		dpJoint.addFunctionalDependency(pluDep_D_to_F());
-		dpJoint.addFunctionalDependency(funcDep_C_to_A());
-		dpJoint.addFunctionalDependency(funcDep_CD_to_E());
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addDependency(pluDep_D_to_F());
+		dpJoint.addDependency(funcDep_C_to_A());
+		dpJoint.addDependency(funcDep_CD_to_E());
+		dpJoint.addDependency(funcDep_A_to_B());
 		return dpJoint;
 	}
 	
@@ -1424,9 +1424,9 @@ public class SetUpClass {
 	public DFJoint dpJoint_35_A() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {C -> A, CD -> E, A -> B}");
-		dpJoint.addFunctionalDependency(funcDep_C_to_A());
-		dpJoint.addFunctionalDependency(funcDep_CD_to_E());
-		dpJoint.addFunctionalDependency(funcDep_A_to_B());
+		dpJoint.addDependency(funcDep_C_to_A());
+		dpJoint.addDependency(funcDep_CD_to_E());
+		dpJoint.addDependency(funcDep_A_to_B());
 		return dpJoint;
 	}	
 	
@@ -1435,9 +1435,9 @@ public class SetUpClass {
 	public DFJoint dpJoint_36() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A ->> BCD, B -> AC, C -> D}");
-		dpJoint.addFunctionalDependency(pluDep_A_to_BCD());
-		dpJoint.addFunctionalDependency(funcDep_B_to_AC());
-		dpJoint.addFunctionalDependency(funcDep_C_to_D());
+		dpJoint.addDependency(pluDep_A_to_BCD());
+		dpJoint.addDependency(funcDep_B_to_AC());
+		dpJoint.addDependency(funcDep_C_to_D());
 		return dpJoint;
 	}
 	
@@ -1445,8 +1445,8 @@ public class SetUpClass {
 	public DFJoint dpJoint_37() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {A ->> BC, D -> C}");
-		dpJoint.addFunctionalDependency(pluDep_A_to_BC());
-		dpJoint.addFunctionalDependency(funcDep_D_to_C());
+		dpJoint.addDependency(pluDep_A_to_BC());
+		dpJoint.addDependency(funcDep_D_to_C());
 		return dpJoint;
 	}
 	
@@ -1454,9 +1454,9 @@ public class SetUpClass {
 	public DFJoint dpJoint_38() {
 		DFJoint dpJoint = new DFJoint();
 		dpJoint.setName("DPJoint {B -> AC, C -> D, BC ->> AD}");
-		dpJoint.addFunctionalDependency(funcDep_B_to_AC());
-		dpJoint.addFunctionalDependency(funcDep_C_to_D());
-		dpJoint.addFunctionalDependency(pluDep_BC_to_AD());
+		dpJoint.addDependency(funcDep_B_to_AC());
+		dpJoint.addDependency(funcDep_C_to_D());
+		dpJoint.addDependency(pluDep_BC_to_AD());
 		return dpJoint;
 	}
 	

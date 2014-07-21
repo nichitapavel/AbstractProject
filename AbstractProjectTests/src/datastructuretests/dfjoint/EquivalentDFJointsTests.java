@@ -60,33 +60,33 @@ public class EquivalentDFJointsTests {
 		
 		//firstDFJoint  = {A -> BC, B -> C, A -> B, AB -> C}
 		firstDFJoint = new DFJoint();
-		firstDFJoint.addFunctionalDependency(new FunctionalDependency(AJoint, BCJoint));
-		firstDFJoint.addFunctionalDependency(new FunctionalDependency(BJoint, CJoint));
-		firstDFJoint.addFunctionalDependency(new FunctionalDependency(AJoint, BJoint));
-		firstDFJoint.addFunctionalDependency(new FunctionalDependency(ABJoint, CJoint));
+		firstDFJoint.addDependency(new FunctionalDependency(AJoint, BCJoint));
+		firstDFJoint.addDependency(new FunctionalDependency(BJoint, CJoint));
+		firstDFJoint.addDependency(new FunctionalDependency(AJoint, BJoint));
+		firstDFJoint.addDependency(new FunctionalDependency(ABJoint, CJoint));
 		
 		//secondDFJoint = {A -> B, B -> C}
 		secondDFJoint = new DFJoint();
-		secondDFJoint.addFunctionalDependency(new FunctionalDependency(AJoint, BJoint));
-		secondDFJoint.addFunctionalDependency(new FunctionalDependency(BJoint, CJoint));
+		secondDFJoint.addDependency(new FunctionalDependency(AJoint, BJoint));
+		secondDFJoint.addDependency(new FunctionalDependency(BJoint, CJoint));
 		
 		//thirdDFJoint  = {A -> BC, B -> AC, C -> AB}
 		thirdDFJoint = new DFJoint();
-		thirdDFJoint.addFunctionalDependency(new FunctionalDependency(AJoint, BCJoint));
-		thirdDFJoint.addFunctionalDependency(new FunctionalDependency(BJoint, ACJoint));
-		thirdDFJoint.addFunctionalDependency(new FunctionalDependency(CJoint, ABJoint));
+		thirdDFJoint.addDependency(new FunctionalDependency(AJoint, BCJoint));
+		thirdDFJoint.addDependency(new FunctionalDependency(BJoint, ACJoint));
+		thirdDFJoint.addDependency(new FunctionalDependency(CJoint, ABJoint));
 		
 		//forthDFJoint  = {A -> B, B -> C, C -> A}
 		forthDFJoint = new DFJoint();
-		forthDFJoint.addFunctionalDependency(new FunctionalDependency(AJoint, BJoint));
-		forthDFJoint.addFunctionalDependency(new FunctionalDependency(BJoint, CJoint));
-		forthDFJoint.addFunctionalDependency(new FunctionalDependency(CJoint, AJoint));
+		forthDFJoint.addDependency(new FunctionalDependency(AJoint, BJoint));
+		forthDFJoint.addDependency(new FunctionalDependency(BJoint, CJoint));
+		forthDFJoint.addDependency(new FunctionalDependency(CJoint, AJoint));
 		
 		//fifthDFJoint  = {A -> B, B -> AC, C -> B}
 		fifthDFJoint = new DFJoint();
-		fifthDFJoint.addFunctionalDependency(new FunctionalDependency(AJoint, BJoint));
-		fifthDFJoint.addFunctionalDependency(new FunctionalDependency(BJoint, ACJoint));
-		fifthDFJoint.addFunctionalDependency(new FunctionalDependency(CJoint, BJoint));
+		fifthDFJoint.addDependency(new FunctionalDependency(AJoint, BJoint));
+		fifthDFJoint.addDependency(new FunctionalDependency(BJoint, ACJoint));
+		fifthDFJoint.addDependency(new FunctionalDependency(CJoint, BJoint));
 	}
 	
 	//Tests

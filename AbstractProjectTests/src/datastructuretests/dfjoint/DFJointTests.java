@@ -147,14 +147,14 @@ public class DFJointTests {
 	//Test addFunctionalDependency()
 	@Test
 	public void addFuncDepToEmptyDFJoint() {
-		nullDFJoint.addFunctionalDependency(this.one);
+		nullDFJoint.addDependency(this.one);
 		assertEquals(1, nullDFJoint.getDFJoint().size());
 		assertEquals(this.one, nullDFJoint.getDFJoint().get(0));
 	}
 	
 	@Test
 	public void addFuncDepToNormalDFJoint() {
-		dfJoint.addFunctionalDependency(this.one);
+		dfJoint.addDependency(this.one);
 		assertEquals(5, dfJoint.getDFJoint().size());
 		assertEquals(this.one, dfJoint.getDFJoint().get(4));
 	}
@@ -162,7 +162,7 @@ public class DFJointTests {
 	@Test
 	public void addFuncDepThatExist() {
 		DFJoint expected = this.setUpObject.dfJoint_04();
-		this.firstDFJoint.addFunctionalDependency(this.setUpObject.funcDep_A_to_BC());
+		this.firstDFJoint.addDependency(this.setUpObject.funcDep_A_to_BC());
 		assertEquals(expected, this.firstDFJoint);
 	}
 	
@@ -226,7 +226,7 @@ public class DFJointTests {
 	
 	@Test
 	public void equalsFalseDFJointWithDifferentValues() {
-		nullDFJoint.addFunctionalDependency(this.one);
+		nullDFJoint.addDependency(this.one);
 		assertFalse(dfJoint.equals(nullDFJoint));
 	}
 	

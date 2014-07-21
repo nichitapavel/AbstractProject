@@ -102,7 +102,7 @@ public class Attribute implements Comparable<Attribute>{
 		dfJointPrima.removeDF(fd);
 		
 		ADependency newFD = new FunctionalDependency(antecedent, newConsecuent);
-		dfJointPrima.addFunctionalDependency(newFD);
+		dfJointPrima.addDependency(newFD);
 		
 		AttributeJoint ullmanResult = Normalization.simpleUllman(antecedent, dfJointPrima);
 		
