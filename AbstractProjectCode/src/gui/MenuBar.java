@@ -39,7 +39,7 @@ public class MenuBar {
 	private JMenuItem mntmDFAImplicaDFB = new JMenuItem("DF A implica DF B");
 	private JMenuItem mntmEquivalenciaDosDF = new JMenuItem("Equivalencia entre 2 DF's");
 	private JMenuItem mntmDfPerteneceDF = new JMenuItem("d.f. pertenece a DF");
-	private JMenuItem mntmUllman = new JMenuItem("Cierre de un conjunto de atributos");
+	private JMenuItem mntmUllman = new JMenuItem("Cierre de un conjunto de atributos (Ullman)");
 	private JMenuItem mntmClaves = new JMenuItem("Claves");
 	
 	private JMenuItem mntmAcercaDe = new JMenuItem("Acerca de");
