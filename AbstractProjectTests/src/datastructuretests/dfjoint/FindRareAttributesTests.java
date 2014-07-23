@@ -2,7 +2,7 @@ package datastructuretests.dfjoint;
 
 import static org.junit.Assert.*;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -14,12 +14,12 @@ import datastructuretests.setupclass.SetUpClass;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FindRareAttributesTests {
-	private Vector<RareElement> rareAttributesVector;
+	private ArrayList<RareElement> rareAttributesVector;
 	private SetUpClass setUpObject;
 	
 	@Before
 	public void setUp() {
-		this.rareAttributesVector = new Vector<>();
+		this.rareAttributesVector = new ArrayList<>();
 		this.setUpObject = new SetUpClass();
 	}
 	
