@@ -339,4 +339,14 @@ public class DFJoint implements Iterable<ADependency> {
 		
 		return result;
 	}
+
+	public DFJoint getHiddenDF() {
+		DFJoint hiddenDF = new DFJoint(this);
+		
+		for (ADependency pl : this) 
+			if (pl.getClass() == new PluralDependency().getClass())
+				hiddenDF.getDFJoint().addAll(pl.toFunctionalDependency(hiddenDF));
+		
+		return hiddenDF;
+	}
 }
