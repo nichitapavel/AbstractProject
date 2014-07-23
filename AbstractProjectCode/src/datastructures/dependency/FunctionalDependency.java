@@ -1,5 +1,7 @@
 package datastructures.dependency;
 
+import java.util.ArrayList;
+
 import normalization.Normalization;
 import datastructures.AttributeJoint;
 import datastructures.Attribute;
@@ -129,7 +131,9 @@ public class FunctionalDependency extends PluralDependency {
 	};
 	
 	@Override
-	public FunctionalDependency toFunctionalDependency(DFJoint dfJoint) {
-		return this;
+	public ArrayList<ADependency> toFunctionalDependency(DFJoint dfJoint) {
+		ArrayList<ADependency> result = new ArrayList<>();
+		result.add(this);
+		return result;
 	}
 }

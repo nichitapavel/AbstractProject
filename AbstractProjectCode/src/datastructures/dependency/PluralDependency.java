@@ -155,15 +155,17 @@ public class PluralDependency extends ADependency {
 	}
 
 	@Override
-	public FunctionalDependency toFunctionalDependency(DFJoint dfJoint) {
+	public ArrayList<ADependency> toFunctionalDependency(DFJoint dfJoint) {
+		ArrayList<ADependency> result = new ArrayList<>();		
+		
 		AttributeJoint intersect;
 		for (ADependency fd : dfJoint) {
 			if (fd.getClass() == new FunctionalDependency().getClass()) {
 				intersect = fd.getAntecedent().intersect(super.consequent);
 				if ( fd.getConsequent().isContained(super.consequent) && intersect.isNull())
-					return new FunctionalDependency(super.antecedent, fd.getConsequent());
+					result.add(new FunctionalDependency(super.antecedent, fd.getConsequent()));
 			}
 		}
-		return null;
+		return result;
 	}
 }

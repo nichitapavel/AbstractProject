@@ -2,6 +2,8 @@ package datastructuretests.functionaldependency;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -402,7 +404,8 @@ public class FunctionalDependencyTests {
 	//Test toFunctionalDependency
 	@Test
 	public void toFunctionalDependency() {
-		ADependency expected = new FunctionalDependency(this.antecedent, this.consequent);
+		ArrayList<ADependency> expected = new ArrayList<ADependency>();
+		expected.add(new FunctionalDependency(this.antecedent, this.consequent));
 		assertEquals(expected, this.fd.toFunctionalDependency(null));
 	}
 	

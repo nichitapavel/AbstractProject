@@ -1,5 +1,7 @@
 package datastructures.dependency;
 
+import java.util.ArrayList;
+
 import datastructures.Attribute;
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
@@ -90,7 +92,7 @@ public abstract class ADependency {
 
 	public abstract boolean equals(Object obj);
 	
-	public abstract FunctionalDependency toFunctionalDependency(DFJoint dfJoint);
+	public abstract ArrayList<ADependency> toFunctionalDependency(DFJoint dfJoint);
 	
 	public abstract boolean belongsTo(DFJoint dfJoint);
 
