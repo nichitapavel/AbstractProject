@@ -217,11 +217,11 @@ public class EquivalentDFJointsTests {
 	
 	@Test
 	public void isEquivalentDPJoint37andDFJointAtoC() {
-		assertTrue(this.setUpObject.dpJoint_37().isEquivalent(this.setUpObject.AtoC()));
+		assertFalse(this.setUpObject.dpJoint_37().isEquivalent(this.setUpObject.AtoC()));
 	}
 	
 	@Test
 	public void isEquivalentDPJointAtoCandDFJoint37() {
-		assertTrue(this.setUpObject.dpJoint_37().isEquivalent(this.setUpObject.AtoC()));
+		assertFalse(this.setUpObject.dpJoint_37().isEquivalent(this.setUpObject.AtoC()));
 	}
 }
