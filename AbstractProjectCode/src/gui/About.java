@@ -9,6 +9,7 @@ import javax.swing.JTextPane;
 
 import java.awt.ComponentOrientation;
 import java.awt.Font;
+import java.awt.Dimension;
 
 @SuppressWarnings("serial")
 public class About extends JFrame {
@@ -42,9 +43,13 @@ public class About extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setMaximumSize(new Dimension(500, 900));
+		contentPane.setMinimumSize(new Dimension(400, 800));
+		contentPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setResizable(false);
 		
 		JTextPane txtpnProyectoRealizadoComo = new JTextPane();
 		txtpnProyectoRealizadoComo.setFont(new Font("Tahoma", Font.PLAIN, 18));

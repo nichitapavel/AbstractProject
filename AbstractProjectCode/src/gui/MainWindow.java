@@ -19,6 +19,8 @@ import java.awt.ComponentOrientation;
 import javax.swing.JButton;
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class MainWindow {
 
@@ -58,29 +60,39 @@ public class MainWindow {
 	private void initialize() {
 		frmTrabajoFinDe = new JFrame();
 		frmTrabajoFinDe.setExtendedState(Frame.MAXIMIZED_BOTH);
-		frmTrabajoFinDe.setTitle("Trabajo Fin de Grado");
+		frmTrabajoFinDe.setTitle("DBN&U");
 		frmTrabajoFinDe.setBackground(new Color(240, 240, 240));
 		frmTrabajoFinDe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTrabajoFinDe.getContentPane().setPreferredSize(frmTrabajoFinDe.getSize());
 		frmTrabajoFinDe.getContentPane().setLayout(null);
 		
 		txtAttribute = new JTextField();
+		txtAttribute.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent arg0) {
+				if (!txtAttribute.getText().isEmpty())
+					btnaddAttribute.setEnabled(true);
+				else
+					btnaddAttribute.setEnabled(false);
+			}
+		});
+		txtAttribute.setBounds(105, 35, 200, 30);
 		txtAttribute.setToolTipText("Escribe el Atributo");
 		txtAttribute.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		txtAttribute.setBounds(105, 35, 200, 30);
 		frmTrabajoFinDe.getContentPane().add(txtAttribute);
 		txtAttribute.setColumns(10);
 		
 		JTextPane txtpnAtributo = new JTextPane();
+		txtpnAtributo.setBounds(20, 40, 80, 30);
 		txtpnAtributo.setEditable(false);
 		txtpnAtributo.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		txtpnAtributo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtpnAtributo.setBackground(new Color(240, 240, 240));
 		txtpnAtributo.setText("Atributo:");
-		txtpnAtributo.setBounds(20, 40, 80, 30);
 		frmTrabajoFinDe.getContentPane().add(txtpnAtributo);
 		
 		btnaddAttribute = new JButton("A\u00F1adir Atributo");
+		btnaddAttribute.setBounds(325, 35, 125, 30);
 		btnaddAttribute.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -92,23 +104,11 @@ public class MainWindow {
 				}
 
 				txtAttribute.setText(null);
+				btnaddAttribute.setEnabled(false);
 			}
 		});
 		btnaddAttribute.setEnabled(false);
-		btnaddAttribute.setBounds(325, 35, 125, 30);
 		frmTrabajoFinDe.getContentPane().add(btnaddAttribute);
-
-		txtAttribute.addInputMethodListener(new InputMethodListener() {
-			public void caretPositionChanged(InputMethodEvent arg0) {
-			}
-			public void inputMethodTextChanged(InputMethodEvent arg0) {
-				if (!txtAttribute.getText().isEmpty())
-					btnaddAttribute.setEnabled(true);
-				else
-					btnaddAttribute.setEnabled(false);
-			}
-		});
-		
 		MenuBar menuBar = new MenuBar();
 		frmTrabajoFinDe.setJMenuBar(menuBar.getMenuBar());
 	}
