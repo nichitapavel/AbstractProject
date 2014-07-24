@@ -99,9 +99,8 @@ public class PluralDependency extends ADependency {
 		for (ADependency fd : hiddenDF)
 			if (fd.getClass() == this.getClass())
 				if (this.antecedent.equals(fd.getAntecedent())) {
-					AttributeJoint intersect = this.consequent.intersect(fd.getConsequent());
-					AttributeJoint substract = dfJoint.getAttributesDFJoint().substract(fd.getAttributeJoint());
-					if (intersect.getSize() == 0 && substract.isContained(this.consequent))
+					AttributeJoint substract = relation.getAttrJoint().substract(fd.getAttributeJoint());
+					if (substract.equals(this.consequent))
 						return true;
 				}
 
