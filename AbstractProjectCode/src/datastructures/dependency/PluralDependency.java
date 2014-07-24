@@ -80,20 +80,23 @@ public class PluralDependency extends ADependency {
 
 	@Override
 	public boolean belongsTo(DFJoint dfJoint) {
+		DFJoint hiddenDF = dfJoint.getHiddenDF().regroupDFJoint();
+
 		//pertenece al conjunto?
-		if (dfJoint.contains(this))
+		if (hiddenDF.contains(this))
 			return true;
-		
+
 		//paso de df a dp
-		for (ADependency fd: dfJoint) {
-			if (fd.getClass() != this.getClass())
+		for (ADependency fd: hiddenDF) {
+			if (fd.getClass() != this.getClass()) {
 				if (fd.getAntecedent().equals(this.antecedent) &&
-					fd.getConsequent().equals(this.consequent))
-					return true;
+						this.consequent.isContained(fd.getConsequent()))
+						return true;
+			}
 		}
-		
+
 		//es el complimentario de alguna del conjunto?
-		for (ADependency fd : dfJoint)
+		for (ADependency fd : hiddenDF)
 			if (fd.getClass() == this.getClass())
 				if (this.antecedent.equals(fd.getAntecedent())) {
 					AttributeJoint intersect = this.consequent.intersect(fd.getConsequent());
@@ -101,18 +104,7 @@ public class PluralDependency extends ADependency {
 					if (intersect.getSize() == 0 && substract.isContained(this.consequent))
 						return true;
 				}
-		
-		//
-		for (ADependency fd : dfJoint) {
-			ArrayList<ADependency> listSameAntedecent = new ArrayList<>();
-			if (fd.getAntecedent().equals(this.antecedent))
-				listSameAntedecent.add(fd);
-			if (listSameAntedecent.size() <= 1) {
-				
-			}
-		}
-			
-		
+
 		return false;
 	}
 
