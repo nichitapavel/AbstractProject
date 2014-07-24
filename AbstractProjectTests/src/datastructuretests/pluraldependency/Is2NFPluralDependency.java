@@ -24,25 +24,6 @@ public class Is2NFPluralDependency {
 		this.setUpObject = new SetUpClass();
 	}
 	
-	
-	@Test
-	//1FN
-	public void AtooBC_R37() {
-		this.pd = this.setUpObject.pluDep_A_to_BC();
-		this.relation = this.setUpObject.relation_37();
-		this.keyJoint = this.setUpObject.keyJoint_ABDE();
-		assertFalse(this.pd.is2NF(this.relation, this.keyJoint));
-	}
-	
-	@Test
-	//1FN
-	public void AtooCD_R31() {
-		this.pd = this.setUpObject.pluDep_A_to_CD();
-		this.relation = this.setUpObject.relation_31();
-		this.keyJoint = this.setUpObject.keyJoint_AE_DE();
-		assertFalse(this.pd.is2NF(this.relation, this.keyJoint));
-	}
-	
 	@Test
 	//2FN
 	public void AtooCD_R30() {

@@ -31,7 +31,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_A_to_BC();
 		this.relation = this.setUpObject.relation_37();
 		this.keyJoint = this.setUpObject.keyJoint_ABDE();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -41,7 +41,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_A_to_CD();
 		this.relation = this.setUpObject.relation_31();
 		this.keyJoint = this.setUpObject.keyJoint_AE_DE();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -51,7 +51,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_A_to_CD();
 		this.relation = this.setUpObject.relation_30();
 		this.keyJoint = this.setUpObject.keyJoint_DE();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -61,7 +61,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_B_to_C();
 		this.relation = this.setUpObject.relation_33();
 		this.keyJoint = this.setUpObject.keyJoint_A();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -71,7 +71,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_A_to_BCD();
 		this.relation = this.setUpObject.relation_36();
 		this.keyJoint = this.setUpObject.keyJoint_BEF();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -81,7 +81,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_B_to_C();
 		this.relation = this.setUpObject.relation_32();
 		this.keyJoint = this.setUpObject.keyJoint_AC();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 
@@ -91,7 +91,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_B_to_C();
 		this.relation = this.setUpObject.relation_34();
 		this.keyJoint = this.setUpObject.keyJoint_ABC();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -101,7 +101,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 		this.pd = this.setUpObject.pluDep_D_to_F();
 		this.relation = this.setUpObject.relation_35();
 		this.keyJoint = this.setUpObject.keyJoint_CDF();
-		assertFalse(this.pd.isBCNF(this.relation, this.keyJoint));
+		assertTrue(this.pd.isBCNF(this.relation, this.keyJoint));
 		assertFalse(this.pd.is4NF(this.relation, this.keyJoint));
 	}
 	
@@ -110,7 +110,7 @@ public class IsBCNFAndIs4NFPluralDependency {
 	public void DtooF_R35WithOutKeyJoint() {
 		this.pd = this.setUpObject.pluDep_D_to_F();
 		this.relation = this.setUpObject.relation_35();
-		assertFalse(this.pd.isBCNF(this.relation, null));
+		assertTrue(this.pd.isBCNF(this.relation, null));
 		assertFalse(this.pd.is4NF(this.relation, null));
 	}
 	

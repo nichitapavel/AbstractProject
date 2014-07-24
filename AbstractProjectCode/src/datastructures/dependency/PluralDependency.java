@@ -129,40 +129,27 @@ public class PluralDependency extends ADependency {
 
 	@Override
 	public boolean is2NF(Relation relation, KeyJoint keyJoint) {
-		if (keyJoint == null)
-			keyJoint = relation.calculateKeyJoint();
-		
-		if (super.antecedent.containsJoinsFrom(keyJoint) ||
-				super.consequent.isPartOf(keyJoint) ||
-				!super.antecedent.isPartOf(keyJoint))
-			return true;
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean is3NF(Relation relation, KeyJoint keyJoint) {
-		if (keyJoint == null)
-			keyJoint = relation.calculateKeyJoint();
-		
-		if (super.antecedent.containsJoinsFrom(keyJoint) ||
-			super.consequent.isPartOf(keyJoint))
-			return true;
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isBCNF(Relation relation, KeyJoint keyJoint) {
+		return true;
+	}
+
+	@Override
+	public boolean is4NF(Relation relation, KeyJoint keyJoint) {
 		if (keyJoint == null)
 			keyJoint = relation.calculateKeyJoint();
 		
 		if (super.antecedent.containsJoinsFrom(keyJoint))
 			return true;
 		return false;
-	}
-
-	@Override
-	public boolean is4NF(Relation relation, KeyJoint keyJoint) {
-		return isBCNF(relation, keyJoint);
 	}
 
 	@Override
