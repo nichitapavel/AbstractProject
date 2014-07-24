@@ -2313,7 +2313,9 @@ public class SetUpClass {
 		ArrayList<Relation> aList = new ArrayList<>();
 		aList.add(r_AC_AtoC());
 		aList.add(relationAB());
-		aList.add(relation_1ADE());
+		Relation aux = relation_1ADE();
+		aux.setDFJoint(new DFJoint());
+		aList.add(aux);
 		return aList;
 	}
 }
