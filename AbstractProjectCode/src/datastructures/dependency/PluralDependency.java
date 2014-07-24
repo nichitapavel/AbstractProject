@@ -79,7 +79,7 @@ public class PluralDependency extends ADependency {
 	}
 
 	@Override
-	public boolean belongsTo(DFJoint dfJoint) {
+	public boolean belongsTo(DFJoint dfJoint, Relation relation) {
 		DFJoint hiddenDF = dfJoint.getHiddenDF().regroupDFJoint();
 
 		//pertenece al conjunto?

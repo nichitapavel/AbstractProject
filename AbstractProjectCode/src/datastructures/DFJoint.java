@@ -97,9 +97,9 @@ public class DFJoint implements Iterable<ADependency> {
 		return this.df.iterator();
 	}
 
-	public boolean isImplied(DFJoint dfJoint) {
+	public boolean isImplied(DFJoint dfJoint, Relation relation) {
 		for (ADependency fd : this.df) {
-			if (!fd.belongsTo(dfJoint))
+			if (!fd.belongsTo(dfJoint, null))
 				return false;
 		}
 		return true;
@@ -320,9 +320,9 @@ public class DFJoint implements Iterable<ADependency> {
 		return attrJoint;
 	}
 	
-	public boolean isEquivalent(DFJoint dfJoint) {
+	public boolean isEquivalent(DFJoint dfJoint, Relation relation) {
 		DFJoint hiddenDF = this.getHiddenDF();
-		if (hiddenDF.isImplied(dfJoint) && dfJoint.isImplied(hiddenDF))
+		if (hiddenDF.isImplied(dfJoint, null) && dfJoint.isImplied(hiddenDF, null))
 			return true;
 		return false;
 	}

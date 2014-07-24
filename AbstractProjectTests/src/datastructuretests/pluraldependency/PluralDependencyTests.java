@@ -133,42 +133,42 @@ public class PluralDependencyTests {
 	@Test
 	public void belongsToAtooCDinDFJoint30() {
 		this.pd = this.setUpObject.pluDep_A_to_CD();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30(), null));
 	}
 	
 	@Test
 	public void belongsToAtooBEFinDFJoint30() {
 		this.pd = this.setUpObject.pluDep_A_to_BEF();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30(), null));
 	}
 	
 	@Test
 	public void belongsToAtooBinDFJoint30() {
 		this.pd = this.setUpObject.pluDep_A_to_B();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30(), null));
 	}
 	
 	@Test
 	public void belongsToAtooEFinDFJoint30() {
 		this.pd = this.setUpObject.pluDep_A_to_EF();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_30(), null));
 	}
 	
 	@Test
 	public void belongsToBtooAinDFJoint34() {
 		this.pd = this.setUpObject.pluDep_B_to_A();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_34()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_34(), null));
 	}
 	
 	@Test
 	public void belongsToAtooEFinDFJoint36() {
 		this.pd = this.setUpObject.pluDep_A_to_EF();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_36()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_36(), null));
 	}
 	
 	@Test
 	public void belongsToAtooDEinDFJoint37() {
 		this.pd = this.setUpObject.pluDep_A_to_DE();
-		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_37()));
+		assertTrue(this.pd.belongsTo(this.setUpObject.dpJoint_37(), null));
 	}
 }

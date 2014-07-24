@@ -246,17 +246,17 @@ public class DFJointTests {
 	//Test isImplied()
 	@Test
 	public void isImpliedTrueFirstToSecondDFJoint() {
-		assertTrue(firstDFJoint.isImplied(secondDFJoint));
+		assertTrue(firstDFJoint.isImplied(secondDFJoint, null));
 	}
 	
 	@Test
 	public void isImpliedTrueSecondToFirstDFJoint() {
-		assertTrue(secondDFJoint.isImplied(firstDFJoint));
+		assertTrue(secondDFJoint.isImplied(firstDFJoint, null));
 	}
 	
 	@Test
 	public void isImpliedFalseDFJointObjectToFirsDFJoint() {
-		assertFalse(dfJoint.isImplied(firstDFJoint));
+		assertFalse(dfJoint.isImplied(firstDFJoint, null));
 	}
 	
 	//Test contains()

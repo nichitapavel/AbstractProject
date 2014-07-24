@@ -86,7 +86,7 @@ public class FunctionalDependency extends PluralDependency {
 	};
 
 	@Override
-	public boolean belongsTo(DFJoint dfJoint) {
+	public boolean belongsTo(DFJoint dfJoint, Relation relation) {
 		DFJoint hiddenDF = dfJoint.getHiddenDF();
 		AttributeJoint equivalentAttrJoint = Normalization.simpleUllman(super.antecedent, hiddenDF);
 		return super.consequent.isContained(equivalentAttrJoint);

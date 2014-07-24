@@ -94,7 +94,7 @@ public abstract class ADependency {
 	
 	public abstract ArrayList<ADependency> toFunctionalDependency(DFJoint dfJoint);
 	
-	public abstract boolean belongsTo(DFJoint dfJoint);
+	public abstract boolean belongsTo(DFJoint dfJoint, Relation relation);
 
 	public abstract boolean is2NF(Relation relation, KeyJoint keyJoint);
 	
