@@ -5,9 +5,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class MenuBar {
 	
@@ -92,6 +92,12 @@ public class MenuBar {
 		mnAnalisis.add(mntmUllman);
 		mnAnalisis.add(mnRecMinimo);
 		mnAnalisis.add(mntmClaveRelacion);
+		mntmAcercaDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame aboutFrame = new About();
+				aboutFrame.setVisible(true);
+			}
+		});
 
 		mnAyuda.add(mntmAcercaDe);
 		
@@ -106,25 +112,6 @@ public class MenuBar {
 		
 		mnRecMinimo.add(mntmRecMinAutomatico);
 		mnRecMinimo.add(mntmREcMinAsistido);
-		
-		mntmAcercaDe.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				/*
-				JFrame aboutFrame = new About();
-				aboutFrame.setContentPane(aboutFrame.getContentPane());
-				aboutFrame.pack();
-				aboutFrame.setVisible(true);
-				*/
-				JFrame aboutFrame = new JFrame();
-				aboutFrame.setSize (1200, 700);
-				aboutFrame.setLocation (50, 50);
-				aboutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				aboutFrame.setTitle ("Pavel");
-				aboutFrame.getContentPane().setBackground(Color.BLUE);
-				aboutFrame.setVisible (true);
-			}
-		});
 	}
 	
 	public JMenuBar getMenuBar() {
