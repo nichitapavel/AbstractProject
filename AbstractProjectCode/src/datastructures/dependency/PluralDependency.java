@@ -80,6 +80,8 @@ public class PluralDependency extends ADependency {
 
 	@Override
 	public boolean belongsTo(DFJoint dfJoint, Relation relation) {
+		try {
+			
 		DFJoint hiddenDF = dfJoint.getHiddenDF().regroupDFJoint();
 
 		//pertenece al conjunto?
@@ -103,7 +105,25 @@ public class PluralDependency extends ADependency {
 					if (substract.equals(this.consequent))
 						return true;
 				}
+		
+		//X -> Y-Z
+		ArrayList<ADependency> sameAntecedentL = new ArrayList<>();
+		for (ADependency fd: hiddenDF) {
+			if (this.antecedent.equals(fd.getAntecedent()))
+				sameAntecedentL.add(fd);
+		}
+		
+		AttributeJoint union = sameAntecedentL.get(0).getConsequent();
+		AttributeJoint substract = relation.getAttrJoint().substract(this.getAttributeJoint());
+		for (ADependency fd : sameAntecedentL) {
+			union = union.union(fd.getConsequent());
+			if (union.equals(substract))
+				return true;
+		}
 
+		}
+		catch (NullPointerException ex) { }
+		
 		return false;
 	}
 
