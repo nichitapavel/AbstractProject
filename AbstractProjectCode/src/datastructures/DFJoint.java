@@ -106,11 +106,12 @@ public class DFJoint implements Iterable<ADependency> {
 	}
 	
 	public DFJoint projectionOnAttributeJoint(AttributeJoint attrJoint) {
+		DFJoint hiddenDF = this.getHiddenDF();
 		DFJoint result = new DFJoint();
 		AttributeJoint oldAntecedent;
 		AttributeJoint oldConsequent;
 		
-		for (ADependency df : this.df) {
+		for (ADependency df : hiddenDF) {
 			if (df.getClass() == new FunctionalDependency().getClass()){
 				oldAntecedent = df.getAntecedent();
 				oldConsequent = df.getConsequent();
@@ -199,14 +200,19 @@ public class DFJoint implements Iterable<ADependency> {
 			AttributeJoint regroupedConsequent = new AttributeJoint(dfI.getConsequent());
 			for (int j = i + 1; j < copyDFJoint.size(); j++) {
 				ADependency dfJ = copyDFJoint.get(j);
-				AttributeJoint antecedentJ = dfJ.getAntecedent();
-				if (antecedentI.equals(antecedentJ)) {
-					regroupedConsequent.addAttributes(dfJ.getConsequent());
-					copyDFJoint.remove(j);
-					j--;
+				if (dfI.getClass() == dfJ.getClass()){
+					AttributeJoint antecedentJ = dfJ.getAntecedent();
+					if (antecedentI.equals(antecedentJ)) {
+						regroupedConsequent.addAttributes(dfJ.getConsequent());
+						copyDFJoint.remove(j);
+						j--;
+					}
 				}
 			}
-			regroupedDFJoint.addDependency(new FunctionalDependency(antecedentI, regroupedConsequent));
+			if (dfI.getClass() == new FunctionalDependency().getClass())
+				regroupedDFJoint.addDependency(new FunctionalDependency(antecedentI, regroupedConsequent));
+			else
+				regroupedDFJoint.addDependency(new PluralDependency(antecedentI, regroupedConsequent));
 			copyDFJoint.remove(i);
 			i--;
 		}
@@ -315,9 +321,10 @@ public class DFJoint implements Iterable<ADependency> {
 	}
 	
 	public boolean isEquivalent(DFJoint dfJoint) {
-		if (this.isImplied(dfJoint) && dfJoint.isImplied(this))
+		DFJoint hiddenDF = this.getHiddenDF();
+		if (hiddenDF.isImplied(dfJoint) && dfJoint.isImplied(hiddenDF))
 			return true;
-		return false;		
+		return false;
 	}
 
 	public ArrayList<ADependency> getNon4NF_DFs(Relation relation) {
