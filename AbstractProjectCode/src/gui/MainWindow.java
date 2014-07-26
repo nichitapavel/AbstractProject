@@ -5,22 +5,23 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Frame;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
 
 import datastructures.Attribute;
+
 import javax.swing.JTextPane;
+
 import java.awt.Font;
 import java.awt.ComponentOrientation;
+
 import javax.swing.JButton;
-import java.awt.event.InputMethodListener;
-import java.awt.event.InputMethodEvent;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainWindow {
 
@@ -66,16 +67,19 @@ public class MainWindow {
 		frmTrabajoFinDe.getContentPane().setPreferredSize(frmTrabajoFinDe.getSize());
 		frmTrabajoFinDe.getContentPane().setLayout(null);
 		
-		txtAttribute = new JTextField();
+		txtAttribute = new JTextField();		
 		txtAttribute.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent arg0) {
-				if (!txtAttribute.getText().isEmpty())
+				arg0.getKeyCode();
+				String txt = txtAttribute.getText();
+				if(!txt.isEmpty())
 					btnaddAttribute.setEnabled(true);
 				else
 					btnaddAttribute.setEnabled(false);
 			}
 		});
+
 		txtAttribute.setBounds(105, 35, 200, 30);
 		txtAttribute.setToolTipText("Escribe el Atributo");
 		txtAttribute.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -93,9 +97,9 @@ public class MainWindow {
 		
 		btnaddAttribute = new JButton("A\u00F1adir Atributo");
 		btnaddAttribute.setBounds(325, 35, 125, 30);
-		btnaddAttribute.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
+		btnaddAttribute.setEnabled(false);
+		btnaddAttribute.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				Attribute attr = new Attribute(txtAttribute.getText());
 				if (!attributes.contains(attr))
 					attributes.add(attr);
@@ -107,7 +111,6 @@ public class MainWindow {
 				btnaddAttribute.setEnabled(false);
 			}
 		});
-		btnaddAttribute.setEnabled(false);
 		frmTrabajoFinDe.getContentPane().add(btnaddAttribute);
 		MenuBar menuBar = new MenuBar();
 		frmTrabajoFinDe.setJMenuBar(menuBar.getMenuBar());
