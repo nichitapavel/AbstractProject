@@ -70,10 +70,8 @@ public class MainWindow {
 		txtAttribute = new JTextField();		
 		txtAttribute.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent arg0) {
-				arg0.getKeyCode();
-				String txt = txtAttribute.getText();
-				if(!txt.isEmpty())
+			public void keyReleased(KeyEvent arg0) {
+				if(!txtAttribute.getText().isEmpty())
 					btnaddAttribute.setEnabled(true);
 				else
 					btnaddAttribute.setEnabled(false);
