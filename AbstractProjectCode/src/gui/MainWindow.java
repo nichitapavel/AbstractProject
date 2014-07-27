@@ -105,8 +105,9 @@ public class MainWindow {
 					//mostrar "este atributo ya existe"
 				}
 
-				txtAttribute.setText(null);
 				btnaddAttribute.setEnabled(false);
+				txtAttribute.setText(null);
+				txtAttribute.requestFocus(true);
 			}
 		});
 		frmTrabajoFinDe.getContentPane().add(btnaddAttribute);
