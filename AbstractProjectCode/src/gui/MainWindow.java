@@ -3,6 +3,7 @@ package gui;
 import javax.swing.JFrame;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.util.ArrayList;
@@ -23,11 +24,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JSeparator;
+import javax.swing.JList;
+
 public class MainWindow {
 
 	private ArrayList<Attribute> attributes;
 	
-	private JFrame frmTrabajoFinDe;
+	private JFrame frmTFG;
 	private JTextField txtAttribute;
 	private JButton btnaddAttribute;
 
@@ -39,7 +43,8 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
-					window.frmTrabajoFinDe.setVisible(true);
+					window.frmTFG.pack();
+					window.frmTFG.setVisible(true);
 					window.attributes = new ArrayList<>();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,20 +57,24 @@ public class MainWindow {
 	 * Create the application.
 	 */
 	public MainWindow() {
-		initialize();
+		frmTFG = new JFrame();
+		initialize(frmTFG);		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param frmTFG TODO
 	 */
-	private void initialize() {
-		frmTrabajoFinDe = new JFrame();
-		frmTrabajoFinDe.setExtendedState(Frame.MAXIMIZED_BOTH);
-		frmTrabajoFinDe.setTitle("DBN&U");
-		frmTrabajoFinDe.setBackground(new Color(240, 240, 240));
-		frmTrabajoFinDe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmTrabajoFinDe.getContentPane().setPreferredSize(frmTrabajoFinDe.getSize());
-		frmTrabajoFinDe.getContentPane().setLayout(null);
+	private void initialize(JFrame frmTFG) {
+		frmTFG.setExtendedState(Frame.MAXIMIZED_BOTH);
+		frmTFG.setTitle("DBN&U");
+		frmTFG.setBackground(new Color(240, 240, 240));
+		frmTFG.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+		Container jPanel = frmTFG.getContentPane();
+		jPanel.setLayout(null);
+		
+		
 		
 		txtAttribute = new JTextField();		
 		txtAttribute.addKeyListener(new KeyAdapter() {
@@ -81,7 +90,7 @@ public class MainWindow {
 		txtAttribute.setBounds(105, 35, 200, 30);
 		txtAttribute.setToolTipText("Escribe el Atributo");
 		txtAttribute.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		frmTrabajoFinDe.getContentPane().add(txtAttribute);
+		jPanel.add(txtAttribute);
 		txtAttribute.setColumns(10);
 		
 		JTextPane txtpnAtributo = new JTextPane();
@@ -91,7 +100,7 @@ public class MainWindow {
 		txtpnAtributo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtpnAtributo.setBackground(new Color(240, 240, 240));
 		txtpnAtributo.setText("Atributo:");
-		frmTrabajoFinDe.getContentPane().add(txtpnAtributo);
+		jPanel.add(txtpnAtributo);
 		
 		btnaddAttribute = new JButton("A\u00F1adir Atributo");
 		btnaddAttribute.setBounds(325, 35, 125, 30);
@@ -110,12 +119,21 @@ public class MainWindow {
 				txtAttribute.requestFocus(true);
 			}
 		});
-		frmTrabajoFinDe.getContentPane().add(btnaddAttribute);
+		jPanel.add(btnaddAttribute);
+		
 		MenuBar menuBar = new MenuBar();
-		frmTrabajoFinDe.setJMenuBar(menuBar.getMenuBar());
+		frmTFG.setJMenuBar(menuBar.getMenuBar());
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 150, 1920, 1);
+		jPanel.add(separator);
+		
+		JList list = new JList();
+		list.setBounds(30, 100, 200, 39);
+		jPanel.add(list);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
-		return frmTrabajoFinDe;
+		return frmTFG;
 	}
 }
