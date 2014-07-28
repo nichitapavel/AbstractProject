@@ -77,8 +77,6 @@ public class MainWindow {
 		Container jPanel = frmTFG.getContentPane();
 		jPanel.setLayout(null);
 		
-		
-		
 		txtAttribute = new JTextField();		
 		txtAttribute.addKeyListener(new KeyAdapter() {
 			@Override
@@ -105,7 +103,7 @@ public class MainWindow {
 		txtpnAtributo.setText("Atributo:");
 		jPanel.add(txtpnAtributo);
 		
-		/*JList list = new JList();
+		/*final JList list = new JList();
 		list.setBounds(30, 100, 200, 39);
 		jPanel.add(list);*/
 		
@@ -133,7 +131,7 @@ public class MainWindow {
 				for (Attribute atr : attributes) {
 					JCheckBox checkBox = new JCheckBox(atr.toString());
 					checkBox.setBounds(width * i + 15, 100, 50, 20);
-					frmTFG.getContentPane().add(checkBox);
+					list.add(checkBox);
 					i++;
 				}
 			}
