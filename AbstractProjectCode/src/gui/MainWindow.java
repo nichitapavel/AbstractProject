@@ -24,6 +24,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JList;
 
@@ -65,7 +66,7 @@ public class MainWindow {
 	 * Initialize the contents of the frame.
 	 * @param frmTFG TODO
 	 */
-	private void initialize(JFrame frmTFG) {
+	private void initialize(final JFrame frmTFG) {
 		frmTFG.setExtendedState(Frame.MAXIMIZED_BOTH);
 		frmTFG.setTitle("DBN&U");
 		frmTFG.setBackground(new Color(240, 240, 240));
@@ -111,7 +112,8 @@ public class MainWindow {
 				if (!attributes.contains(attr))
 					attributes.add(attr);
 				else {
-					//mostrar "este atributo ya existe"
+					String message = "El attributo \"" + attr + "\" ya existe!";
+					JOptionPane.showMessageDialog(frmTFG, message, "Duplicidad de Atributos", JOptionPane.INFORMATION_MESSAGE);
 				}
 
 				btnaddAttribute.setEnabled(false);
