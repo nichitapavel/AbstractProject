@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.JFrame;
 
+import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
@@ -27,6 +28,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JList;
+import javax.swing.JCheckBox;
 
 public class MainWindow {
 
@@ -103,6 +105,10 @@ public class MainWindow {
 		txtpnAtributo.setText("Atributo:");
 		jPanel.add(txtpnAtributo);
 		
+		/*JList list = new JList();
+		list.setBounds(30, 100, 200, 39);
+		jPanel.add(list);*/
+		
 		btnaddAttribute = new JButton("A\u00F1adir Atributo");
 		btnaddAttribute.setBounds(325, 35, 125, 30);
 		btnaddAttribute.setEnabled(false);
@@ -112,13 +118,24 @@ public class MainWindow {
 				if (!attributes.contains(attr))
 					attributes.add(attr);
 				else {
-					String message = "El attributo \"" + attr + "\" ya existe!";
-					JOptionPane.showMessageDialog(frmTFG, message, "Duplicidad de Atributos", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(frmTFG, 
+							"El attributo \"" + attr + "\" ya existe!", 
+							"Duplicidad de Atributos", 
+							JOptionPane.INFORMATION_MESSAGE);
 				}
-
+				
 				btnaddAttribute.setEnabled(false);
 				txtAttribute.setText(null);
 				txtAttribute.requestFocus(true);
+				
+				int width = 60;
+				int i = 0;
+				for (Attribute atr : attributes) {
+					JCheckBox checkBox = new JCheckBox(atr.toString());
+					checkBox.setBounds(width * i + 15, 100, 50, 20);
+					frmTFG.getContentPane().add(checkBox);
+					i++;
+				}
 			}
 		});
 		jPanel.add(btnaddAttribute);
@@ -129,10 +146,6 @@ public class MainWindow {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(0, 150, 1920, 1);
 		jPanel.add(separator);
-		
-		JList list = new JList();
-		list.setBounds(30, 100, 200, 39);
-		jPanel.add(list);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
