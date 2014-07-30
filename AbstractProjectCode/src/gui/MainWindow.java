@@ -2,11 +2,11 @@ package gui;
 
 import javax.swing.JFrame;
 
-import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
@@ -27,7 +27,6 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
-import javax.swing.JList;
 import javax.swing.JCheckBox;
 
 public class MainWindow {
@@ -131,7 +130,8 @@ public class MainWindow {
 				for (Attribute atr : attributes) {
 					JCheckBox checkBox = new JCheckBox(atr.toString());
 					checkBox.setBounds(width * i + 15, 100, 50, 20);
-					list.add(checkBox);
+					frmTFG.repaint();
+					MainWindow.this.frmTFG.add(checkBox);
 					i++;
 				}
 			}
