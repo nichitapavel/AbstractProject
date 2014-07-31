@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Frame;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
