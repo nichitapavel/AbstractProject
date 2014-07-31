@@ -60,6 +60,7 @@ public class RareElement {
 		return this.position;
 	}
 	
+	@Override
 	public String toString() {
 		if (this.attr != null)
 			return "//** " + this.attr.toString() + ", " + this.position + ", "

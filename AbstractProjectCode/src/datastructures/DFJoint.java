@@ -47,6 +47,7 @@ public class DFJoint implements Iterable<ADependency> {
 		return this.name;
 	}
 	
+	@Override
 	public String toString() {
 		String msg = "null";
 		try {
