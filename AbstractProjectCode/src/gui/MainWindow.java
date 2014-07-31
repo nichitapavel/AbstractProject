@@ -28,6 +28,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 
 public class MainWindow {
 
@@ -125,13 +126,16 @@ public class MainWindow {
 				txtAttribute.setText(null);
 				txtAttribute.requestFocus(true);
 				
-				int width = 60;
+				int width = 130;
 				int i = 0;
 				for (Attribute atr : attributes) {
-					JCheckBox checkBox = new JCheckBox(atr.toString());
-					checkBox.setBounds(width * i + 15, 100, 50, 20);
+					JCheckBox checkBoxAnte = new JCheckBox(atr.toString());
+					JCheckBox checkBoxCons = new JCheckBox(atr.toString());
+					checkBoxAnte.setBounds(width + i * 55, 90, 50, 20);
+					checkBoxCons.setBounds(width + i * 55, 115, 50, 20);
+					MainWindow.this.frmTFG.getContentPane().add(checkBoxAnte);
+					MainWindow.this.frmTFG.getContentPane().add(checkBoxCons);
 					frmTFG.repaint();
-					MainWindow.this.frmTFG.add(checkBox);
 					i++;
 				}
 			}
@@ -144,6 +148,16 @@ public class MainWindow {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(0, 150, 1920, 1);
 		jPanel.add(separator);
+		
+		JLabel lblAntecendente = new JLabel("Antecendente :");
+		lblAntecendente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAntecendente.setBounds(20, 90, 100, 20);
+		frmTFG.getContentPane().add(lblAntecendente);
+		
+		JLabel lblConsecuente = new JLabel("Consecuente  :");
+		lblConsecuente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblConsecuente.setBounds(20, 115, 100, 20);
+		frmTFG.getContentPane().add(lblConsecuente);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
