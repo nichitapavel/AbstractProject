@@ -32,6 +32,9 @@ import javax.swing.JLabel;
 public class MainWindow {
 
 	private ArrayList<Attribute> attributes;
+	private ArrayList<JCheckBox> antecedentChckBox;
+	private ArrayList<JCheckBox> consecuentChckBox;
+	int i = 0;
 	
 	private JFrame frmTFG;
 	private JTextField txtAttribute;
@@ -48,6 +51,8 @@ public class MainWindow {
 					window.frmTFG.pack();
 					window.frmTFG.setVisible(true);
 					window.attributes = new ArrayList<>();
+					window.antecedentChckBox = new ArrayList<JCheckBox>();
+					window.consecuentChckBox = new ArrayList<JCheckBox>();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -111,9 +116,26 @@ public class MainWindow {
 		btnaddAttribute.setEnabled(false);
 		btnaddAttribute.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int width = 130;
+				
 				Attribute attr = new Attribute(txtAttribute.getText());
-				if (!attributes.contains(attr))
+				
+				if (!attributes.contains(attr)) {
 					attributes.add(attr);
+					JCheckBox anteChkBox = new JCheckBox(attr.toString()); 
+					anteChkBox.setBounds(width + i * 55, 90, 50, 20);
+					antecedentChckBox.add(anteChkBox);
+					
+					JCheckBox consChkBox = new JCheckBox(attr.toString());
+					consChkBox.setBounds(width + i * 55, 115, 50, 20);
+					consecuentChckBox.add(consChkBox);
+					
+					frmTFG.getContentPane().add(anteChkBox);
+					frmTFG.getContentPane().add(consChkBox);
+					frmTFG.repaint();
+					
+					i++;
+				}
 				else {
 					JOptionPane.showMessageDialog(frmTFG, 
 							"El attributo \"" + attr + "\" ya existe!", 
@@ -124,19 +146,6 @@ public class MainWindow {
 				btnaddAttribute.setEnabled(false);
 				txtAttribute.setText(null);
 				txtAttribute.requestFocus(true);
-				
-				int width = 130;
-				int i = 0;
-				for (Attribute atr : attributes) {
-					JCheckBox checkBoxAnte = new JCheckBox(atr.toString());
-					JCheckBox checkBoxCons = new JCheckBox(atr.toString());
-					checkBoxAnte.setBounds(width + i * 55, 90, 50, 20);
-					checkBoxCons.setBounds(width + i * 55, 115, 50, 20);
-					MainWindow.this.frmTFG.getContentPane().add(checkBoxAnte);
-					MainWindow.this.frmTFG.getContentPane().add(checkBoxCons);
-					frmTFG.repaint();
-					i++;
-				}
 			}
 		});
 		jPanel.add(btnaddAttribute);
