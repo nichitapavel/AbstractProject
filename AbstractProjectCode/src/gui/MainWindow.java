@@ -28,6 +28,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JEditorPane;
 
 public class MainWindow {
 
@@ -154,7 +155,7 @@ public class MainWindow {
 		frmTFG.setJMenuBar(menuBar.getMenuBar());
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 150, 1920, 1);
+		separator.setBounds(0, 180, 1920, 1);
 		jPanel.add(separator);
 		
 		JLabel lblAntecendente = new JLabel("Antecendente :");
@@ -166,6 +167,20 @@ public class MainWindow {
 		lblConsecuente.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblConsecuente.setBounds(20, 115, 100, 20);
 		frmTFG.getContentPane().add(lblConsecuente);
+		
+		JButton btnAddFuncDep = new JButton("A\u00F1adir Dependencia Funcional");
+		btnAddFuncDep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAddFuncDep.setBounds(140, 140, 200, 30);
+		btnAddFuncDep.setEnabled(false);
+		frmTFG.getContentPane().add(btnAddFuncDep);
+		
+		JButton btnAddPlurDep = new JButton("A\u00F1adir Dependencia Plural");
+		btnAddPlurDep.setBounds(373, 140, 200, 30);
+		btnAddPlurDep.setEnabled(false);
+		frmTFG.getContentPane().add(btnAddPlurDep);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
