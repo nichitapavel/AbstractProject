@@ -86,6 +86,7 @@ public abstract class ADependency {
 
 	public abstract void clearTrivialElements();
 	
+	@Override
 	public abstract String toString();
 	
 	public abstract int hashCode();

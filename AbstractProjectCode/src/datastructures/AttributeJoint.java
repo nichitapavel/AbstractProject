@@ -53,6 +53,7 @@ public class AttributeJoint implements Iterable<Attribute> {
 	}
 	
 	//Object to String
+	@Override
 	public String toString() {
 		
 		if (this.joint == null || this.joint.size() == 0)

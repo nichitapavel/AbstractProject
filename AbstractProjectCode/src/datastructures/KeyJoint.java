@@ -19,6 +19,7 @@ public class KeyJoint implements Iterable<AttributeJoint> {
 	}
 	
 	//toString()
+	@Override
 	public String toString() {
 		String msg = "null";
 		
