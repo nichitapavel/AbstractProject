@@ -39,6 +39,8 @@ import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.Panel;
+import java.awt.BorderLayout;
 
 public class MainWindow {
 
@@ -51,6 +53,7 @@ public class MainWindow {
 	private JFrame frmTFG;
 	private JTextField txtAttribute;
 	private JButton btnaddAttribute;
+	private final JPanel panelDep = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -204,9 +207,6 @@ public class MainWindow {
 				dependencys.add(new PluralDependency(antecendent, consecuent));
 			}
 		});
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
-		chckbxNewCheckBox.setBounds(10, 178, 97, 23);
 
 		JTextPane txtpnAtributo = new JTextPane();
 		txtpnAtributo.setBounds(10, 10, 60, 25);
@@ -224,13 +224,20 @@ public class MainWindow {
 		panelAttr.add(lblConsecuente);
 		panelAttr.add(btnAddFuncDep);
 		panelAttr.add(btnAddPlurDep);
-		panelAttr.add(chckbxNewCheckBox);
 		
 		frmTFG.getContentPane().add(panelAttr);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(0, 150, 1920, 1);
 		panelAttr.add(separator);
+		
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
+		chckbxNewCheckBox.setBounds(10, 178, 97, 23);
+		panelDep.setBounds(0, 163, 434, 66);
+		panelAttr.add(panelDep);
+		
+		panelDep.add(chckbxNewCheckBox);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
