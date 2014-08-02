@@ -3,9 +3,12 @@ package gui;
 import javax.swing.JFrame;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.LayoutManager;
 import java.util.ArrayList;
 
 import javax.swing.JTextField;
@@ -29,10 +32,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class MainWindow {
 
@@ -84,11 +90,11 @@ public class MainWindow {
 		frmTFG.setTitle("DBN&U");
 		frmTFG.setBackground(new Color(240, 240, 240));
 		frmTFG.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				
-		Container jPanel = frmTFG.getContentPane();
-		jPanel.setLayout(null);
+		
+		final JPanel panelAttr = new JPanel();
 		
 		txtAttribute = new JTextField();		
+		txtAttribute.setBounds(75, 10, 140, 25);
 		txtAttribute.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
@@ -98,28 +104,16 @@ public class MainWindow {
 					btnaddAttribute.setEnabled(false);
 			}
 		});
-
-		txtAttribute.setBounds(105, 35, 200, 30);
 		txtAttribute.setToolTipText("Escribe el Atributo");
 		txtAttribute.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		jPanel.add(txtAttribute);
 		txtAttribute.setColumns(10);
-		
-		JTextPane txtpnAtributo = new JTextPane();
-		txtpnAtributo.setBounds(20, 40, 80, 30);
-		txtpnAtributo.setEditable(false);
-		txtpnAtributo.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		txtpnAtributo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		txtpnAtributo.setBackground(new Color(240, 240, 240));
-		txtpnAtributo.setText("Atributo:");
-		jPanel.add(txtpnAtributo);
 		
 		/*final JList list = new JList();
 		list.setBounds(30, 100, 200, 39);
 		jPanel.add(list);*/
 		
 		btnaddAttribute = new JButton("A\u00F1adir Atributo");
-		btnaddAttribute.setBounds(325, 35, 125, 30);
+		btnaddAttribute.setBounds(220, 10, 150, 25);
 		btnaddAttribute.setEnabled(false);
 		btnaddAttribute.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -130,25 +124,16 @@ public class MainWindow {
 				if (!attributes.contains(attr)) {
 					attributes.add(attr);
 					JCheckBox anteChkBox = new JCheckBox(attr.toString()); 
-					anteChkBox.setBounds(width + i * 55, 90, 50, 20);
-					
-					anteChkBox.addActionListener(new ActionListener() {
-						
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							
-						}
-					});
-					
+					anteChkBox.setBounds(width + i * 55, 50, 50, 20);				
 					antecedentChckBox.add(anteChkBox);
 					
 					JCheckBox consChkBox = new JCheckBox(attr.toString());
-					consChkBox.setBounds(width + i * 55, 115, 50, 20);
+					consChkBox.setBounds(width + i * 55, 70, 50, 20);
 					consecuentChckBox.add(consChkBox);
 					
-					frmTFG.getContentPane().add(anteChkBox);
-					frmTFG.getContentPane().add(consChkBox);
-					frmTFG.repaint();
+					panelAttr.add(anteChkBox);
+					panelAttr.add(consChkBox);
+					panelAttr.repaint();
 					
 					i++;
 				}
@@ -164,26 +149,20 @@ public class MainWindow {
 				txtAttribute.requestFocus(true);
 			}
 		});
-		jPanel.add(btnaddAttribute);
 		
 		MenuBar menuBar = new MenuBar();
 		frmTFG.setJMenuBar(menuBar.getMenuBar());
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 180, 1920, 1);
-		jPanel.add(separator);
-		
 		JLabel lblAntecendente = new JLabel("Antecendente :");
+		lblAntecendente.setBounds(10, 50, 100, 20);
 		lblAntecendente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAntecendente.setBounds(20, 90, 100, 20);
-		frmTFG.getContentPane().add(lblAntecendente);
 		
 		JLabel lblConsecuente = new JLabel("Consecuente  :");
+		lblConsecuente.setBounds(10, 70, 100, 20);
 		lblConsecuente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblConsecuente.setBounds(20, 115, 100, 20);
-		frmTFG.getContentPane().add(lblConsecuente);
 		
 		JButton btnAddFuncDep = new JButton("A\u00F1adir Dependencia Funcional");
+		btnAddFuncDep.setBounds(110, 100, 250, 25);
 		btnAddFuncDep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AttributeJoint antecendent = new AttributeJoint();
@@ -203,10 +182,9 @@ public class MainWindow {
 				dependencys.add(new FunctionalDependency(antecendent, consecuent));
 			}
 		});
-		btnAddFuncDep.setBounds(140, 140, 200, 30);
-		frmTFG.getContentPane().add(btnAddFuncDep);
 		
 		JButton btnAddPlurDep = new JButton("A\u00F1adir Dependencia Plural");
+		btnAddPlurDep.setBounds(380, 100, 250, 25);
 		btnAddPlurDep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AttributeJoint antecendent = new AttributeJoint();
@@ -226,12 +204,33 @@ public class MainWindow {
 				dependencys.add(new PluralDependency(antecendent, consecuent));
 			}
 		});
-		btnAddPlurDep.setBounds(373, 140, 200, 30);
-		frmTFG.getContentPane().add(btnAddPlurDep);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
-		chckbxNewCheckBox.setBounds(20, 198, 97, 23);
-		frmTFG.getContentPane().add(chckbxNewCheckBox);
+		chckbxNewCheckBox.setBounds(10, 178, 97, 23);
+
+		JTextPane txtpnAtributo = new JTextPane();
+		txtpnAtributo.setBounds(10, 10, 60, 25);
+		txtpnAtributo.setEditable(false);
+		txtpnAtributo.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtpnAtributo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		txtpnAtributo.setBackground(new Color(240, 240, 240));
+		txtpnAtributo.setText("Atributo:");
+		
+		panelAttr.setLayout(null);
+		panelAttr.add(txtpnAtributo);
+		panelAttr.add(txtAttribute);
+		panelAttr.add(btnaddAttribute);
+		panelAttr.add(lblAntecendente);
+		panelAttr.add(lblConsecuente);
+		panelAttr.add(btnAddFuncDep);
+		panelAttr.add(btnAddPlurDep);
+		panelAttr.add(chckbxNewCheckBox);
+		
+		frmTFG.getContentPane().add(panelAttr);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 150, 1920, 1);
+		panelAttr.add(separator);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
