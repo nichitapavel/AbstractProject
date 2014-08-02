@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 
 import datastructures.Attribute;
+import datastructures.AttributeJoint;
+import datastructures.dependency.ADependency;
+import datastructures.dependency.FunctionalDependency;
+import datastructures.dependency.PluralDependency;
 
 import javax.swing.JTextPane;
 
@@ -33,6 +37,7 @@ import javax.swing.JEditorPane;
 public class MainWindow {
 
 	private ArrayList<Attribute> attributes;
+	private ArrayList<ADependency> dependencys;
 	private ArrayList<JCheckBox> antecedentChckBox;
 	private ArrayList<JCheckBox> consecuentChckBox;
 	int i = 0;
@@ -54,6 +59,7 @@ public class MainWindow {
 					window.attributes = new ArrayList<>();
 					window.antecedentChckBox = new ArrayList<JCheckBox>();
 					window.consecuentChckBox = new ArrayList<JCheckBox>();
+					window.dependencys = new ArrayList<ADependency>();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -125,6 +131,15 @@ public class MainWindow {
 					attributes.add(attr);
 					JCheckBox anteChkBox = new JCheckBox(attr.toString()); 
 					anteChkBox.setBounds(width + i * 55, 90, 50, 20);
+					
+					anteChkBox.addActionListener(new ActionListener() {
+						
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							
+						}
+					});
+					
 					antecedentChckBox.add(anteChkBox);
 					
 					JCheckBox consChkBox = new JCheckBox(attr.toString());
@@ -171,16 +186,52 @@ public class MainWindow {
 		JButton btnAddFuncDep = new JButton("A\u00F1adir Dependencia Funcional");
 		btnAddFuncDep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				AttributeJoint antecendent = new AttributeJoint();
+				AttributeJoint consecuent = new AttributeJoint();
+				for (JCheckBox chkBoxAttr : antecedentChckBox)
+					if (chkBoxAttr.isSelected()) {
+						antecendent.addAttributes(new Attribute(chkBoxAttr.getText()));
+						chkBoxAttr.setSelected(false);
+					}
+				
+				for (JCheckBox chkBoxAttr : consecuentChckBox)
+					if (chkBoxAttr.isSelected()) {
+						consecuent.addAttributes(new Attribute(chkBoxAttr.getText()));
+						chkBoxAttr.setSelected(false);
+					}
+				
+				dependencys.add(new FunctionalDependency(antecendent, consecuent));
 			}
 		});
 		btnAddFuncDep.setBounds(140, 140, 200, 30);
-		btnAddFuncDep.setEnabled(false);
 		frmTFG.getContentPane().add(btnAddFuncDep);
 		
 		JButton btnAddPlurDep = new JButton("A\u00F1adir Dependencia Plural");
+		btnAddPlurDep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AttributeJoint antecendent = new AttributeJoint();
+				AttributeJoint consecuent = new AttributeJoint();
+				for (JCheckBox chkBoxAttr : antecedentChckBox)
+					if (chkBoxAttr.isSelected()) {
+						antecendent.addAttributes(new Attribute(chkBoxAttr.getText()));
+						chkBoxAttr.setSelected(false);
+					}
+				
+				for (JCheckBox chkBoxAttr : consecuentChckBox)
+					if (chkBoxAttr.isSelected()) {
+						consecuent.addAttributes(new Attribute(chkBoxAttr.getText()));
+						chkBoxAttr.setSelected(false);
+					}
+				
+				dependencys.add(new PluralDependency(antecendent, consecuent));
+			}
+		});
 		btnAddPlurDep.setBounds(373, 140, 200, 30);
-		btnAddPlurDep.setEnabled(false);
 		frmTFG.getContentPane().add(btnAddPlurDep);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
+		chckbxNewCheckBox.setBounds(20, 198, 97, 23);
+		frmTFG.getContentPane().add(chckbxNewCheckBox);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
