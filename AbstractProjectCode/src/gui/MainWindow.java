@@ -218,8 +218,7 @@ public class MainWindow {
 					antecedentChckBox.add(dfChkBox);
 					
 					panelDep.add(dfChkBox);
-					panelDep.setPreferredSize(new Dimension(1920, panelDepSize+height*iDep));
-					frmTFG.repaint();
+					panelDep.setSize(new Dimension(1920, panelDepSize + height * iDep));
 					panelDep.repaint();
 					
 					dependencys.add(new FunctionalDependency(antecendent, consecuent));
