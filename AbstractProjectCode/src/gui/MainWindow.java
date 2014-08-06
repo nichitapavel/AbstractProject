@@ -280,7 +280,7 @@ public class MainWindow {
 		txtNameDEP.setBounds(240, 10, 140, 25);
 		txtNameDEP.setColumns(10);
 		
-		JButton btnAddDEP = new JButton("Añadir Conjunto de Dependencias");
+		JButton btnAddDEP = new JButton("A\u00F1adir Conjunto de Dependencias");
 		btnAddDEP.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddDEP.setBounds(385, 10, 270, 25);
 		
