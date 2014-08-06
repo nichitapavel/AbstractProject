@@ -50,6 +50,7 @@ public class MainWindow {
 	//paneles
 	JPanel panelAttr = new JPanel();
 	JPanel panelDep = new JPanel();
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -271,6 +272,22 @@ public class MainWindow {
 		
 		//anadir el panel de dependencias a la ventana
 		frmTFG.getContentPane().add(panelDep, BorderLayout.CENTER);
+		
+		JLabel lblNewLabel = new JLabel("Nombre Conjunto de Dependencias:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel.setBounds(10, 10, 230, 25);
+		panelDep.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		textField.setBounds(240, 10, 140, 25);
+		panelDep.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Añadir Conjunto de Dependencias");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setBounds(385, 10, 270, 25);
+		panelDep.add(btnNewButton);
 		
 	}
 	
