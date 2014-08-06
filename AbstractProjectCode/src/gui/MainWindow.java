@@ -50,7 +50,7 @@ public class MainWindow {
 	//paneles
 	JPanel panelAttr = new JPanel();
 	JPanel panelDep = new JPanel();
-	private JTextField textField;
+	JPanel panelDEP = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -194,7 +194,7 @@ public class MainWindow {
 		//evento al anadir una dependencia funcional
 		btnAddFuncDep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int height = 25;
+				int height = 40;
 
 				AttributeJoint antecendent = new AttributeJoint();
 				AttributeJoint consecuent = new AttributeJoint();
@@ -214,13 +214,16 @@ public class MainWindow {
 				
 				if (!dependencys.contains(newDep)) {
 					dependencys.add(newDep);
-					JCheckBox dfChkBox = new JCheckBox(newDep.toString()); 
-					dfChkBox.setBounds(50, height + iDep * 25, 100, 20);				
+					JCheckBox dfChkBox = new JCheckBox(newDep.toString());
+					dfChkBox.setBounds(20, height + iDep * 25, 200, 20);				
 					antecedentChckBox.add(dfChkBox);
 					
 					panelDep.add(dfChkBox);
-					panelDep.setSize(new Dimension(1920, panelDepSize + height * iDep));
+					panelDep.setSize(new Dimension(1920, panelDepSize + 25 * iDep));
 					panelDep.repaint();
+					
+					panelDEP.setLocation(0, 150 + panelDep.getHeight());
+					panelDEP.repaint();
 					
 					dependencys.add(new FunctionalDependency(antecendent, consecuent));
 					
@@ -260,35 +263,51 @@ public class MainWindow {
 		//inicializar el panel de las dependencias
 		panelDep.setSize(new Dimension(1920, panelDepSize));
 		panelDep.setLocation(0, 150);
-		//panelDep.setBackground(new Color(150, 90, 200));
+		//panelDep.setBackground(new Color(15, 90, 100));
 		panelDep.setLayout(null);
 		
-		//
-		JSeparator separator = new JSeparator();
-		separator.setBounds(0, 0, 1920, 1);
+		//creando los elementos del panel
+		JSeparator separatorDep = new JSeparator();
+		separatorDep.setBounds(0, 0, 1920, 1);
 		
-		//
-		panelDep.add(separator);
+		JLabel lblNameDEP = new JLabel("Nombre Conjunto de Dependencias:");
+		lblNameDEP.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNameDEP.setBounds(10, 10, 230, 25);
+		
+		JTextField txtNameDEP = new JTextField();
+		txtNameDEP = new JTextField();
+		txtNameDEP.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		txtNameDEP.setBounds(240, 10, 140, 25);
+		txtNameDEP.setColumns(10);
+		
+		JButton btnAddDEP = new JButton("Añadir Conjunto de Dependencias");
+		btnAddDEP.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAddDEP.setBounds(385, 10, 270, 25);
+		
+		//añadiendo los elementos de panel de dependencias
+		panelDep.add(lblNameDEP);		
+		panelDep.add(txtNameDEP);
+		panelDep.add(btnAddDEP);
+		panelDep.add(separatorDep);
 		
 		//anadir el panel de dependencias a la ventana
 		frmTFG.getContentPane().add(panelDep, BorderLayout.CENTER);
 		
-		JLabel lblNewLabel = new JLabel("Nombre Conjunto de Dependencias:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 10, 230, 25);
-		panelDep.add(lblNewLabel);
+		//inicializar el panel de las dependencias
+		panelDEP.setSize(new Dimension(1920, 150));
+		panelDEP.setLocation(0, 250);
+		//panelDEP.setBackground(new Color(150, 90, 200));
+		panelDEP.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textField.setBounds(240, 10, 140, 25);
-		panelDep.add(textField);
-		textField.setColumns(10);
+		//Creando los elementos de panel de conjunto depencias
+		JSeparator separatorDEP = new JSeparator();
+		separatorDEP.setBounds(0, 0, 1920, 1);
+
+		//añadiendo los elementos de panel de conjunto depencias
+		panelDEP.add(separatorDEP);
 		
-		JButton btnNewButton = new JButton("Añadir Conjunto de Dependencias");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(385, 10, 270, 25);
-		panelDep.add(btnNewButton);
-		
+		//anadir el panel de conjunto de dependencias a la ventana
+		frmTFG.getContentPane().add(panelDEP, BorderLayout.CENTER);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
