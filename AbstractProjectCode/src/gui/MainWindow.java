@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 import datastructures.Attribute;
 import datastructures.AttributeJoint;
-import datastructures.dependency.ADependency;
+import datastructures.DFJoint;
 import datastructures.dependency.FunctionalDependency;
 import datastructures.dependency.PluralDependency;
 
@@ -31,14 +31,16 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
 
 public class MainWindow {
 
 	private ArrayList<Attribute> attributes;
-	private ArrayList<ADependency> dependencys;
+	private ArrayList<DepCheckBox> dependencys;
 	private ArrayList<JCheckBox> antecedentChckBox;
 	private ArrayList<JCheckBox> consecuentChckBox;
+	private ArrayList<JCheckBox> dfJointsChkcBox;
 	int iAttr = 0;
 	int iDep = 0;
 	int panelDepSize = 100;
@@ -65,7 +67,8 @@ public class MainWindow {
 					window.attributes = new ArrayList<>();
 					window.antecedentChckBox = new ArrayList<JCheckBox>();
 					window.consecuentChckBox = new ArrayList<JCheckBox>();
-					window.dependencys = new ArrayList<ADependency>();
+					window.dependencys = new ArrayList<DepCheckBox>();
+					window.dfJointsChkcBox = new ArrayList<JCheckBox>();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -145,6 +148,10 @@ public class MainWindow {
 		//añadiendo el panel de attributos a la ventana
 		frmTFG.getContentPane().add(panelAttr, BorderLayout.CENTER);
 		
+		/*
+		 * eventos panel de atributos
+		 */
+		
 		//evento para activar y desactivar el boton de anadir attributos
 		txtAttribute.addKeyListener(new KeyAdapter() {
 			@Override
@@ -210,31 +217,29 @@ public class MainWindow {
 						chkBoxAttr.setSelected(false);
 					}
 				
-				ADependency newDep = new FunctionalDependency(antecendent, consecuent);
+				DepCheckBox depChckBox = new DepCheckBox(dependencys.size(), new FunctionalDependency(antecendent, consecuent));
 				
-				if (!dependencys.contains(newDep)) {
-					dependencys.add(newDep);
-					JCheckBox dfChkBox = new JCheckBox(newDep.toString());
-					dfChkBox.setBounds(20, height + iDep * 25, 200, 20);				
-					antecedentChckBox.add(dfChkBox);
+				if (!dependencys.contains(depChckBox.getDP())) {
+					depChckBox.getChckBox().setBounds(20, height + iDep * 25, 200, 20);				
+					//antecedentChckBox.add(dfChkBox);
 					
-					panelDep.add(dfChkBox);
+					panelDep.add(depChckBox.getChckBox());
 					panelDep.setSize(new Dimension(1920, panelDepSize + 25 * iDep));
 					panelDep.repaint();
 					
 					panelDEP.setLocation(0, 150 + panelDep.getHeight());
 					panelDEP.repaint();
 					
-					dependencys.add(new FunctionalDependency(antecendent, consecuent));
+					dependencys.add(depChckBox);
 					
 					iDep++;
 				}
 				else {
 					JOptionPane.showMessageDialog(frmTFG, 
-							"La dependencia funcional \"" + newDep + "\" ya existe!", 
+							"La dependencia funcional \"" + depChckBox.getDP() + "\" ya existe!", 
 							"Duplicidad de dependencias", 
 							JOptionPane.INFORMATION_MESSAGE);
-					newDep = null;
+					depChckBox = null;
 				}
 			}
 		});
@@ -256,9 +261,13 @@ public class MainWindow {
 						chkBoxAttr.setSelected(false);
 					}
 				
-				dependencys.add(new PluralDependency(antecendent, consecuent));
+				//dependencys.add(new PluralDependency(antecendent, consecuent));
 			}
 		});
+		
+		/*
+		 * Panel de depencias
+		 */
 		
 		//inicializar el panel de las dependencias
 		panelDep.setSize(new Dimension(1920, panelDepSize));
@@ -274,8 +283,7 @@ public class MainWindow {
 		lblNameDEP.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNameDEP.setBounds(10, 10, 230, 25);
 		
-		JTextField txtNameDEP = new JTextField();
-		txtNameDEP = new JTextField();
+		final JTextField txtNameDEP = new JTextField();
 		txtNameDEP.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		txtNameDEP.setBounds(240, 10, 140, 25);
 		txtNameDEP.setColumns(10);
@@ -293,7 +301,23 @@ public class MainWindow {
 		//anadir el panel de dependencias a la ventana
 		frmTFG.getContentPane().add(panelDep, BorderLayout.CENTER);
 		
-		//inicializar el panel de las dependencias
+		/*
+		 * eventos botones panel de dependencias
+		 */
+		
+		//anadiendo conjuntos de dependencias
+		btnAddDEP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DFJoint dfJoint = new DFJoint();
+				dfJoint.setName(txtNameDEP.getText());
+			}
+		});
+		
+		/*
+		 * Panel de Conjuntos de dependencias
+		 */
+		
+		//inicializar el panel de lasconjuntos de dependencias
 		panelDEP.setSize(new Dimension(1920, 150));
 		panelDEP.setLocation(0, 250);
 		//panelDEP.setBackground(new Color(150, 90, 200));
@@ -301,8 +325,9 @@ public class MainWindow {
 		
 		//Creando los elementos de panel de conjunto depencias
 		JSeparator separatorDEP = new JSeparator();
-		separatorDEP.setBounds(0, 0, 1920, 1);
-
+		separatorDEP.setBounds(0, 0, 1920, 1);	
+		
+		
 		//añadiendo los elementos de panel de conjunto depencias
 		panelDEP.add(separatorDEP);
 		
