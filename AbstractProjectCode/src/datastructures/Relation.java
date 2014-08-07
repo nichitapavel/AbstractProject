@@ -7,6 +7,7 @@ import normalization.Normalization;
 
 
 public class Relation {
+	private String name;
 	private AttributeJoint attrJoint;
 	private DFJoint dfJoint;
 
@@ -21,6 +22,10 @@ public class Relation {
 		return this.attrJoint;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public DFJoint getDFJoint() {
 		return this.dfJoint;
 	}
@@ -31,6 +36,10 @@ public class Relation {
 
 	public void setDFJoint(DFJoint dfJoint) {
 		this.dfJoint = new DFJoint(dfJoint);
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public boolean isBCNF() {
