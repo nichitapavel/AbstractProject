@@ -34,6 +34,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
+import java.awt.Rectangle;
 
 public class MainWindow {
 
@@ -42,7 +43,9 @@ public class MainWindow {
 	private ArrayList<ADependency> dependencys;
 	private ArrayList<JCheckBox> antecedentChckBox;
 	private ArrayList<JCheckBox> consecuentChckBox;
-	private ArrayList<JCheckBox> dfJointsChkcBox;
+	private ArrayList<DFJointCheckBox> dfJointsChkcBox;
+	private ArrayList<DFJoint> dfJoints;
+	
 	int iAttr = 0;
 	int iDep = 0;
 	int iDEP = 0;
@@ -57,7 +60,7 @@ public class MainWindow {
 	JPanel panelAttr = new JPanel();
 	JPanel panelDep = new JPanel();
 	JPanel panelDEP = new JPanel();
-	private JTextField txtNameR;
+	JPanel panelRel = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -74,7 +77,8 @@ public class MainWindow {
 					window.consecuentChckBox = new ArrayList<JCheckBox>();
 					window.dependencysChckBox = new ArrayList<DepCheckBox>();
 					window.dependencys = new ArrayList<ADependency>();
-					window.dfJointsChkcBox = new ArrayList<JCheckBox>();
+					window.dfJointsChkcBox = new ArrayList<DFJointCheckBox>();
+					window.dfJoints = new ArrayList<DFJoint>();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -248,6 +252,9 @@ public class MainWindow {
 					panelDEP.setLocation(0, 150 + panelDep.getHeight());
 					panelDEP.repaint();
 					
+					panelRel.setLocation(0, 150 + panelDep.getHeight() + panelDEP.getHeight());
+					panelRel.repaint();
+					
 					dependencys.add(dep);
 					dependencysChckBox.add(depChckBox);
 					
@@ -295,6 +302,9 @@ public class MainWindow {
 					
 					panelDEP.setLocation(0, 150 + panelDep.getHeight());
 					panelDEP.repaint();
+					
+					panelRel.setLocation(0, 150 + panelDep.getHeight() + panelDEP.getHeight());
+					panelRel.repaint();
 					
 					dependencys.add(dep);
 					dependencysChckBox.add(depChckBox);
@@ -366,22 +376,36 @@ public class MainWindow {
 					}
 				}
 				
-				txtNameDEP.setText(null);
-								
-				String name = dfJoint.getName() + ": ";
-				if (dfJoint.getSize() != 0)
-					name += dfJoint.getDFJoint();
-				else
-					name += "Sin dependencias funcionales";				
-				
-				JCheckBox chckBox = new JCheckBox(name);
-				chckBox.setBounds(15, height + iDEP * 25, 1080, 25);
-								
-				panelDEP.add(chckBox);
-				panelDEP.setSize(1920, panelDEPSize + iDEP * 25);
-				
-				panelDEP.repaint();
-				iDEP++;
+				if (!dfJoints.contains(dfJoint)) {
+					txtNameDEP.setText(null);
+					
+					String name = dfJoint.getName() + ": ";
+					if (dfJoint.getSize() != 0)
+						name += dfJoint.getDFJoint();
+					else
+						name += "Sin dependencias funcionales";				
+					
+					DFJointCheckBox chckBox = new DFJointCheckBox(dfJoints.size(), dfJoint, name);
+					chckBox.getChckBox().setBounds(15, height + iDEP * 25, 1080, 25);
+									
+					panelDEP.add(chckBox.getChckBox());
+					panelDEP.setSize(1920, panelDEPSize + iDEP * 25);
+					
+					panelRel.setLocation(0, 150 + panelDep.getHeight() + panelDEP.getHeight());
+					panelRel.repaint();
+					
+					
+					dfJointsChkcBox.add(chckBox);
+					
+					panelDEP.repaint();
+					iDEP++;
+				}
+				else {
+					JOptionPane.showMessageDialog(frmTFG, 
+							"El conjunto de dependencias \"" + dfJoint + "\" ya existe!", 
+							"Duplicidad de conjuntos de dependencias", 
+							JOptionPane.INFORMATION_MESSAGE);
+				}				
 			}
 		});
 		
@@ -389,7 +413,7 @@ public class MainWindow {
 		 * Panel de Conjuntos de dependencias
 		 */
 		
-		//inicializar el panel de lasconjuntos de dependencias
+		//inicializar el panel de los conjuntos de dependencias
 		panelDEP.setSize(new Dimension(1920, panelDEPSize));
 		panelDEP.setLocation(0, 250);
 		//panelDEP.setBackground(new Color(150, 90, 200));
@@ -399,27 +423,53 @@ public class MainWindow {
 		JSeparator separatorDEP = new JSeparator();
 		separatorDEP.setBounds(0, 0, 1920, 1);	
 		
-		
-		//añadiendo los elementos de panel de conjunto depencias
-		panelDEP.add(separatorDEP);
-		
-		//anadir el panel de conjunto de dependencias a la ventana
-		frmTFG.getContentPane().add(panelDEP, BorderLayout.CENTER);
-		
 		JLabel lblNameR = new JLabel("Nombre Relación:");
 		lblNameR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNameR.setBounds(10, 10, 110, 25);
-		panelDEP.add(lblNameR);
 		
-		txtNameR = new JTextField();
+		JTextField txtNameR = new JTextField();
 		txtNameR.setBounds(125, 10, 140, 25);
-		panelDEP.add(txtNameR);
 		txtNameR.setColumns(10);
 		
 		JButton btnAddR = new JButton("Añadir Relación");
 		btnAddR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddR.setBounds(270, 10, 140, 25);
+		
+		//añadiendo los elementos de panel de conjunto depencias
+		panelDEP.add(separatorDEP);
+		panelDEP.add(lblNameR);
+		panelDEP.add(txtNameR);
 		panelDEP.add(btnAddR);
+		
+		//anadir el panel de conjunto de dependencias a la ventana
+		frmTFG.getContentPane().add(panelDEP, BorderLayout.CENTER);
+		
+			
+		/*
+		 * Panel de Relacione
+		 */
+		
+		// inicializando el panel de relaciones
+		panelRel = new JPanel();
+		panelRel.setSize(new Dimension(1920, 100));
+		panelRel.setLocation(0, 350);
+		panelRel.setLayout(null);
+		
+		//creando los componentes del panel de relaciones
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 0, 1920, 1);
+		
+		JLabel label = new JLabel("Relaciones");
+		label.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		label.setBounds(new Rectangle(10, 10, 100, 25));
+		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		//anadiendo los componentes al panel de relaciones
+		panelRel.add(separator);
+		panelRel.add(label);
+		
+		//anadiendo el panel al ContentPane
+		frmTFG.getContentPane().add(panelRel);
 	}
 	
 	public JFrame getFrmTrabajoFinDe() {
