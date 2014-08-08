@@ -1,10 +1,9 @@
 package gui;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -13,18 +12,18 @@ import datastructures.DFJoint;
 public class DFJointCheckBox implements ChangeListener, ActionListener {
 	private int position;
 	private DFJoint dfJoint;
-	private JCheckBox chckBox;
+	private JRadioButton rdButton;
 	
 	public DFJointCheckBox() {
 		this.position = 0;
 		this.dfJoint = new DFJoint();
-		this.chckBox = new JCheckBox();
+		this.rdButton = new JRadioButton();
 	}
 	
 	public DFJointCheckBox(int pos, DFJoint dfJoint, String name) {
 		this.position = pos;
 		this.dfJoint = dfJoint;
-		this.chckBox = new JCheckBox(name);
+		this.rdButton = new JRadioButton(name);
 	}
 
 	public int getPosition() {
@@ -43,12 +42,12 @@ public class DFJointCheckBox implements ChangeListener, ActionListener {
 		this.dfJoint = dfJoint;
 	}
 
-	public JCheckBox getChckBox() {
-		return chckBox;
+	public JRadioButton getRdButton() {
+		return rdButton;
 	}
 
-	public void setChckBox(JCheckBox chckBox) {
-		this.chckBox = chckBox;
+	public void setRdButton(JRadioButton chckBox) {
+		this.rdButton = chckBox;
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public class DFJointCheckBox implements ChangeListener, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String comp = e.getActionCommand();
+		
 	}
 	
 	
