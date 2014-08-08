@@ -202,7 +202,11 @@ public class MainWindow {
 					
 					panelDEP.add(rltChkBox);
 					
+					panelDEP.setSize(1920, 50 + 20);
 					panelDEP.repaint();
+					
+					panelRel.setLocation(0, panelAttr.getHeight() + panelDep.getHeight() + panelDEP.getHeight());
+					panelRel.repaint();
 					
 					iAttr++;
 				}
@@ -413,7 +417,7 @@ public class MainWindow {
 		 */
 		
 		//inicializar el panel de los conjuntos de dependencias
-		panelDEP.setSize(new Dimension(1920, 100));
+		panelDEP.setSize(new Dimension(1920, 50));
 		panelDEP.setLocation(0, 200);
 		//panelDEP.setBackground(new Color(150, 90, 200));
 		panelDEP.setLayout(null);
@@ -451,7 +455,7 @@ public class MainWindow {
 		// inicializando el panel de relaciones
 		panelRel = new JPanel();
 		panelRel.setSize(new Dimension(1920, 100));
-		panelRel.setLocation(0, 300);
+		panelRel.setLocation(0, 250);
 		panelRel.setLayout(null);
 		
 		//creando los componentes del panel de relaciones
