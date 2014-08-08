@@ -49,7 +49,7 @@ public class MainWindow {
 	int iAttr = 0;
 	int iDep = 0;
 	int iDEP = 0;
-	int panelDepSize = 100;
+	int panelDepSize = 75;
 	int panelDEPSize = 100;
 	
 	private JFrame frmTFG;
@@ -242,7 +242,7 @@ public class MainWindow {
 				DepCheckBox depChckBox = new DepCheckBox(dependencysChckBox.size(), dep);
 				
 				if (!dependencys.contains(dep)) {
-					depChckBox.getChckBox().setBounds(20, height + iDep * 25, 200, 20);				
+					depChckBox.getChckBox().setBounds(15, height + iDep * 25, 200, 20);				
 					//antecedentChckBox.add(dfChkBox);
 					
 					panelDep.add(depChckBox.getChckBox());
@@ -293,7 +293,7 @@ public class MainWindow {
 				DepCheckBox depChckBox = new DepCheckBox(dependencysChckBox.size(), dep);
 				
 				if (!dependencys.contains(dep)) {
-					depChckBox.getChckBox().setBounds(20, height + iDep * 25, 200, 20);				
+					depChckBox.getChckBox().setBounds(15, height + iDep * 25, 200, 20);				
 					//antecedentChckBox.add(dfChkBox);
 					
 					panelDep.add(depChckBox.getChckBox());
@@ -326,7 +326,7 @@ public class MainWindow {
 		 */
 		
 		//inicializar el panel de las dependencias
-		panelDep.setSize(new Dimension(1920, panelDepSize));
+		panelDep.setSize(new Dimension(1920, 50));
 		panelDep.setLocation(0, 150);
 		//panelDep.setBackground(new Color(15, 90, 100));
 		panelDep.setLayout(null);
@@ -394,7 +394,6 @@ public class MainWindow {
 					panelRel.setLocation(0, 150 + panelDep.getHeight() + panelDEP.getHeight());
 					panelRel.repaint();
 					
-					
 					dfJointsChkcBox.add(chckBox);
 					
 					panelDEP.repaint();
@@ -414,8 +413,8 @@ public class MainWindow {
 		 */
 		
 		//inicializar el panel de los conjuntos de dependencias
-		panelDEP.setSize(new Dimension(1920, panelDEPSize));
-		panelDEP.setLocation(0, 250);
+		panelDEP.setSize(new Dimension(1920, 100));
+		panelDEP.setLocation(0, 200);
 		//panelDEP.setBackground(new Color(150, 90, 200));
 		panelDEP.setLayout(null);
 		
@@ -452,7 +451,7 @@ public class MainWindow {
 		// inicializando el panel de relaciones
 		panelRel = new JPanel();
 		panelRel.setSize(new Dimension(1920, 100));
-		panelRel.setLocation(0, 350);
+		panelRel.setLocation(0, 300);
 		panelRel.setLayout(null);
 		
 		//creando los componentes del panel de relaciones
