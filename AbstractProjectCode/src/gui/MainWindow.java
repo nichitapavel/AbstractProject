@@ -27,6 +27,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
@@ -45,6 +46,8 @@ public class MainWindow {
 	private ArrayList<JCheckBox> consecuentChckBox;
 	private ArrayList<DFJointCheckBox> dfJointsChkcBox;
 	private ArrayList<DFJoint> dfJoints;
+	
+	private ButtonGroup rdGroup;
 	
 	int iAttr = 0;
 	int iDep = 0;
@@ -79,6 +82,7 @@ public class MainWindow {
 					window.dependencys = new ArrayList<ADependency>();
 					window.dfJointsChkcBox = new ArrayList<DFJointCheckBox>();
 					window.dfJoints = new ArrayList<DFJoint>();
+					window.rdGroup = new ButtonGroup();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -390,15 +394,16 @@ public class MainWindow {
 						name += "Sin dependencias funcionales";				
 					
 					DFJointCheckBox chckBox = new DFJointCheckBox(dfJoints.size(), dfJoint, name);
-					chckBox.getChckBox().setBounds(15, height + iDEP * 25, 1080, 25);
+					chckBox.getRdButton().setBounds(15, height + iDEP * 25, 1080, 25);
 									
-					panelDEP.add(chckBox.getChckBox());
+					panelDEP.add(chckBox.getRdButton());
 					panelDEP.setSize(1920, panelDEPSize + iDEP * 25);
 					
 					panelRel.setLocation(0, 150 + panelDep.getHeight() + panelDEP.getHeight());
 					panelRel.repaint();
 					
 					dfJointsChkcBox.add(chckBox);
+					rdGroup.add(chckBox.getRdButton());
 					
 					panelDEP.repaint();
 					iDEP++;
@@ -446,6 +451,16 @@ public class MainWindow {
 		
 		//anadir el panel de conjunto de dependencias a la ventana
 		frmTFG.getContentPane().add(panelDEP, BorderLayout.CENTER);
+		
+		/*
+		 * Evento de los botones del panel de conjunto de dependencias
+		 */
+		
+		btnAddR.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		
 			
 		/*
