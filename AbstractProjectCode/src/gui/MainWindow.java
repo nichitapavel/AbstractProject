@@ -474,7 +474,7 @@ public class MainWindow {
 				for (DFJointCheckBox dfRd : dfJointsChkcBox) {
 					if (dfRd.getRdButton().isSelected()) {
 						dfJoint = new DFJoint(dfRd.getDfJoint());
-						dfRd.getRdButton().setSelected(false);
+						rdGroup.clearSelection();
 					}	
 				}
 				
@@ -482,6 +482,8 @@ public class MainWindow {
 				
 				Relation rel = new Relation(relAttrJoint, dfJoint);
 				rel.setName(txtNameR.getText());
+				
+				txtNameR.setText(null);
 			}
 		});
 		
