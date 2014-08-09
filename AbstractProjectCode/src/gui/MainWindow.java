@@ -7,8 +7,6 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Vector;
 
 import javax.swing.JTextField;
 
@@ -30,12 +28,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -443,7 +438,7 @@ public class MainWindow {
 		lblNameR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNameR.setBounds(10, 10, 110, 25);
 		
-		JTextField txtNameR = new JTextField();
+		final JTextField txtNameR = new JTextField();
 		txtNameR.setBounds(125, 10, 140, 25);
 		txtNameR.setColumns(10);
 		
@@ -486,6 +481,7 @@ public class MainWindow {
 				relAttrJoint.addAttributes(dfJoint.getAttributesDFJoint());
 				
 				Relation rel = new Relation(relAttrJoint, dfJoint);
+				rel.setName(txtNameR.getText());
 			}
 		});
 		
