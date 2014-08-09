@@ -213,7 +213,8 @@ public class MainWindow {
 					
 					panelDEP.add(rltChkBox);
 					
-					panelDEP.setSize(1920, 50 + 20);
+					if (iDep == 0) 
+						panelDEP.setSize(1920, 50 + 20);
 					panelDEP.repaint();
 					
 					panelRel.setLocation(0, panelAttr.getHeight() + panelDep.getHeight() + panelDEP.getHeight());
