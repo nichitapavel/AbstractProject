@@ -1,11 +1,11 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JSeparator;
 
 import datastructures.Relation;
@@ -45,32 +45,31 @@ public class RelationCheckBox {
 		this.chckBox = chckBox;
 	}
 	
-	public Container getContainer(int i) {
-		Container cont = new Container();
+	public JPanel getPanel(int i) {
+		JPanel panel = new JPanel();
 		
-		cont.setSize(1920, 90);
-		cont.setLocation(0, 40 + 90 * i);
+		panel.setSize(1920, 90);
+		panel.setLocation(0, 40 + 90 * i);
 				
-		this.chckBox.setBounds(15, 10, 1920, 25);
-		
 		JSeparator sep = new JSeparator();
 		sep.setBounds(15, 0, 1920, 1);
 		sep.setForeground(Color.BLACK);
 		
+		this.chckBox.setBounds(15, 5, 1920, 25);
 		
 		JLabel attrJoint = new JLabel("Atributos: " + this.relation.getAttrJoint().toString());
-		attrJoint.setBounds(25, 40, 1920, 20);
+		attrJoint.setBounds(25, 30, 1920, 20);
 		attrJoint.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JLabel dfJoint = new JLabel("Dependencias: " + this.relation.getDFJoint().toString());
-		dfJoint.setBounds(25, 65, 1920, 20);
+		dfJoint.setBounds(25, 55, 1920, 20);
 		dfJoint.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
-		cont.add(sep);
-		cont.add(chckBox);
-		cont.add(attrJoint);
-		cont.add(dfJoint);
+		panel.add(sep);
+		panel.add(chckBox);
+		panel.add(attrJoint);
+		panel.add(dfJoint);
 				
-		return cont;
+		return panel;
 	}
 }
