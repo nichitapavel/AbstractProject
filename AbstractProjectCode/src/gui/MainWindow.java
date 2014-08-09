@@ -48,12 +48,14 @@ public class MainWindow {
 	private ArrayList<JCheckBox> relationChckBox;
 	private ArrayList<DFJointCheckBox> dfJointsChkcBox;
 	private ArrayList<DFJoint> dfJoints;
+	private ArrayList<RelationCheckBox> relChckBox;
 	
 	private ButtonGroup rdGroup;
 	
 	int iAttr = 0;
 	int iDep = 0;
 	int iDEP = 0;
+	int iRel = 0;
 	int panelDepSize = 75;
 	int panelDEPSize = 100;
 	
@@ -85,6 +87,7 @@ public class MainWindow {
 					window.dependencys = new ArrayList<ADependency>();
 					window.dfJointsChkcBox = new ArrayList<DFJointCheckBox>();
 					window.dfJoints = new ArrayList<DFJoint>();
+					window.relChckBox= new ArrayList<RelationCheckBox>();
 					window.rdGroup = new ButtonGroup();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -461,6 +464,7 @@ public class MainWindow {
 		
 		btnAddR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				AttributeJoint relAttrJoint = new AttributeJoint(); 
 				DFJoint dfJoint = new DFJoint();
 				
@@ -484,6 +488,16 @@ public class MainWindow {
 				rel.setName(txtNameR.getText());
 				
 				txtNameR.setText(null);
+				
+				RelationCheckBox rChckBox = new RelationCheckBox(0, rel);
+				relChckBox.add(rChckBox);
+				
+				panelRel.add(rChckBox.getContainer(iRel));
+				iRel++;
+				
+				
+				panelRel.setSize(1920, 40 + 90 * iRel);
+				panelRel.repaint();
 			}
 		});
 		
