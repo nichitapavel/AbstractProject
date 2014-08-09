@@ -7,12 +7,15 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Vector;
 
 import javax.swing.JTextField;
 
 import datastructures.Attribute;
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
+import datastructures.Relation;
 import datastructures.dependency.ADependency;
 import datastructures.dependency.FunctionalDependency;
 import datastructures.dependency.PluralDependency;
@@ -27,9 +30,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -44,6 +50,7 @@ public class MainWindow {
 	private ArrayList<ADependency> dependencys;
 	private ArrayList<JCheckBox> antecedentChckBox;
 	private ArrayList<JCheckBox> consecuentChckBox;
+	private ArrayList<JCheckBox> relationChckBox;
 	private ArrayList<DFJointCheckBox> dfJointsChkcBox;
 	private ArrayList<DFJoint> dfJoints;
 	
@@ -78,6 +85,7 @@ public class MainWindow {
 					window.attributes = new ArrayList<>();
 					window.antecedentChckBox = new ArrayList<JCheckBox>();
 					window.consecuentChckBox = new ArrayList<JCheckBox>();
+					window.relationChckBox = new ArrayList<JCheckBox>();
 					window.dependencysChckBox = new ArrayList<DepCheckBox>();
 					window.dependencys = new ArrayList<ADependency>();
 					window.dfJointsChkcBox = new ArrayList<DFJointCheckBox>();
@@ -203,6 +211,7 @@ public class MainWindow {
 
 					JCheckBox rltChkBox = new JCheckBox(attr.toString()); 
 					rltChkBox.setBounds(15 + iAttr * 55, 40, 50, 20);
+					relationChckBox.add(rltChkBox);
 					
 					panelDEP.add(rltChkBox);
 					
@@ -424,7 +433,6 @@ public class MainWindow {
 		//inicializar el panel de los conjuntos de dependencias
 		panelDEP.setSize(new Dimension(1920, 50));
 		panelDEP.setLocation(0, 200);
-		//panelDEP.setBackground(new Color(150, 90, 200));
 		panelDEP.setLayout(null);
 		
 		//Creando los elementos de panel de conjunto depencias
@@ -458,7 +466,26 @@ public class MainWindow {
 		
 		btnAddR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				AttributeJoint relAttrJoint = new AttributeJoint(); 
+				DFJoint dfJoint = new DFJoint();
 				
+				for (JCheckBox chckBox : relationChckBox) {
+					if (chckBox.isSelected()) {
+						relAttrJoint.addAttributes(new Attribute(chckBox.getText()));
+						chckBox.setSelected(false);
+					}
+				}
+				
+				for (DFJointCheckBox dfRd : dfJointsChkcBox) {
+					if (dfRd.getRdButton().isSelected()) {
+						dfJoint = new DFJoint(dfRd.getDfJoint());
+						dfRd.getRdButton().setSelected(false);
+					}	
+				}
+				
+				relAttrJoint.addAttributes(dfJoint.getAttributesDFJoint());
+				
+				Relation rel = new Relation(relAttrJoint, dfJoint);
 			}
 		});
 		
