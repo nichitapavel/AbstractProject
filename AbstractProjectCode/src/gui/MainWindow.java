@@ -493,7 +493,7 @@ public class MainWindow {
 				RelationCheckBox rChckBox = new RelationCheckBox(0, rel);
 				relChckBox.add(rChckBox);
 				
-				panelRel.add(rChckBox.getContainer(iRel));
+				panelRel.add(rChckBox.getPanel(iRel));
 				iRel++;
 				
 				
