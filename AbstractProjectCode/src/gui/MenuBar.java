@@ -1,12 +1,16 @@
 package gui;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import datastructures.Attribute;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class MenuBar {
@@ -55,6 +59,9 @@ public class MenuBar {
 	private final JMenuItem mntmGuardarDiseno = new JMenuItem("Guardar Dise\u00F1o");
 	private final JMenuItem mntmSalir = new JMenuItem("Salir");
 	
+	//Variables
+	ArrayList<Attribute> attrList = new ArrayList<Attribute>();
+	ArrayList<DFJointCheckBox> dfJointList = new ArrayList<DFJointCheckBox>();
 	
 	public MenuBar () {
 		initialize();
@@ -92,13 +99,7 @@ public class MenuBar {
 		mnAnalisis.add(mntmUllman);
 		mnAnalisis.add(mnRecMinimo);
 		mnAnalisis.add(mntmClaveRelacion);
-		mntmAcercaDe.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame aboutFrame = new About();
-				aboutFrame.setVisible(true);
-			}
-		});
-
+		
 		mnAyuda.add(mntmAcercaDe);
 		
 		mn3FN.add(mntm3FNAutomatico);
@@ -112,9 +113,35 @@ public class MenuBar {
 		
 		mnRecMinimo.add(mntmRecMinAutomatico);
 		mnRecMinimo.add(mntmREcMinAsistido);
+		
+		/*
+		 * Eventos
+		 */
+		
+		mntmUllman.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog ullman = new Ullman(attrList, dfJointList);
+				ullman.setVisible(true);
+			}
+		});
+		
+		mntmAcercaDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame aboutFrame = new About();
+				aboutFrame.setVisible(true);
+			}
+		});
 	}
 	
 	public JMenuBar getMenuBar() {
 		return this.menuBar;
+	}
+	
+	public void setAttributes(ArrayList<Attribute> attrList) {
+		this.attrList = attrList;
+	}
+	
+	public void setDFJoint(ArrayList<DFJointCheckBox> dfJointList) {
+		this.dfJointList = dfJointList;
 	}
 }

@@ -117,7 +117,7 @@ public class MainWindow {
 		frmTFG.getContentPane().setLayout(null);
 		
 		//Poner la barra de menus
-		MenuBar menuBar = new MenuBar();
+		final MenuBar menuBar = new MenuBar();
 		frmTFG.setJMenuBar(menuBar.getMenuBar());
 		
 		//inicializar el panel donde aparecen y se ven los attributos
@@ -221,6 +221,8 @@ public class MainWindow {
 					panelRel.repaint();
 					
 					iAttr++;
+					
+					menuBar.setAttributes(attributes);
 				}
 				else {
 					JOptionPane.showMessageDialog(frmTFG, 
@@ -415,6 +417,8 @@ public class MainWindow {
 					
 					panelDEP.repaint();
 					iDEP++;
+					
+					menuBar.setDFJoint(dfJointsChkcBox);
 				}
 				else {
 					JOptionPane.showMessageDialog(frmTFG, 
