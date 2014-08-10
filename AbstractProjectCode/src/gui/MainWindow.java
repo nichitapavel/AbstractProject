@@ -442,7 +442,7 @@ public class MainWindow {
 		JSeparator separatorDEP = new JSeparator();
 		separatorDEP.setBounds(0, 0, 1920, 1);	
 		
-		JLabel lblNameR = new JLabel("Nombre Relación:");
+		JLabel lblNameR = new JLabel("Nombre Relaci\u00F3n:");
 		lblNameR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNameR.setBounds(10, 10, 110, 25);
 		
@@ -450,7 +450,7 @@ public class MainWindow {
 		txtNameR.setBounds(125, 10, 140, 25);
 		txtNameR.setColumns(10);
 		
-		JButton btnAddR = new JButton("Añadir Relación");
+		JButton btnAddR = new JButton("A\u00F1adir Relaci\u00F3n");
 		btnAddR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddR.setBounds(270, 10, 140, 25);
 		
