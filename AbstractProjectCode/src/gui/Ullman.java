@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -13,10 +12,6 @@ import datastructures.Attribute;
 import datastructures.AttributeJoint;
 import datastructures.DFJoint;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
@@ -29,6 +24,11 @@ import java.awt.Font;
 import java.awt.Insets;
 
 public class Ullman extends JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Launch the application.
