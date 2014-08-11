@@ -82,6 +82,13 @@ public class MenuBar {
 		mnFichero.add(mntmGuardarDiseno);
 		
 		mnFichero.add(mntmSalir);
+		mntmFormasNormales.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox, 0);
+				normalFormDialog.setVisible(true);
+				normalFormDialog.setAlwaysOnTop(true);
+			}
+		});
 		
 		mnTest.add(mntmFormasNormales);
 		mntm2FN.addActionListener(new ActionListener() {
