@@ -62,6 +62,7 @@ public class MenuBar {
 	//Variables
 	ArrayList<Attribute> attrList = new ArrayList<Attribute>();
 	ArrayList<DFJointCheckBox> dfJointList = new ArrayList<DFJointCheckBox>();
+	ArrayList<RelationCheckBox> relChckBox = new ArrayList<>();
 	
 	public MenuBar () {
 		initialize();
@@ -82,6 +83,13 @@ public class MenuBar {
 		mnFichero.add(mntmSalir);
 		
 		mnTest.add(mntmFormasNormales);
+		mntm3FN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox);
+				normalFormDialog.setVisible(true);
+				normalFormDialog.setAlwaysOnTop(true);
+			}
+		});
 		mnTest.add(mntm3FN);
 		mnTest.add(mntmFNBC);
 		mnTest.add(mntm4FN);
@@ -144,5 +152,9 @@ public class MenuBar {
 	
 	public void setDFJoint(ArrayList<DFJointCheckBox> dfJointList) {
 		this.dfJointList = dfJointList;
+	}
+	
+	public void setRelations(ArrayList<RelationCheckBox> relationList) {
+		this.relChckBox = relationList;
 	}
 }
