@@ -497,9 +497,10 @@ public class MainWindow {
 				RelationCheckBox rChckBox = new RelationCheckBox(0, rel);
 				relChckBox.add(rChckBox);
 				
-				panelRel.add(rChckBox.getPanel(iRel));
+				panelRel.add(rChckBox.getPanelCheckBox(iRel));
 				iRel++;
 				
+				menuBar.setRelations(relChckBox);
 				
 				panelRel.setSize(1920, 40 + 90 * iRel);
 				panelRel.repaint();
