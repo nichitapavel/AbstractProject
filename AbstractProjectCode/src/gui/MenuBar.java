@@ -123,6 +123,13 @@ public class MenuBar {
 			}
 		});
 		mnTest.add(mntm4FN);
+		mntmClaves.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog keys = new TestKey(attrList, relChckBox);
+				keys.setAlwaysOnTop(true);
+				keys.setVisible(true);
+			}
+		});
 		mnTest.add(mntmClaves);
 		mnTest.add(mntmRecMinimo);
 				
