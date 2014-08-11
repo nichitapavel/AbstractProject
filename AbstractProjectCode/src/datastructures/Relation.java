@@ -230,4 +230,17 @@ public class Relation {
 		
 		return true;
 	}
+	
+	public String getNormalForm() {
+		if(this.is4NF())
+			return "4FN";
+		if(this.isBCNF())
+			return "Boyce Codd FN";
+		if(this.is3NF())
+			return "3FN";
+		if(this.is2NF())
+			return "2FN";
+		else
+			return "1FN";
+	}
 }
