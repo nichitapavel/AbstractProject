@@ -87,21 +87,21 @@ public class RelationCheckBox {
 	public JPanel getPanelRadioButton(int i) {
 		JPanel panel = new JPanel();
 		
-		panel.setSize(1920, 10);
-		panel.setLocation(i * 90, 10);
+		panel.setSize(450, 90);
+		panel.setLocation(0, i * 30);
 				
 		JSeparator sep = new JSeparator();
-		sep.setBounds(15, 0, 1920, 1);
+		sep.setBounds(15, 90, 450, 1);
 		sep.setForeground(Color.BLACK);
 		
-		this.rdButton.setBounds(5, 5, 1920, 25);
+		this.rdButton.setBounds(5, 5, 450, 25);
 		
 		JLabel attrJoint = new JLabel("Atributos: " + this.relation.getAttrJoint().toString());
-		attrJoint.setBounds(5, 30, 1920, 20);
+		attrJoint.setBounds(5, 30, 450, 20);
 		attrJoint.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JLabel dfJoint = new JLabel("Dependencias: " + this.relation.getDFJoint().toString());
-		dfJoint.setBounds(5, 55, 1920, 20);
+		dfJoint.setBounds(5, 55, 450, 20);
 		dfJoint.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		panel.add(sep);
