@@ -17,7 +17,7 @@ public class MenuBar {
 	
 	private JMenuBar menuBar = new JMenuBar();
 	
-	private JMenu mnFichero = new JMenu("Fichero");
+	private JMenu mnFichero = new JMenu("Archivo");
 	private JMenu mnTest = new JMenu("Test");
 	private JMenu mnNormalizac = new JMenu("Normalizar");
 	private JMenu mnAnalisis = new JMenu("An\u00E1lisis");
@@ -122,6 +122,7 @@ public class MenuBar {
 			public void actionPerformed(ActionEvent arg0) {
 				JDialog ullman = new Ullman(attrList, dfJointList);
 				ullman.setVisible(true);
+				ullman.setAlwaysOnTop(true);
 			}
 		});
 		
