@@ -1,9 +1,7 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.ComponentOrientation;
 import java.awt.Font;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import datastructures.Attribute;
 import datastructures.AttributeJoint;
@@ -29,7 +27,7 @@ public class TestKey extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	public TestKey(ArrayList<Attribute> attrList, ArrayList<RelationCheckBox> relRdButton) {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 400);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<JCheckBox> aList = new ArrayList<>();
@@ -38,24 +36,22 @@ public class TestKey extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLocation(0, 0);
-		panel.setSize(434, 261);
+		panel.setSize(600, 360);
 		panel.setLayout(null);
 		
-		final JTextArea txtResult = new JTextArea();
-		txtResult.setMargin(new Insets(2, 5, 2, 2));
-		txtResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		txtResult.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		txtResult.setEditable(false);
-		txtResult.setBounds(70, 220, 220, 25);
+		JButton btnTest = new JButton("Test");
+		btnTest.setBounds(295, 330, 80, 25);
+		panel.add(btnTest);
+		
+		final JTextField txtResult = new JTextField();
+		txtResult.setBounds(80, 330, 200, 25);
 		panel.add(txtResult);
+		txtResult.setColumns(10);
+		txtResult.setEditable(false);
 		
-		JLabel lblNewLabel = new JLabel("Resultado:");
-		lblNewLabel.setBounds(10, 220, 60, 25);
-		panel.add(lblNewLabel);
-		
-		JButton btnCalcular = new JButton("Calcular");
-		btnCalcular.setBounds(300, 220, 90, 25);
-		panel.add(btnCalcular);
+		JLabel lblResultado = new JLabel("Resultado: ");
+		lblResultado.setBounds(10, 330, 65, 25);
+		panel.add(lblResultado);
 		
 		for (int i = 0; i < attrList.size(); i++) {
 			JCheckBox attrChkBox = new JCheckBox(attrList.get(i).toString()); 
@@ -79,6 +75,11 @@ public class TestKey extends JDialog {
 			JLabel dfJoint = new JLabel("Dependencias: " + relationList.get(i).getRelation().getDFJoint().toString());
 			dfJoint.setBounds(5, 95 + 90 * i, 450, 20);
 			dfJoint.setFont(new Font("Tahoma", Font.PLAIN, 12));
+	
+			JLabel lblParameters = new JLabel("New label");
+			lblParameters.setBounds(10, 300, 600, 25);
+			panel.add(lblParameters);
+		
 			
 			panel.add(sep);
 			panel.add(relationList.get(i).getRdButton());
@@ -89,7 +90,7 @@ public class TestKey extends JDialog {
 			rdGroup.add(relationList.get(i).getRdButton());
 		}
 
-		btnCalcular.addActionListener(new ActionListener() {
+		btnTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AttributeJoint attrJoint = new AttributeJoint();
 				Relation r1 = new Relation();
@@ -106,6 +107,8 @@ public class TestKey extends JDialog {
 						rdGroup.clearSelection();
 					}	
 				}
+				
+				lblParameters.setText(attrJoint.toString() + r1.getName());
 				
 				switch (attrJoint.isKey(r1)) {
 				case -1:
@@ -125,6 +128,7 @@ public class TestKey extends JDialog {
 		});
 
 		getContentPane().add(panel);
+		
 	}
 
 }
