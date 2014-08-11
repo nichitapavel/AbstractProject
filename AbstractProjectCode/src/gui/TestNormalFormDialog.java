@@ -135,7 +135,7 @@ public class TestNormalFormDialog extends JDialog {
 					break;
 				default:
 					result.setForeground(Color.BLACK);
-					result.setText(" ");
+					result.setText(r1.getNormalForm());
 					break;
 				}
 				
