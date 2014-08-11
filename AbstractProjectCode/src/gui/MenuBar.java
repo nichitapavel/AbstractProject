@@ -33,6 +33,7 @@ public class MenuBar {
 	private JMenuItem mntmCargarSesion = new JMenuItem("Cargar Dise\u00F1o");
 	
 	private JMenuItem mntmFormasNormales = new JMenuItem("Detectar Forma Normal");
+	private JMenuItem mntm2FN = new JMenuItem("2FN (2 Forma Normal)");
 	private JMenuItem mntm3FN = new JMenuItem("3FN (3 Forma Normal)");
 	private JMenuItem mntmFNBC = new JMenuItem("FNBC (Formal Normal Boyce-Codd)");
 	private JMenuItem mntm4FN = new JMenuItem("4FN (4 Forma Normal)");
@@ -83,15 +84,37 @@ public class MenuBar {
 		mnFichero.add(mntmSalir);
 		
 		mnTest.add(mntmFormasNormales);
+		mntm2FN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox, 1);
+				normalFormDialog.setVisible(true);
+				normalFormDialog.setAlwaysOnTop(true);
+			}
+		});
+		mnTest.add(mntm2FN);
 		mntm3FN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox);
+				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox, 2);
 				normalFormDialog.setVisible(true);
 				normalFormDialog.setAlwaysOnTop(true);
 			}
 		});
 		mnTest.add(mntm3FN);
+		mntmFNBC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox, 3);
+				normalFormDialog.setVisible(true);
+				normalFormDialog.setAlwaysOnTop(true);
+			}
+		});
 		mnTest.add(mntmFNBC);
+		mntm4FN.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog normalFormDialog = new TestNormalFormDialog(relChckBox, 4);
+				normalFormDialog.setVisible(true);
+				normalFormDialog.setAlwaysOnTop(true);
+			}
+		});
 		mnTest.add(mntm4FN);
 		mnTest.add(mntmClaves);
 		mnTest.add(mntmRecMinimo);
