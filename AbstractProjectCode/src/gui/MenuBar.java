@@ -160,6 +160,13 @@ public class MenuBar {
 		mnAnalisis.add(mntmClaveRelacion);
 		
 		mnAyuda.add(mntmAcercaDe);
+		mntm3FNAutomatico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog normalize = new Normalize(relChckBox);
+				normalize.setAlwaysOnTop(true);
+				normalize.setVisible(true);
+			}
+		});
 		
 		mn3FN.add(mntm3FNAutomatico);
 		mn3FN.add(mntm3FNAsistido);
