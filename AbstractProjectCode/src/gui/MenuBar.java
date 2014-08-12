@@ -162,7 +162,7 @@ public class MenuBar {
 		mnAyuda.add(mntmAcercaDe);
 		mntm3FNAutomatico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JDialog normalize = new Normalize(relChckBox);
+				JDialog normalize = new Normalize(relChckBox, 1);
 				normalize.setAlwaysOnTop(true);
 				normalize.setVisible(true);
 			}
@@ -170,9 +170,23 @@ public class MenuBar {
 		
 		mn3FN.add(mntm3FNAutomatico);
 		mn3FN.add(mntm3FNAsistido);
+		mntmFNBCAutomatico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog normalize = new Normalize(relChckBox, 2);
+				normalize.setAlwaysOnTop(true);
+				normalize.setVisible(true);
+			}
+		});
 		
 		mnFNBC.add(mntmFNBCAutomatico);
 		mnFNBC.add(mntmFNBCAsistido);
+		mntm4FNAutomatico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog normalize = new Normalize(relChckBox, 0);
+				normalize.setAlwaysOnTop(true);
+				normalize.setVisible(true);
+			}
+		});
 		
 		mn4FN.add(mntm4FNAutomatico);
 		mn4FN.add(mntm4FNAsistido);
