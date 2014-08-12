@@ -53,6 +53,11 @@ public class TestKey extends JDialog {
 		lblResultado.setBounds(10, 330, 65, 25);
 		panel.add(lblResultado);
 		
+		final JLabel lblParameters = new JLabel();
+		lblParameters.setBounds(10, 300, 600, 25);
+		panel.add(lblParameters);
+	
+		
 		for (int i = 0; i < attrList.size(); i++) {
 			JCheckBox attrChkBox = new JCheckBox(attrList.get(i).toString()); 
 			attrChkBox.setBounds(10 + i * 55, 10, 50, 20);
@@ -75,11 +80,6 @@ public class TestKey extends JDialog {
 			JLabel dfJoint = new JLabel("Dependencias: " + relationList.get(i).getRelation().getDFJoint().toString());
 			dfJoint.setBounds(5, 95 + 90 * i, 450, 20);
 			dfJoint.setFont(new Font("Tahoma", Font.PLAIN, 12));
-	
-			JLabel lblParameters = new JLabel("New label");
-			lblParameters.setBounds(10, 300, 600, 25);
-			panel.add(lblParameters);
-		
 			
 			panel.add(sep);
 			panel.add(relationList.get(i).getRdButton());
@@ -104,11 +104,12 @@ public class TestKey extends JDialog {
 				for (RelationCheckBox rel : relationList) {
 					if (rel.getRdButton().isSelected()) {
 						r1 = new Relation(rel.getRelation().getAttrJoint(), rel.getRelation().getDFJoint());
+						r1.setName(rel.getRelation().getName());
 						rdGroup.clearSelection();
 					}	
 				}
 				
-				lblParameters.setText(attrJoint.toString() + r1.getName());
+				lblParameters.setText("Conjunto de Atributos " + attrJoint.toString() + " en " + r1.getName());
 				
 				switch (attrJoint.isKey(r1)) {
 				case -1:
