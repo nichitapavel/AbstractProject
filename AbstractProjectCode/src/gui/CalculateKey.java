@@ -32,19 +32,18 @@ public class CalculateKey extends JDialog {
 	 * Create the dialog.
 	 */
 	public CalculateKey(ArrayList<RelationCheckBox> relList) {
-		setBounds(100, 100, 450, 500);
+		setBounds(100, 100, 500, 500);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
 		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 410, 450);
+		panel.setBounds(0, 0, 484, 461);
 		panel.setLayout(null);
 		
 		final JTextArea txtResultados = new JTextArea();
-		txtResultados.setText("Resultados\\n");
-		txtResultados.setBounds(0, 310, 440, 150);
+		txtResultados.setBounds(100, 306, 374, 144);
 		panel.add(txtResultados);
 		
 		JButton btnCalcular = new JButton("Calcular claves");
@@ -63,12 +62,14 @@ public class CalculateKey extends JDialog {
 				
 				txtResultados.setText(null);
 				
+				int i = 0;
 				for (AttributeJoint attrJoint : keyJoint) {
-					txtResultados.append(attrJoint.toString()+"\n");
+					txtResultados.append(i+1 + ". " + attrJoint.toString() + '\n');
+					i++;
 				}
 			}
 		});
-		btnCalcular.setBounds(100, 280, 150, 25);
+		btnCalcular.setBounds(10, 270, 140, 25);
 		panel.add(btnCalcular);
 
 		
@@ -99,5 +100,10 @@ public class CalculateKey extends JDialog {
 
 		
 		getContentPane().add(panel);
+		
+		JLabel lblNewLabel = new JLabel("Resultados:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel.setBounds(10, 310, 80, 25);
+		panel.add(lblNewLabel);
 	}
 }
