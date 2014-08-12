@@ -30,7 +30,7 @@ public class Normalize extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Normalize(ArrayList<RelationCheckBox> relList) {
+	public Normalize(ArrayList<RelationCheckBox> relList, final int proccess) {
 		setBounds(100, 100, 460, 300);
 		getContentPane().setLayout(null);
 		
@@ -64,7 +64,19 @@ public class Normalize extends JDialog {
 					}	
 				}
 				
-				ArrayList<Relation> result = Normalization.normalize3NF(r1, true);
+				ArrayList<Relation> result;
+				
+				switch (proccess) {
+				case 1:
+					result = Normalization.normalize3NF(r1, true);
+					break;
+				case 2:
+					result = Normalization.normalizeBCNF(r1, true);
+					break;
+				default:
+					result = Normalization.normalize4NF(r1, true);
+					break;
+				}				
 				
 				textArea.setText(null);			
 				
