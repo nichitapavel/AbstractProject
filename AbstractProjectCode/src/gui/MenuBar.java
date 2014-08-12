@@ -131,6 +131,13 @@ public class MenuBar {
 			}
 		});
 		mnTest.add(mntmClaves);
+		mntmRecMinimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog minimalTest = new MinimalDFJointDialog(dfJointList);
+				minimalTest.setVisible(true);
+				minimalTest.setAlwaysOnTop(true);
+			}
+		});
 		mnTest.add(mntmRecMinimo);
 				
 		mnNormalizac.add(mn3FN);
