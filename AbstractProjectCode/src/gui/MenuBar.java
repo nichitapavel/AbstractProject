@@ -150,6 +150,13 @@ public class MenuBar {
 		mnAnalisis.add(mntmDfPerteneceDF);
 		mnAnalisis.add(mntmUllman);
 		mnAnalisis.add(mnRecMinimo);
+		mntmClaveRelacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog calculateKey = new CalculateKey(relChckBox);
+				calculateKey.setVisible(true);
+				calculateKey.setAlwaysOnTop(true);
+			}
+		});
 		mnAnalisis.add(mntmClaveRelacion);
 		
 		mnAyuda.add(mntmAcercaDe);
