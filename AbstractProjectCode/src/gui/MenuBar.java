@@ -168,6 +168,13 @@ public class MenuBar {
 			}
 		});
 		mnAnalisis.add(mntmEquivalenciaDosDF);
+		mntmDfPerteneceDF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog closure = new CFJointClosed(dfJointList, attrList);
+				closure.setVisible(true);
+				closure.setAlwaysOnTop(true);
+			}
+		});
 		mnAnalisis.add(mntmDfPerteneceDF);
 		mnAnalisis.add(mntmUllman);
 		mnAnalisis.add(mnRecMinimo);
