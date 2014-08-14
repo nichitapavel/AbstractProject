@@ -143,6 +143,13 @@ public class MenuBar {
 		mnNormalizac.add(mn3FN);
 		mnNormalizac.add(mnFNBC);
 		mnNormalizac.add(mn4FN);
+		mntmProyeccAJsobreDf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog projection = new ProjectionOnAttributeJointDialog(dfJointList);
+				projection.setVisible(true);
+				projection.setAlwaysOnTop(true);
+			}
+		});
 		
 		mnAnalisis.add(mntmProyeccAJsobreDf);
 		mntmDFAImplicaDFB.addActionListener(new ActionListener() {
