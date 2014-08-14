@@ -31,13 +31,6 @@ public class Ullman extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		
-	}
-
-	/**
 	 * Create the dialog.
 	 */
 	public Ullman(ArrayList<Attribute> attrList, ArrayList<DFJointCheckBox> dfJointList) {
@@ -61,10 +54,10 @@ public class Ullman extends JDialog {
 		for (int i = 0; i < list.size(); i++) {
 			DFJointCheckBox rd = list.get(i);
 			
-			rd.getRdButton().setBounds(10, 40 + i * 25, 1080, 25);
+			rd.getRdButton2().setBounds(10, 40 + i * 25, 1080, 25);
 			
-			panelAttr.add(rd.getRdButton());
-			rdGroup.add(rd.getRdButton());
+			panelAttr.add(rd.getRdButton2());
+			rdGroup.add(rd.getRdButton2());
 		}
 		
 		
@@ -99,7 +92,7 @@ public class Ullman extends JDialog {
 				}
 				
 				for (DFJointCheckBox dfRd : list) {
-					if (dfRd.getRdButton().isSelected()) {
+					if (dfRd.getRdButton2().isSelected()) {
 						dfJoint = new DFJoint(dfRd.getDfJoint());
 						rdGroup.clearSelection();
 					}	

@@ -59,7 +59,7 @@ public class TestMinimalDFJointDialog extends JDialog {
 			public void actionPerformed(ActionEvent arg0) {
 				DFJoint dfJoint = new DFJoint();
 				for (DFJointCheckBox dfRd : dfJList) {
-					if (dfRd.getRdButton().isSelected()) {
+					if (dfRd.getRdButton2().isSelected()) {
 						dfJoint = new DFJoint(dfRd.getDfJoint());
 					}	
 				}
@@ -80,10 +80,10 @@ public class TestMinimalDFJointDialog extends JDialog {
 		panel.add(btnCalcular);
 		
 		for (int i = 0; i < dfJList.size(); i++) {
-			dfJList.get(i).getRdButton().setBounds(10, 10 + i * 25, 1080, 25);
+			dfJList.get(i).getRdButton2().setBounds(10, 10 + i * 25, 1080, 25);
 			
-			panel.add(dfJList.get(i).getRdButton());
-			rdGroup.add(dfJList.get(i).getRdButton());
+			panel.add(dfJList.get(i).getRdButton2());
+			rdGroup.add(dfJList.get(i).getRdButton2());
 		}
 	}
 
