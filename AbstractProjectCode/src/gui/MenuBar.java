@@ -145,7 +145,21 @@ public class MenuBar {
 		mnNormalizac.add(mn4FN);
 		
 		mnAnalisis.add(mntmProyeccAJsobreDf);
+		mntmDFAImplicaDFB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog implied = new Compare2DFJoints(dfJointList, 0);
+				implied.setVisible(true);
+				implied.setAlwaysOnTop(true);
+			}
+		});
 		mnAnalisis.add(mntmDFAImplicaDFB);
+		mntmEquivalenciaDosDF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog equivalent = new Compare2DFJoints(dfJointList, 1);
+				equivalent.setVisible(true);
+				equivalent.setAlwaysOnTop(true);
+			}
+		});
 		mnAnalisis.add(mntmEquivalenciaDosDF);
 		mnAnalisis.add(mntmDfPerteneceDF);
 		mnAnalisis.add(mntmUllman);

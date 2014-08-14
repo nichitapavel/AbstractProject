@@ -14,12 +14,14 @@ public class DFJointCheckBox implements ChangeListener, ActionListener {
 	private DFJoint dfJoint;
 	private JRadioButton rdButton;
 	private JRadioButton rdButton2;
+	private JRadioButton rdButton3;
 	
 	public DFJointCheckBox() {
 		this.position = 0;
 		this.dfJoint = new DFJoint();
 		this.rdButton = new JRadioButton();
 		this.rdButton2 = new JRadioButton();
+		this.rdButton3 = new JRadioButton();
 	}
 	
 	public DFJointCheckBox(int pos, DFJoint dfJoint, String name) {
@@ -27,6 +29,15 @@ public class DFJointCheckBox implements ChangeListener, ActionListener {
 		this.dfJoint = dfJoint;
 		this.rdButton = new JRadioButton(name);
 		this.rdButton2 = new JRadioButton(name);
+		this.rdButton3 = new JRadioButton(name);
+	}
+
+	public JRadioButton getRdButton3() {
+		return rdButton3;
+	}
+
+	public void setRdButton3(JRadioButton rdButton3) {
+		this.rdButton3 = rdButton3;
 	}
 
 	public JRadioButton getRdButton2() {
