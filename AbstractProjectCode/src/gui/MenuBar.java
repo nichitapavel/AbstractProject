@@ -190,6 +190,13 @@ public class MenuBar {
 		
 		mn4FN.add(mntm4FNAutomatico);
 		mn4FN.add(mntm4FNAsistido);
+		mntmRecMinAutomatico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JDialog autoMinimalDFJoint = new MinimalDFAuto(dfJointList);
+				autoMinimalDFJoint.setVisible(true);
+				autoMinimalDFJoint.setAlwaysOnTop(true);
+			}
+		});
 		
 		mnRecMinimo.add(mntmRecMinAutomatico);
 		mnRecMinimo.add(mntmREcMinAsistido);

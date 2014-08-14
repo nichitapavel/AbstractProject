@@ -30,30 +30,17 @@ public class TestMinimalDFJointDialog extends JDialog {
 	 */
 	public TestMinimalDFJointDialog(ArrayList<DFJointCheckBox> dfJointList) {
 		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
 
-		final ArrayList<DFJointCheckBox> dfJList = new ArrayList<>(dfJointList);
+		final ArrayList<DFJointCheckBox> dfJList = new ArrayList<DFJointCheckBox>(dfJointList);
+		
+		ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
-		panel.setLocation(0, 0);
-		panel.setSize(434, 261);
-		
-		final ButtonGroup rdGroup = new ButtonGroup();
-		
-		for (int i = 0; i < dfJList.size(); i++) {
-			DFJointCheckBox rd = dfJList.get(i);
-			
-			rd.getRdButton().setBounds(10, 10 + i * 25, 1080, 25);
-			
-			panel.add(rd.getRdButton());
-			rdGroup.add(rd.getRdButton());
-		}
-		
-		
-		getContentPane().setLayout(null);
+		panel.setBounds(0, 0, 434, 261);
+		panel.setLayout(null);
 		
 		getContentPane().add(panel);
-		
-		panel.setLayout(null);
 		
 		final JTextArea txtResult = new JTextArea();
 		txtResult.setMargin(new Insets(2, 5, 2, 2));
@@ -92,6 +79,12 @@ public class TestMinimalDFJointDialog extends JDialog {
 		btnCalcular.setBounds(300, 220, 90, 25);
 		panel.add(btnCalcular);
 		
+		for (int i = 0; i < dfJList.size(); i++) {
+			dfJList.get(i).getRdButton().setBounds(10, 10 + i * 25, 1080, 25);
+			
+			panel.add(dfJList.get(i).getRdButton());
+			rdGroup.add(dfJList.get(i).getRdButton());
+		}
 	}
 
 }
