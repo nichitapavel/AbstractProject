@@ -31,7 +31,7 @@ public class Normalize extends JDialog {
 	 * Create the dialog.
 	 */
 	public Normalize(ArrayList<RelationCheckBox> relList, final int proccess) {
-		setBounds(100, 100, 600, 500);
+		setBounds(100, 100, 460, 300);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
@@ -39,18 +39,17 @@ public class Normalize extends JDialog {
 		ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 584, 461);
+		panel.setBounds(0, 0, 444, 261);
 		panel.setLayout(null);
 		
 		getContentPane().add(panel);
 		
 		final JTextArea textArea = new JTextArea();
-		textArea.setBounds(0, 230, 584, 234);
+		textArea.setBounds(120, 180, 310, 70);
 		panel.add(textArea);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 195, 80, 25);
+		lblNewLabel.setBounds(10, 200, 60, 24);
 		panel.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Normalizar");
@@ -84,14 +83,12 @@ public class Normalize extends JDialog {
 				int i = 0;
 				for (Relation r : result) {
 					int j = i+1;
-					textArea.append("R" + j + ": " + '\n');
-					textArea.append("   " + r.getAttrJoint().toString() + '\n');
-					textArea.append("   " + r.getDFJoint().toString() + '\n');
+					textArea.append("R" + j + ": " + '\n' + r.getAttrJoint().toString() + '\n' + r.getDFJoint().toString() + '\n');
 					i++;
 				}
 			}
 		});
-		btnNewButton.setBounds(105, 195, 100, 25);
+		btnNewButton.setBounds(10, 225, 100, 25);
 		panel.add(btnNewButton);
 		
 		for (int i = 0; i < rList.size(); i++) {
