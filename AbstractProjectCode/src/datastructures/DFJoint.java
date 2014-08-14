@@ -357,4 +357,8 @@ public class DFJoint implements Iterable<ADependency> {
 		
 		return hiddenDF;
 	}
+	
+	public ADependency getDF(int index) {
+		return this.df.get(index);
+	}
 }
