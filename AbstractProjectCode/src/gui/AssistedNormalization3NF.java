@@ -142,7 +142,7 @@ public class AssistedNormalization3NF extends JDialog {
 						textArea.append(r1.getAttrJoint().toString() + '\n' + r1.getDFJoint().toString() + '\n');
 						if (i == 1) {
 							JLabel finish = new JLabel("El proceso de normalizaci\u00F3n se ha acabado.");
-							finish.setFont(new Font("Tahoma", Font.PLAIN, 14));
+							finish.setFont(new Font("Tahoma", Font.BOLD, 14));
 							finish.setBounds(20,  20, 400, 25);
 							panel.removeAll();
 							newButton.setEnabled(false);
@@ -174,11 +174,6 @@ public class AssistedNormalization3NF extends JDialog {
 				depBoxList.add(dep);
 				panel.repaint();
 			}
-		} else {
-			JLabel finish = new JLabel("El proceso de normalizaci\u00F3n se ha acabado.");
-			finish.setBounds(20,  20, 400, 25);
-			btnNewButton.setEnabled(false);
-			panel.add(finish);
-		}		
+		}	
 	}
 }
