@@ -57,11 +57,11 @@ public class DFJointCheckBox implements ChangeListener, ActionListener {
 	}
 
 	public DFJoint getDfJoint() {
-		return dfJoint;
+		return new DFJoint(dfJoint);
 	}
 
 	public void setDfJoint(DFJoint dfJoint) {
-		this.dfJoint = dfJoint;
+		this.dfJoint = new DFJoint(dfJoint);
 	}
 
 	public JRadioButton getRdButton() {
