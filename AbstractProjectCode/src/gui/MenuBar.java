@@ -199,7 +199,7 @@ public class MenuBar {
 		mn3FN.add(mntm3FNAutomatico);
 		mntm3FNAsistido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JDialog assisted3NFNormalization = new AssistedNormalization(relChckBox);
+				JDialog assisted3NFNormalization = new AssistedNormalization3NF(relChckBox);
 				assisted3NFNormalization.setVisible(true);
 				assisted3NFNormalization.setAlwaysOnTop(true);
 			}
