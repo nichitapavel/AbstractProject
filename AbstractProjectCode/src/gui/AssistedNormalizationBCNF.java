@@ -2,23 +2,22 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
-import javax.swing.JButton;
 
 import datastructures.Relation;
 import datastructures.dependency.ADependency;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-public class AssistedNormalization3NF extends JDialog {
+public class AssistedNormalizationBCNF extends JDialog {
 	private JPanel panel = new JPanel();
 	private JPanel bottomPanel = new JPanel();
 	private JTextArea textArea = new JTextArea();
@@ -38,7 +37,7 @@ public class AssistedNormalization3NF extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public AssistedNormalization3NF(ArrayList<RelationCheckBox> relList) {
+	public AssistedNormalizationBCNF(ArrayList<RelationCheckBox> relList) {
 		setBounds(100, 100, 600, 600);
 		getContentPane().setLayout(null);
 
@@ -134,7 +133,7 @@ public class AssistedNormalization3NF extends JDialog {
 				
 				for (int i = 0; i < result.size(); i++) {
 					r1 = result.get(i);
-					if (!r1.is3NF()) {
+					if (!r1.isBCNF()) {
 						nextPanel();
 					} else {
 						j = j + 1;
@@ -163,7 +162,7 @@ public class AssistedNormalization3NF extends JDialog {
 		depBoxList = new ArrayList<>();
 		ButtonGroup rdGroup = new ButtonGroup();
 		
-		depList = r1.getNon3NF_DFs();
+		depList = r1.getNonBCNF_DFs();
 		
 		if (depList.size() != 0) {
 			for (int i = 0; i < depList.size(); i++) {
@@ -181,4 +180,5 @@ public class AssistedNormalization3NF extends JDialog {
 			panel.add(finish);
 		}		
 	}
+
 }
