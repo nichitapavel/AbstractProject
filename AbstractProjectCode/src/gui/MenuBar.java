@@ -231,6 +231,13 @@ public class MenuBar {
 		});
 		
 		mn4FN.add(mntm4FNAutomatico);
+		mntm4FNAsistido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog assisted4NF = new AssistedNormalization4NF(relChckBox);
+				assisted4NF.setVisible(true);
+				assisted4NF.setAlwaysOnTop(true);
+			}
+		});
 		mn4FN.add(mntm4FNAsistido);
 		mntmRecMinAutomatico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
