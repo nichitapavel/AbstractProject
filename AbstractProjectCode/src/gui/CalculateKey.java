@@ -76,7 +76,7 @@ public class CalculateKey extends JDialog {
 		for (int i = 0; i < rList.size(); i++) {
 			
 			JSeparator sep = new JSeparator();
-			sep.setBounds(0, 10 + 90 *i, 850, 1);
+			sep.setBounds(0, 9 + 90 *i, 850, 1);
 			sep.setForeground(Color.BLACK);
 			
 			rList.get(i).getRdButton().setBounds(5, 10+90*i, 450, 25);

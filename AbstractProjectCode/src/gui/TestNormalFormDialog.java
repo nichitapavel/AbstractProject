@@ -35,7 +35,7 @@ public class TestNormalFormDialog extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLocation(0, 0);
-		panel.setSize(800, 360);
+		panel.setSize(784, 361);
 		panel.setLayout(null);
 		
 		JButton btnTest = new JButton("Test");
@@ -57,7 +57,7 @@ public class TestNormalFormDialog extends JDialog {
 		for (int i = 0; i < relationList.size(); i++) {
 			
 			JSeparator sep = new JSeparator();
-			sep.setBounds(0, 90 + 90 *i, 850, 1);
+			sep.setBounds(0, 89 + 90 *i, 850, 1);
 			sep.setForeground(Color.BLACK);
 			
 			relationList.get(i).getRdButton().setBounds(5, 5+90*i, 450, 25);

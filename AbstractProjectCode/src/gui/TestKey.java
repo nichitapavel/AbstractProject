@@ -68,7 +68,7 @@ public class TestKey extends JDialog {
 		for (int i = 0; i < relationList.size(); i++) {
 			
 			JSeparator sep = new JSeparator();
-			sep.setBounds(0, 130 + 90 *i, 850, 1);
+			sep.setBounds(0, 129 + 90 *i, 850, 1);
 			sep.setForeground(Color.BLACK);
 			
 			relationList.get(i).getRdButton().setBounds(5, 45+90*i, 450, 25);
