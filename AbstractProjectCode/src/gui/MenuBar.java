@@ -248,6 +248,13 @@ public class MenuBar {
 		});
 		
 		mnRecMinimo.add(mntmRecMinAutomatico);
+		mntmREcMinAsistido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JDialog assistedMinDF = new AssistedMinimalDFJoint(dfJointList);
+				assistedMinDF.setAlwaysOnTop(true);
+				assistedMinDF.setVisible(true);
+			}
+		});
 		mnRecMinimo.add(mntmREcMinAsistido);
 		
 		/*
