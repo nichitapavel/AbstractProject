@@ -31,7 +31,7 @@ public class Normalize extends JDialog {
 	 * Create the dialog.
 	 */
 	public Normalize(ArrayList<RelationCheckBox> relList, final int proccess) {
-		setBounds(100, 100, 800, 400);
+		setBounds(100, 100, 600, 400);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
@@ -39,13 +39,14 @@ public class Normalize extends JDialog {
 		ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
-		panel.setSize(784, 361);
+		panel.setLocation(0, 0);
+		panel.setSize(584, 361);
 		panel.setLayout(null);
 		
 		getContentPane().add(panel);
 		
 		final JTextArea textArea = new JTextArea();
-		textArea.setBounds(120, 180, 310, 70);
+		textArea.setBounds(120, 200, 310, 161);
 		panel.add(textArea);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
@@ -88,7 +89,7 @@ public class Normalize extends JDialog {
 				}
 			}
 		});
-		btnNewButton.setBounds(10, 225, 100, 25);
+		btnNewButton.setBounds(460, 200, 100, 25);
 		panel.add(btnNewButton);
 		
 		for (int i = 0; i < rList.size(); i++) {
