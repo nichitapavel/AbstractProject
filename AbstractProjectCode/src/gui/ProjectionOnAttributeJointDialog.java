@@ -124,6 +124,8 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 				
 				rdGroup.clearSelection();
 				
+				paneldf.removeAll();
+				paneldf.repaint();
 				textArea.setText(null);
 				
 				DFJoint dfJoint_Res = dfJoint.projectionOnAttributeJoint(df.getAttributeJoint());
