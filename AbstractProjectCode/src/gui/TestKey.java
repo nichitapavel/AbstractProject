@@ -122,7 +122,7 @@ public class TestKey extends JDialog {
 					txtResult.setText("Es clave m\u00EDnima");
 					break;
 				default:
-					txtResult.setForeground(Color.YELLOW);
+					txtResult.setForeground(Color.ORANGE);
 					txtResult.setText("Es Superclave, pero no es m\u00EDnima");
 					break;
 				}	
