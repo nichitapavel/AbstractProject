@@ -29,6 +29,7 @@ public class TestMinimalDFJointDialog extends JDialog {
 	 * Create the dialog.
 	 */
 	public TestMinimalDFJointDialog(ArrayList<DFJointCheckBox> dfJointList) {
+		setTitle("Comprobar recubrimiento m\u00EDnimo");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 

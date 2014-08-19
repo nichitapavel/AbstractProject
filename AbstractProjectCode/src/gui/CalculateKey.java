@@ -32,6 +32,7 @@ public class CalculateKey extends JDialog {
 	 * Create the dialog.
 	 */
 	public CalculateKey(ArrayList<RelationCheckBox> relList) {
+		setTitle("Calculo de claves");
 		setBounds(100, 100, 500, 500);
 		getContentPane().setLayout(null);
 		

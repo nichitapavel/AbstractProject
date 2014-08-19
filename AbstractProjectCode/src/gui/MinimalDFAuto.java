@@ -26,6 +26,7 @@ public class MinimalDFAuto extends JDialog {
 	 * Create the dialog.
 	 */
 	public MinimalDFAuto(ArrayList<DFJointCheckBox> dfJointList) {
+		setTitle("Recubrimiento m\u00EDnimo");
 		setBounds(100, 100, 600, 300);
 		getContentPane().setLayout(null);
 		

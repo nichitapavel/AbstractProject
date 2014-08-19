@@ -32,6 +32,7 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 	 * Create the dialog.
 	 */
 	public ProjectionOnAttributeJointDialog(final ArrayList<DFJointCheckBox> dfList) {
+		setTitle("Proyecci\u00F3n de un DF sobre un conjunto de atributos");
 		setBounds(100, 100, 550, 450);
 		getContentPane().setLayout(null);
 		

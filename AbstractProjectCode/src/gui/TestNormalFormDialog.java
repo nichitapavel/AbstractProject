@@ -27,6 +27,23 @@ public class TestNormalFormDialog extends JDialog {
 	private JTextField result;
 
 	public TestNormalFormDialog(ArrayList<RelationCheckBox> relChckBox, final int operation) {
+		switch (operation) {
+			case 1:
+				setTitle("Comprobar 2FN");
+				break;
+			case 2:
+				setTitle("Comprobar 3FN");
+				break;
+			case 3:
+				setTitle("Comprobar FNBC");
+				break;
+			case 4:
+				setTitle("Comprobar 4FN");
+				break;
+			default:
+				setTitle("Detectar forma normal");
+				break;
+		}
 		setBounds(100, 100, 800, 400);
 		getContentPane().setLayout(null);
 		

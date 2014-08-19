@@ -35,6 +35,7 @@ public class AssistedMinimalDFJoint extends JDialog {
 	 * Create the dialog.
 	 */
 	public AssistedMinimalDFJoint(final ArrayList<DFJointCheckBox> dfJList) {
+		setTitle("Recubrimiento m\u00EDnimo asisitido");
 		setBounds(100, 100, 600, 300);
 		getContentPane().setLayout(null);
 		

@@ -38,6 +38,7 @@ public class AssistedNormalizationBCNF extends JDialog {
 	 * Create the dialog.
 	 */
 	public AssistedNormalizationBCNF(ArrayList<RelationCheckBox> relList) {
+		setTitle("Normalizaci\u00F3n asistida hasta FNBC");
 		setBounds(100, 100, 600, 600);
 		getContentPane().setLayout(null);
 

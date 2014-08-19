@@ -31,6 +31,17 @@ public class Normalize extends JDialog {
 	 * Create the dialog.
 	 */
 	public Normalize(ArrayList<RelationCheckBox> relList, final int proccess) {
+		switch (proccess) {
+			case 1:
+				setTitle("Normalizaci\u00F3n hasta 3FN");
+				break;
+			case 2:
+				setTitle("Normalizaci\u00F3n hasta FNBC");
+				break;
+			default:
+				setTitle("Normalizaci\u00F3n hasta 4FN");
+				break;
+		}
 		setBounds(100, 100, 600, 400);
 		getContentPane().setLayout(null);
 		

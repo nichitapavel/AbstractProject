@@ -39,6 +39,7 @@ public class AssistedNormalization3NF extends JDialog {
 	 * Create the dialog.
 	 */
 	public AssistedNormalization3NF(ArrayList<RelationCheckBox> relList) {
+		setTitle("Normalizaci\u00F3n asistida hasta 3FN");
 		setBounds(100, 100, 600, 600);
 		getContentPane().setLayout(null);
 

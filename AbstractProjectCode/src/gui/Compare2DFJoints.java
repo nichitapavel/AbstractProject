@@ -31,6 +31,14 @@ public class Compare2DFJoints extends JDialog {
 	 * Create the dialog.
 	 */
 	public Compare2DFJoints(final ArrayList<DFJointCheckBox> dfjointLists, final int operation) {
+		switch (operation) {
+		case 1:
+			setTitle("Equivalencia entre 2 DF's");
+			break;
+		default:
+			setTitle("DF A implica DF B");
+			break;
+		}
 		setBounds(100, 100, 600, 400);
 		getContentPane().setLayout(null);
 		

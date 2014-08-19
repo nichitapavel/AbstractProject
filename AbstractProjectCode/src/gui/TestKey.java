@@ -27,6 +27,7 @@ public class TestKey extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	public TestKey(ArrayList<Attribute> attrList, ArrayList<RelationCheckBox> relRdButton) {
+		setTitle("Comprobar claves");
 		setBounds(100, 100, 600, 400);
 		getContentPane().setLayout(null);
 		
