@@ -98,6 +98,10 @@ public class TestNormalFormDialog extends JDialog {
 		
 		getContentPane().add(panel);
 		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 300, 400, 25);
+		panel.add(info);
+		
 		
 		btnTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -157,6 +161,8 @@ public class TestNormalFormDialog extends JDialog {
 				}
 				
 				rdGroup.clearSelection();
+				
+				info.setText("Relaci\u00F3n " + '"' + r1.getName() + '"');
 			}
 		});
 	}

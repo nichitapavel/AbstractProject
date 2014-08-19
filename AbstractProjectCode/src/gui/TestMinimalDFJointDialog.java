@@ -55,6 +55,10 @@ public class TestMinimalDFJointDialog extends JDialog {
 		lblNewLabel.setBounds(10, 220, 60, 25);
 		panel.add(lblNewLabel);
 		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 190, 400, 25);
+		panel.add(info);
+		
 		JButton btnCalcular = new JButton("Test");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -76,7 +80,7 @@ public class TestMinimalDFJointDialog extends JDialog {
 					txtResult.setText("No es m\u00EDnimo");
 				}
 					
-				
+				info.setText("Es recubierto m\u00EDnimo " + '"' + dfJoint.getName() + '"');
 			}
 		});
 		btnCalcular.setBounds(300, 220, 90, 25);

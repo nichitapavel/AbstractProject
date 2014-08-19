@@ -33,7 +33,7 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 	 */
 	public ProjectionOnAttributeJointDialog(final ArrayList<DFJointCheckBox> dfList) {
 		setTitle("Proyecci\u00F3n de un DF sobre un conjunto de atributos");
-		setBounds(100, 100, 550, 450);
+		setBounds(100, 100, 550, 475);
 		getContentPane().setLayout(null);
 		
 		JPanel panelDF = new JPanel();
@@ -48,22 +48,26 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 		
 		JPanel panelResult = new JPanel();
 		panelResult.setLayout(null);
-		panelResult.setBounds(0, 311, 534, 100);
+		panelResult.setBounds(0, 311, 534, 125);
 		getContentPane().add(panelResult);
 		
 		JLabel lblResultado = new JLabel("Resultado:");
 		lblResultado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblResultado.setBounds(10, 5, 70, 25);
+		lblResultado.setBounds(10, 30, 70, 25);
 		panelResult.add(lblResultado);
 		
 		JButton btnNewButton = new JButton("Calcular");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(10, 40, 90, 25);
+		btnNewButton.setBounds(10, 65, 90, 25);
 		panelResult.add(btnNewButton);
 		
 		final JTextArea textArea = new JTextArea();
-		textArea.setBounds(110, 5, 434, 95);
+		textArea.setBounds(110, 30, 424, 95);
 		panelResult.add(textArea);
+		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 5, 400, 25);
+		panelResult.add(info);
 		
 		final ButtonGroup rdGroup = new ButtonGroup();
 		
@@ -141,6 +145,8 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 				textArea.append("   " + dfJoint_Res.toString());
 				
 				rdGroupdf.clearSelection();
+				
+				info.setText("Proyecci\u00F3n de " + '"' + dfJoint.getName() + '"' + " sobre " + '"' + df + '"');
 			}
 		});
 	}

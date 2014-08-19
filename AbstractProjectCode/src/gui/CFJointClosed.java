@@ -71,6 +71,10 @@ public class CFJointClosed extends JDialog {
 		lblNewLabel.setBounds(10, 330, 70, 25);
 		panel.add(lblNewLabel);
 		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 300, 400, 25);
+		panel.add(info);
+		
 		for (int i = 0; i < aList.size(); i++) {
 			JCheckBox anteChkBox = new JCheckBox(aList.get(i).toString()); 
 			anteChkBox.setBounds(130 + i * 55, 10, 50, 20);				
@@ -133,7 +137,9 @@ public class CFJointClosed extends JDialog {
 					textField.setText("No");
 				}
 				
-				rdGroup.clearSelection();				
+				rdGroup.clearSelection();
+				
+				info.setText("Dependencia funcional " + '"' + df + '"' + " en " + '"' + dfJoint.getName() + '"');
 			}
 		});
 	}

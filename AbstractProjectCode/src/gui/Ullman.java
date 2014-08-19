@@ -79,6 +79,10 @@ public class Ullman extends JDialog {
 		lblNewLabel.setBounds(10, 220, 60, 25);
 		panelAttr.add(lblNewLabel);
 		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 190, 400, 25);
+		panelAttr.add(info);
+		
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -101,6 +105,8 @@ public class Ullman extends JDialog {
 				AttributeJoint result = Normalization.simpleUllman(attrJoint, dfJoint);
 				
 				txtResult.setText(result.toString());
+				
+				info.setText("Cierre del conjunto de atributos " + '"' + attrJoint + '"' + " en " + '"' + dfJoint.getName() + '"');
 			}
 		});
 

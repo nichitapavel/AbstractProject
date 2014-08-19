@@ -131,7 +131,7 @@ public class AssistedMinimalDFJoint extends JDialog {
 				panel.add(rareChckBox.getRdButton());
 			}
 		} else {
-			JLabel finish = new JLabel("El conjunto de dependencias es m\u00EDnimo.");
+			JLabel finish = new JLabel("El conjunto de dependencias " + '"' + dfJoint.getName() + '"' + " es m\u00EDnimo.");
 			finish.setFont(new Font("Tahoma", Font.BOLD, 14));
 			finish.setBounds(20,  20, 400, 25);
 			panel.removeAll();

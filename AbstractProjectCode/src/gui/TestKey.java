@@ -54,9 +54,9 @@ public class TestKey extends JDialog {
 		lblResultado.setBounds(10, 330, 65, 25);
 		panel.add(lblResultado);
 		
-		final JLabel lblParameters = new JLabel();
-		lblParameters.setBounds(10, 300, 600, 25);
-		panel.add(lblParameters);
+		final JLabel info = new JLabel();
+		info.setBounds(10, 300, 600, 25);
+		panel.add(info);
 	
 		
 		for (int i = 0; i < attrList.size(); i++) {
@@ -110,7 +110,7 @@ public class TestKey extends JDialog {
 					}	
 				}
 				
-				lblParameters.setText("Conjunto de Atributos " + attrJoint.toString() + " en " + r1.getName());
+				info.setText("Conjunto de Atributos " + '"' +attrJoint.toString() + '"' + " en " + '"' + r1.getName() + '"');
 				
 				switch (attrJoint.isKey(r1)) {
 				case -1:

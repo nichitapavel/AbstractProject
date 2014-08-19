@@ -58,6 +58,10 @@ public class MinimalDFAuto extends JDialog {
 		lblNewLabel.setBounds(10, 195, 80, 25);
 		panel.add(lblNewLabel);
 		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 170, 400, 25);
+		panel.add(info);
+		
 		JButton btnNewButton = new JButton("Calcular");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -73,11 +77,12 @@ public class MinimalDFAuto extends JDialog {
 				dfJoint.removeRareAttributes(true);
 				
 				textArea.setText(dfJoint.toString());
+				
+				info.setText("Recubrimiento m\u00EDnimo de " + '"' + dfJoint.getName() + '"');
 			}
 		});
 		btnNewButton.setBounds(470, 195, 100, 25);
 		panel.add(btnNewButton);
-
 	}
 
 }

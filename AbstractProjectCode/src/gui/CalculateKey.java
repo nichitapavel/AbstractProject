@@ -47,6 +47,11 @@ public class CalculateKey extends JDialog {
 		txtResultados.setBounds(100, 306, 374, 144);
 		panel.add(txtResultados);
 		
+		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 270, 300, 25);
+		panel.add(info);
+		
 		JButton btnCalcular = new JButton("Calcular claves");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -70,9 +75,11 @@ public class CalculateKey extends JDialog {
 					txtResultados.append(i+1 + ". " + attrJoint.toString() + '\n');
 					i++;
 				}
+				
+				info.setText("Claves de la relación " + '"' + r1.getName() + '"');
 			}
 		});
-		btnCalcular.setBounds(10, 270, 140, 25);
+		btnCalcular.setBounds(330, 270, 140, 25);
 		panel.add(btnCalcular);
 
 		
@@ -96,7 +103,6 @@ public class CalculateKey extends JDialog {
 			panel.add(rList.get(i).getRdButton());
 			panel.add(attrJoint);
 			panel.add(dfJoint);
-
 			
 			rdGroup.add(rList.get(i).getRdButton());
 		}

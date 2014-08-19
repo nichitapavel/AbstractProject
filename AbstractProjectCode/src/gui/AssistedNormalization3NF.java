@@ -29,6 +29,7 @@ public class AssistedNormalization3NF extends JDialog {
 	private ArrayList<DepCheckBox> depBoxList = new ArrayList<>();
 	private ArrayList<ADependency> depList = new ArrayList<>();
 	private Relation r1 = new Relation();
+	private String relationName;
 	int j = 0;
 	/**
 	 * 
@@ -103,6 +104,7 @@ public class AssistedNormalization3NF extends JDialog {
 				for (RelationCheckBox rChBox : rList) {
 					if (rChBox.getRdButton().isSelected()) {
 						r1 = rChBox.getRelation();
+						relationName = rChBox.getRelation().getName();
 					}
 				}
 				
@@ -143,7 +145,7 @@ public class AssistedNormalization3NF extends JDialog {
 						textArea.append("R" + j + ": " + '\n');
 						textArea.append(r1.getAttrJoint().toString() + '\n' + r1.getDFJoint().toString() + '\n');
 						if (i == 1) {
-							JLabel finish = new JLabel("El proceso de normalizaci\u00F3n se ha acabado.");
+							JLabel finish = new JLabel("La relaci\u00F3n " + '"' + relationName + '"' + " est\u00E1 normalizada.");
 							finish.setFont(new Font("Tahoma", Font.BOLD, 14));
 							finish.setBounds(20,  20, 400, 25);
 							panel.removeAll();
@@ -176,6 +178,14 @@ public class AssistedNormalization3NF extends JDialog {
 				depBoxList.add(dep);
 				panel.repaint();
 			}
+		} else {
+			JLabel finish = new JLabel("La relaci\u00F3n " + '"' + relationName + '"' + " est\u00E1 normalizada.");
+			finish.setFont(new Font("Tahoma", Font.BOLD, 14));
+			finish.setBounds(20,  20, 400, 25);
+			panel.removeAll();
+			newButton.setEnabled(false);
+			panel.add(finish);
+			panel.repaint();
 		}
 		
 		rdGroup.clearSelection();

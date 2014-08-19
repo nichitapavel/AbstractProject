@@ -39,7 +39,7 @@ public class Compare2DFJoints extends JDialog {
 			setTitle("DF A implica DF B");
 			break;
 		}
-		setBounds(100, 100, 600, 400);
+		setBounds(100, 100, 600, 430);
 		getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
@@ -60,18 +60,22 @@ public class Compare2DFJoints extends JDialog {
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 330, 70, 25);
+		lblNewLabel.setBounds(10, 360, 70, 25);
 		getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(80, 330, 100, 25);
+		textField.setBounds(80, 360, 100, 25);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Calcular");
-		btnNewButton.setBounds(190, 330, 89, 25);
+		btnNewButton.setBounds(190, 360, 89, 25);
 		getContentPane().add(btnNewButton);
+		
+		final JLabel info = new JLabel("");
+		info.setBounds(10, 330, 400, 25);
+		getContentPane().add(info);
 		
 		
 		final ButtonGroup rdGroupLeft = new ButtonGroup();
@@ -109,6 +113,7 @@ public class Compare2DFJoints extends JDialog {
 				
 				switch (operation) {
 					case 1:
+						info.setText('"' + dfA.getName() + '"' + " es equivalente a " + '"' + dfB.getName() + '"');
 						if (dfA.isEquivalent(dfB, null)) {
 							textField.setForeground(Color.GREEN);
 							textField.setText("Equivalentes");
@@ -118,6 +123,7 @@ public class Compare2DFJoints extends JDialog {
 						}
 						break;
 					default:
+						info.setText('"' + dfA.getName() + '"' + " implica a " + '"' + dfB.getName() + '"');
 						if (dfA.isImplied(dfB, null)) {
 							textField.setForeground(Color.GREEN);
 							textField.setText("Implica");
