@@ -69,7 +69,7 @@ public class TestNormalFormDialog extends JDialog {
 		lblResultado.setBounds(10, 330, 65, 25);
 		panel.add(lblResultado);
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		for (int i = 0; i < relationList.size(); i++) {
 			
@@ -156,8 +156,7 @@ public class TestNormalFormDialog extends JDialog {
 					break;
 				}
 				
-				
-					
+				rdGroup.clearSelection();
 			}
 		});
 	}

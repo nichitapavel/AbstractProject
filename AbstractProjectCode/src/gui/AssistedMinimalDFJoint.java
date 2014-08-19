@@ -43,7 +43,7 @@ public class AssistedMinimalDFJoint extends JDialog {
 		panel.setBounds(0, 0, 584, 220);
 		panel.setLayout(null);
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		for (int i = 0; i < dfJList.size(); i++) {
 			DFJointCheckBox rd = dfJList.get(i);
@@ -80,6 +80,8 @@ public class AssistedMinimalDFJoint extends JDialog {
 					if (df.getRdButton2().isSelected())
 						dfJoint = new DFJoint(df.getDfJoint());
 				}
+				
+				rdGroup.clearSelection();
 				
 				bottomPanel.remove(btnNewButton);
 				bottomPanel.add(newButton);
@@ -138,7 +140,8 @@ public class AssistedMinimalDFJoint extends JDialog {
 			panel.repaint();
 			textArea.setText(dfJoint.getDFJoint().toString());
 		}
-			
+		
+		rdGroup.clearSelection();
 		panel.repaint();
 	}
 }

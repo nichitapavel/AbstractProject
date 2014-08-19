@@ -59,6 +59,8 @@ public class CalculateKey extends JDialog {
 					}	
 				}
 				
+				rdGroup.clearSelection();
+				
 				KeyJoint keyJoint = r1.calculateKeyJoint();
 				
 				txtResultados.setText(null);

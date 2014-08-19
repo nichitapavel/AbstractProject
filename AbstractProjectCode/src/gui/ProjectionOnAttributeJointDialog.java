@@ -122,6 +122,8 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 						df = dep.getDP();
 				}
 				
+				rdGroup.clearSelection();
+				
 				textArea.setText(null);
 				
 				DFJoint dfJoint_Res = dfJoint.projectionOnAttributeJoint(df.getAttributeJoint());
@@ -135,6 +137,8 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 				
 				textArea.append('\n' + dfJoint.getName() + "_B" + '\n');
 				textArea.append("   " + dfJoint_Res.toString());
+				
+				rdGroupdf.clearSelection();
 			}
 		});
 	}

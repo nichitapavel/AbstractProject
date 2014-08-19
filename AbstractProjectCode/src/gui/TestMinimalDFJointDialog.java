@@ -35,7 +35,7 @@ public class TestMinimalDFJointDialog extends JDialog {
 
 		final ArrayList<DFJointCheckBox> dfJList = new ArrayList<DFJointCheckBox>(dfJointList);
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 434, 261);
@@ -64,6 +64,8 @@ public class TestMinimalDFJointDialog extends JDialog {
 						dfJoint = new DFJoint(dfRd.getDfJoint());
 					}	
 				}
+				
+				rdGroup.clearSelection();
 				
 				if (dfJoint.isMinimal()) {
 					txtResult.setForeground(Color.GREEN);

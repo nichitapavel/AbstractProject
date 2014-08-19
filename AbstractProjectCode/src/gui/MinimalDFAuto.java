@@ -36,7 +36,7 @@ public class MinimalDFAuto extends JDialog {
 		panel.setBounds(0, 0, 584, 261);
 		panel.setLayout(null);
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		for (int i = 0; i < dfJList.size(); i++) {
 			DFJointCheckBox rd = dfJList.get(i);
@@ -67,6 +67,8 @@ public class MinimalDFAuto extends JDialog {
 					if (df.getRdButton2().isSelected())
 						dfJoint = new DFJoint(df.getDfJoint());
 				}
+				
+				rdGroup.clearSelection();
 				
 				dfJoint.removeRareAttributes(true);
 				

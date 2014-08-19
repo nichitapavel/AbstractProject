@@ -84,7 +84,7 @@ public class CFJointClosed extends JDialog {
 			panel.add(consChkBox);
 		}
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		for (int i = 0; i < dfList.size(); i++) {
 			DFJointCheckBox rd = dfList.get(i);
@@ -102,13 +102,17 @@ public class CFJointClosed extends JDialog {
 				AttributeJoint consequent = new AttributeJoint();
 				
 				for (JCheckBox attr : antecedentChckBox) {
-					if (attr.isSelected())
+					if (attr.isSelected()) {
 						antecedent.addAttributes(new Attribute(attr.getText()));
+						attr.setSelected(false);
+					}
 				}
 				
 				for (JCheckBox attr : consecuentChckBox) {
-					if (attr.isSelected())
+					if (attr.isSelected()) {
 						consequent.addAttributes(new Attribute(attr.getText()));
+						attr.setSelected(false);	
+					}
 				}
 				
 				ADependency df = new FunctionalDependency(antecedent, consequent);
@@ -129,6 +133,7 @@ public class CFJointClosed extends JDialog {
 					textField.setText("No");
 				}
 				
+				rdGroup.clearSelection();				
 			}
 		});
 	}

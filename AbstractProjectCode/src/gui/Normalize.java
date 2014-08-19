@@ -47,7 +47,7 @@ public class Normalize extends JDialog {
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
 		panel.setLocation(0, 0);
@@ -75,6 +75,8 @@ public class Normalize extends JDialog {
 						r1.setName(rel.getRelation().getName());
 					}	
 				}
+				
+				rdGroup.clearSelection();
 				
 				ArrayList<Relation> result;
 				

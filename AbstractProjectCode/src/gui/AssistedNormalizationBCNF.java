@@ -44,7 +44,7 @@ public class AssistedNormalizationBCNF extends JDialog {
 
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
 		
-		ButtonGroup rdGroup = new ButtonGroup();
+		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		panel = new JPanel();
 		panel.setLocation(0, 0);
@@ -108,6 +108,8 @@ public class AssistedNormalizationBCNF extends JDialog {
 				bottomPanel.remove(btnNewButton);
 				bottomPanel.add(newButton);
 				bottomPanel.repaint();
+				
+				rdGroup.clearSelection();
 				
 				norm.add(r1);
 				nextPanel();
@@ -175,6 +177,8 @@ public class AssistedNormalizationBCNF extends JDialog {
 				panel.repaint();
 			}
 		}
+		
+		rdGroup.clearSelection();
 	}
 
 }
