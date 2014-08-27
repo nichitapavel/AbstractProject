@@ -522,14 +522,14 @@ public class MainWindow {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(0, 0, 1920, 1);
 		
-		JLabel label = new JLabel("Relaciones");
-		label.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		label.setBounds(new Rectangle(10, 10, 100, 25));
-		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		JLabel lblRelaciones = new JLabel("Relaciones:");
+		lblRelaciones.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		lblRelaciones.setBounds(new Rectangle(10, 10, 100, 25));
+		lblRelaciones.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		//anadiendo los componentes al panel de relaciones
 		panelRel.add(separator);
-		panelRel.add(label);
+		panelRel.add(lblRelaciones);
 		
 		//anadiendo el panel al ContentPane
 		frmTFG.getContentPane().add(panelRel);
