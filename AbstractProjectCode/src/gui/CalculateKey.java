@@ -44,6 +44,7 @@ public class CalculateKey extends JDialog {
 		panel.setLayout(null);
 		
 		final JTextArea txtResultados = new JTextArea();
+		txtResultados.setEditable(false);
 		txtResultados.setBounds(100, 306, 374, 144);
 		panel.add(txtResultados);
 		
