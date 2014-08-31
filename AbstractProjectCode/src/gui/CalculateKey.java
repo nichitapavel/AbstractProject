@@ -77,7 +77,7 @@ public class CalculateKey extends JDialog {
 					i++;
 				}
 				
-				info.setText("Claves de la relación " + '"' + r1.getName() + '"');
+				info.setText("Claves de la relaci\u00F3n " + '"' + r1.getName() + '"');
 			}
 		});
 		btnCalcular.setBounds(330, 270, 140, 25);
