@@ -111,7 +111,7 @@ public class MainWindow {
 	private void initialize(final JFrame frmTFG) {
 		//Inicializar la ventana
 		frmTFG.setExtendedState(Frame.MAXIMIZED_BOTH);
-		frmTFG.setTitle("DBN&U");
+		frmTFG.setTitle("DBDStudio");
 		frmTFG.setBackground(new Color(240, 240, 240));
 		frmTFG.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTFG.getContentPane().setLayout(null);

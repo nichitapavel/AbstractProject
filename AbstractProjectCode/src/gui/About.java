@@ -77,14 +77,14 @@ public class About extends JFrame {
 		txtpnTutorJessManuel.setBackground(contentPane.getBackground());
 		contentPane.add(txtpnTutorJessManuel);
 		
-		JLabel lblDbnu = new JLabel("DBN&U");
+		JLabel lblDbnu = new JLabel("DBDStudio");
 		lblDbnu.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDbnu.setBounds(356, 11, 79, 40);
+		lblDbnu.setBounds(331, 11, 119, 40);
 		contentPane.add(lblDbnu);
 		
-		JLabel lblDatabaseNormalizationAnd = new JLabel("DataBase Normalization and Utilities");
+		JLabel lblDatabaseNormalizationAnd = new JLabel("Data Base Design");
 		lblDatabaseNormalizationAnd.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDatabaseNormalizationAnd.setBounds(260, 62, 330, 40);
+		lblDatabaseNormalizationAnd.setBounds(318, 62, 157, 40);
 		contentPane.add(lblDatabaseNormalizationAnd);
 		
 		setSize (800, 400);
