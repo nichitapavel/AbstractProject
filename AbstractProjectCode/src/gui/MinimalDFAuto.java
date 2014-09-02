@@ -27,7 +27,7 @@ public class MinimalDFAuto extends JDialog {
 	 */
 	public MinimalDFAuto(ArrayList<DFJointCheckBox> dfJointList) {
 		setTitle("Recubrimiento m\u00EDnimo");
-		setBounds(100, 100, 600, 300);
+		setBounds(100, 100, 439, 198);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<DFJointCheckBox> dfJList = new ArrayList<>(dfJointList);
@@ -50,16 +50,16 @@ public class MinimalDFAuto extends JDialog {
 		getContentPane().add(panel);
 		
 		final JTextArea textArea = new JTextArea();
-		textArea.setBounds(0, 230, 584, 30);
+		textArea.setBounds(0, 130, 584, 30);
 		panel.add(textArea);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 195, 80, 25);
+		lblNewLabel.setBounds(10, 95, 80, 25);
 		panel.add(lblNewLabel);
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 170, 400, 25);
+		info.setBounds(0, 77, 400, 25);
 		panel.add(info);
 		
 		JButton btnNewButton = new JButton("Calcular");
@@ -81,7 +81,7 @@ public class MinimalDFAuto extends JDialog {
 				info.setText("Recubrimiento m\u00EDnimo de " + '"' + dfJoint.getName() + '"');
 			}
 		});
-		btnNewButton.setBounds(470, 195, 100, 25);
+		btnNewButton.setBounds(312, 95, 100, 25);
 		panel.add(btnNewButton);
 	}
 

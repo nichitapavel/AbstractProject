@@ -35,7 +35,7 @@ public class CFJointClosed extends JDialog {
 	 */
 	public CFJointClosed(final ArrayList<DFJointCheckBox> dfList, ArrayList<Attribute> aList) {
 		setTitle("d.f. pertenece a DF");
-		setBounds(100, 100, 550, 400);
+		setBounds(100, 100, 450, 207);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -57,22 +57,22 @@ public class CFJointClosed extends JDialog {
 		panel.add(lblConsecuente);
 		
 		JButton btnNewButton = new JButton("Comprobar");
-		btnNewButton.setBounds(210, 330, 110, 25);
+		btnNewButton.setBounds(210, 130, 110, 25);
 		panel.add(btnNewButton);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField.setBounds(100, 330, 86, 25);
+		textField.setBounds(100, 130, 86, 25);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 330, 70, 25);
+		lblNewLabel.setBounds(10, 130, 70, 25);
 		panel.add(lblNewLabel);
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 300, 400, 25);
+		info.setBounds(10, 100, 400, 25);
 		panel.add(info);
 		
 		for (int i = 0; i < aList.size(); i++) {

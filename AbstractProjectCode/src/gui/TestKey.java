@@ -28,7 +28,7 @@ public class TestKey extends JDialog {
 
 	public TestKey(ArrayList<Attribute> attrList, ArrayList<RelationCheckBox> relRdButton) {
 		setTitle("Comprobar claves");
-		setBounds(100, 100, 600, 400);
+		setBounds(100, 100, 450, 236);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<JCheckBox> aList = new ArrayList<>();
@@ -37,25 +37,25 @@ public class TestKey extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLocation(0, 0);
-		panel.setSize(600, 360);
+		panel.setSize(455, 200);
 		panel.setLayout(null);
 		
 		JButton btnTest = new JButton("Test");
-		btnTest.setBounds(295, 330, 80, 25);
+		btnTest.setBounds(295, 160, 80, 25);
 		panel.add(btnTest);
 		
 		final JTextField txtResult = new JTextField();
-		txtResult.setBounds(80, 330, 200, 25);
+		txtResult.setBounds(80, 160, 200, 25);
 		panel.add(txtResult);
 		txtResult.setColumns(10);
 		txtResult.setEditable(false);
 		
 		JLabel lblResultado = new JLabel("Resultado: ");
-		lblResultado.setBounds(10, 330, 65, 25);
+		lblResultado.setBounds(10, 160, 65, 25);
 		panel.add(lblResultado);
 		
 		final JLabel info = new JLabel();
-		info.setBounds(10, 300, 600, 25);
+		info.setBounds(10, 130, 600, 25);
 		panel.add(info);
 	
 		

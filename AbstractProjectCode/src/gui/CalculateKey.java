@@ -33,7 +33,7 @@ public class CalculateKey extends JDialog {
 	 */
 	public CalculateKey(ArrayList<RelationCheckBox> relList) {
 		setTitle("Calculo de claves");
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 504, 350);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
@@ -45,12 +45,12 @@ public class CalculateKey extends JDialog {
 		
 		final JTextArea txtResultados = new JTextArea();
 		txtResultados.setEditable(false);
-		txtResultados.setBounds(100, 306, 374, 144);
+		txtResultados.setBounds(100, 160, 374, 144);
 		panel.add(txtResultados);
 		
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 270, 300, 25);
+		info.setBounds(10, 120, 300, 25);
 		panel.add(info);
 		
 		JButton btnCalcular = new JButton("Calcular claves");
@@ -80,7 +80,7 @@ public class CalculateKey extends JDialog {
 				info.setText("Claves de la relaci\u00F3n " + '"' + r1.getName() + '"');
 			}
 		});
-		btnCalcular.setBounds(330, 270, 140, 25);
+		btnCalcular.setBounds(330, 120, 140, 25);
 		panel.add(btnCalcular);
 
 		
@@ -113,7 +113,7 @@ public class CalculateKey extends JDialog {
 		
 		JLabel lblNewLabel = new JLabel("Resultados:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 310, 80, 25);
+		lblNewLabel.setBounds(10, 160, 80, 25);
 		panel.add(lblNewLabel);
 	}
 }

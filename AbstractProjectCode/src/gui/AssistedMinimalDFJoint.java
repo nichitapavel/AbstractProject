@@ -36,11 +36,11 @@ public class AssistedMinimalDFJoint extends JDialog {
 	 */
 	public AssistedMinimalDFJoint(final ArrayList<DFJointCheckBox> dfJList) {
 		setTitle("Recubrimiento m\u00EDnimo asisitido");
-		setBounds(100, 100, 600, 300);
+		setBounds(100, 100, 600, 283);
 		getContentPane().setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBounds(0, 0, 584, 220);
+		panel.setBounds(0, 0, 584, 207);
 		panel.setLayout(null);
 		
 		final ButtonGroup rdGroup = new ButtonGroup();
@@ -57,7 +57,7 @@ public class AssistedMinimalDFJoint extends JDialog {
 		getContentPane().add(panel);
 		
 		bottomPanel = new JPanel();
-		bottomPanel.setBounds(0, 220, 584, 43);
+		bottomPanel.setBounds(0, 206, 584, 43);
 		bottomPanel.setLayout(null);
 		
 		getContentPane().add(bottomPanel);

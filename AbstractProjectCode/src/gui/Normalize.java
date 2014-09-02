@@ -42,7 +42,7 @@ public class Normalize extends JDialog {
 				setTitle("Normalizaci\u00F3n hasta 4FN");
 				break;
 		}
-		setBounds(100, 100, 600, 450);
+		setBounds(100, 100, 601, 360);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
@@ -51,21 +51,21 @@ public class Normalize extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLocation(0, 0);
-		panel.setSize(584, 411);
+		panel.setSize(584, 347);
 		panel.setLayout(null);
 		
 		getContentPane().add(panel);
 		
 		final JTextArea textArea = new JTextArea();
-		textArea.setBounds(120, 250, 310, 161);
+		textArea.setBounds(120, 155, 310, 161);
 		panel.add(textArea);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
-		lblNewLabel.setBounds(10, 250, 60, 24);
+		lblNewLabel.setBounds(10, 155, 60, 24);
 		panel.add(lblNewLabel);
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 225, 400, 25);
+		info.setBounds(10, 130, 400, 25);
 		panel.add(info);
 		
 		JButton btnNewButton = new JButton("Normalizar");
@@ -108,7 +108,7 @@ public class Normalize extends JDialog {
 				info.setText("Normalizaci\u00F3n de la relaci\u00F3n " + '"' + r1.getName() + '"');
 			}
 		});
-		btnNewButton.setBounds(460, 250, 100, 25);
+		btnNewButton.setBounds(460, 155, 100, 25);
 		panel.add(btnNewButton);
 		
 		for (int i = 0; i < rList.size(); i++) {

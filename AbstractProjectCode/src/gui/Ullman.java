@@ -34,7 +34,8 @@ public class Ullman extends JDialog {
 	 * Create the dialog.
 	 */
 	public Ullman(ArrayList<Attribute> attrList, ArrayList<DFJointCheckBox> dfJointList) {
-		setBounds(100, 100, 450, 300);
+		setTitle("Cierre de un conjunto de atributos (Ullman)");
+		setBounds(100, 100, 451, 189);
 		
 		final ArrayList<JCheckBox> attrChckBoxList = new ArrayList<JCheckBox>();
 		final ButtonGroup rdGroup = new ButtonGroup();
@@ -72,15 +73,15 @@ public class Ullman extends JDialog {
 		txtResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		txtResult.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		txtResult.setEditable(false);
-		txtResult.setBounds(70, 220, 220, 25);
+		txtResult.setBounds(70, 120, 220, 25);
 		panelAttr.add(txtResult);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
-		lblNewLabel.setBounds(10, 220, 60, 25);
+		lblNewLabel.setBounds(10, 120, 60, 25);
 		panelAttr.add(lblNewLabel);
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 190, 400, 25);
+		info.setBounds(10, 90, 400, 25);
 		panelAttr.add(info);
 		
 		JButton btnCalcular = new JButton("Calcular");
@@ -110,7 +111,7 @@ public class Ullman extends JDialog {
 			}
 		});
 
-		btnCalcular.setBounds(300, 220, 90, 25);
+		btnCalcular.setBounds(300, 120, 90, 25);
 		panelAttr.add(btnCalcular);
 	}
 }

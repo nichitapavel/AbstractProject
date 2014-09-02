@@ -44,7 +44,7 @@ public class TestNormalFormDialog extends JDialog {
 				setTitle("Detectar forma normal");
 				break;
 		}
-		setBounds(100, 100, 800, 400);
+		setBounds(100, 100, 450, 242);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> relationList = new ArrayList<>(relChckBox);
@@ -52,21 +52,21 @@ public class TestNormalFormDialog extends JDialog {
 		
 		JPanel panel = new JPanel();
 		panel.setLocation(0, 0);
-		panel.setSize(784, 361);
+		panel.setSize(784, 203);
 		panel.setLayout(null);
 		
 		JButton btnTest = new JButton("Test");
-		btnTest.setBounds(245, 330, 80, 25);
+		btnTest.setBounds(245, 150, 80, 25);
 		panel.add(btnTest);
 		
 		result = new JTextField();
-		result.setBounds(80, 330, 150, 25);
+		result.setBounds(80, 150, 150, 25);
 		panel.add(result);
 		result.setColumns(10);
 		result.setEditable(false);
 		
 		JLabel lblResultado = new JLabel("Resultado: ");
-		lblResultado.setBounds(10, 330, 65, 25);
+		lblResultado.setBounds(10, 150, 65, 25);
 		panel.add(lblResultado);
 		
 		final ButtonGroup rdGroup = new ButtonGroup();
@@ -99,7 +99,7 @@ public class TestNormalFormDialog extends JDialog {
 		getContentPane().add(panel);
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 300, 400, 25);
+		info.setBounds(10, 120, 400, 25);
 		panel.add(info);
 		
 		

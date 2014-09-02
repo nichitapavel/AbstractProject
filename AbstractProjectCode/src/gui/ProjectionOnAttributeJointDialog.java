@@ -33,22 +33,22 @@ public class ProjectionOnAttributeJointDialog extends JDialog {
 	 */
 	public ProjectionOnAttributeJointDialog(final ArrayList<DFJointCheckBox> dfList) {
 		setTitle("Proyecci\u00F3n de un DF sobre un conjunto de atributos");
-		setBounds(100, 100, 550, 475);
+		setBounds(100, 100, 554, 268);
 		getContentPane().setLayout(null);
 		
 		JPanel panelDF = new JPanel();
 		panelDF.setLayout(null);
-		panelDF.setBounds(0, 0, 370, 310);
+		panelDF.setBounds(0, 0, 370, 100);
 		getContentPane().add(panelDF);
 		
 		final JPanel paneldf = new JPanel();
-		paneldf.setBounds(370, 0, 164, 310);
+		paneldf.setBounds(370, 0, 168, 100);
 		getContentPane().add(paneldf);
 		
 		
 		JPanel panelResult = new JPanel();
 		panelResult.setLayout(null);
-		panelResult.setBounds(0, 311, 534, 125);
+		panelResult.setBounds(0, 99, 538, 130);
 		getContentPane().add(panelResult);
 		
 		JLabel lblResultado = new JLabel("Resultado:");

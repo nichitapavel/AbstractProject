@@ -40,7 +40,7 @@ public class AssistedNormalization4NF extends JDialog {
 	 */
 	public AssistedNormalization4NF(ArrayList<RelationCheckBox> relList) {
 		setTitle("Normalizaci\u00F3n asistida hasta 4FN");
-		setBounds(100, 100, 600, 600);
+		setBounds(100, 100, 600, 341);
 		getContentPane().setLayout(null);
 
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
@@ -49,7 +49,7 @@ public class AssistedNormalization4NF extends JDialog {
 		
 		panel = new JPanel();
 		panel.setLocation(0, 0);
-		panel.setSize(584, 350);
+		panel.setSize(584, 100);
 		panel.setLayout(null);
 		
 		getContentPane().add(panel);
@@ -80,7 +80,7 @@ public class AssistedNormalization4NF extends JDialog {
 		}
 		
 		bottomPanel = new JPanel();
-		bottomPanel.setLocation(0, 350);
+		bottomPanel.setLocation(0, 100);
 		bottomPanel.setSize(584, 212);
 		bottomPanel.setLayout(null);
 		

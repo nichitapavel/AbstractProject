@@ -39,42 +39,42 @@ public class Compare2DFJoints extends JDialog {
 			setTitle("DF A implica DF B");
 			break;
 		}
-		setBounds(100, 100, 600, 430);
+		setBounds(100, 100, 660, 179);
 		getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
-		panelLeft.setBounds(0, 0, 291, 320);
+		panelLeft.setBounds(0, 0, 321, 80);
 		panelLeft.setLayout(null);
 		getContentPane().add(panelLeft);
-
-		JSeparator sep = new JSeparator();
-		sep.setRequestFocusEnabled(false);
-		sep.setOrientation(SwingConstants.VERTICAL);
-		sep.setBounds(290, 0, 1, 320);
-		panelLeft.add(sep);
+		
+				JSeparator sep = new JSeparator();
+				sep.setBounds(320, 0, 1, 320);
+				panelLeft.add(sep);
+				sep.setRequestFocusEnabled(false);
+				sep.setOrientation(SwingConstants.VERTICAL);
 		
 		JPanel panelRight = new JPanel();
-		panelRight.setBounds(293, 0, 292, 320);
+		panelRight.setBounds(322, 0, 322, 80);
 		panelRight.setLayout(null);
 		getContentPane().add(panelRight);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(10, 360, 70, 25);
+		lblNewLabel.setBounds(10, 110, 70, 25);
 		getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(80, 360, 100, 25);
+		textField.setBounds(80, 110, 100, 25);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Calcular");
-		btnNewButton.setBounds(190, 360, 89, 25);
+		btnNewButton.setBounds(190, 110, 89, 25);
 		getContentPane().add(btnNewButton);
 		
 		final JLabel info = new JLabel("");
-		info.setBounds(10, 330, 400, 25);
+		info.setBounds(10, 85, 400, 25);
 		getContentPane().add(info);
 		
 		
