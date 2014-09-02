@@ -82,9 +82,9 @@ public class About extends JFrame {
 		lblDbnu.setBounds(331, 11, 119, 40);
 		contentPane.add(lblDbnu);
 		
-		JLabel lblDatabaseNormalizationAnd = new JLabel("Data Base Design");
+		JLabel lblDatabaseNormalizationAnd = new JLabel("Data Base Design Studio");
 		lblDatabaseNormalizationAnd.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblDatabaseNormalizationAnd.setBounds(318, 62, 157, 40);
+		lblDatabaseNormalizationAnd.setBounds(270, 62, 212, 40);
 		contentPane.add(lblDatabaseNormalizationAnd);
 		
 		setSize (800, 400);
