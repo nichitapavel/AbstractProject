@@ -80,7 +80,7 @@ public class TestMinimalDFJointDialog extends JDialog {
 					txtResult.setText("No es m\u00EDnimo");
 				}
 					
-				info.setText("Es recubierto m\u00EDnimo " + '"' + dfJoint.getName() + '"');
+				info.setText("Es m\u00EDnimo " + '"' + dfJoint.getName() + '"');
 			}
 		});
 		btnCalcular.setBounds(300, 220, 90, 25);
