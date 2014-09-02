@@ -34,6 +34,7 @@ public class Ullman extends JDialog {
 	 * Create the dialog.
 	 */
 	public Ullman(ArrayList<Attribute> attrList, ArrayList<DFJointCheckBox> dfJointList) {
+		setTitle("Cierre de un conjunto de atributos (Ullman)");
 		setBounds(100, 100, 450, 300);
 		
 		final ArrayList<JCheckBox> attrChckBoxList = new ArrayList<JCheckBox>();
