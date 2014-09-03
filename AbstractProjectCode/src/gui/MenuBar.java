@@ -38,12 +38,12 @@ public class MenuBar {
 	private JMenuItem mntmFNBC = new JMenuItem("FNBC (Formal Normal Boyce-Codd)");
 	private JMenuItem mntm4FN = new JMenuItem("4FN (4 Forma Normal)");
 	private JMenuItem mntmRecMinimo = new JMenuItem("Recubrimiento M\u00EDnimo");
-	private JMenuItem mntmClaveRelacion = new JMenuItem("Clave de una relaci\u00F3n");
+	private JMenuItem mntmClaveRelacion = new JMenuItem("Calculo de claves");
 	
-	private JMenuItem mntmProyeccAJsobreDf = new JMenuItem("Proyecci\u00F3n de DF sobre un conjunto de atributos");
-	private JMenuItem mntmDFAImplicaDFB = new JMenuItem("DF A implica DF B");
+	private JMenuItem mntmProyeccAJsobreDf = new JMenuItem("Proyecci\u00F3n sobre una dependencia funcional");
+	private JMenuItem mntmDFAImplicaDFB = new JMenuItem("DF1 implica DF2?");
 	private JMenuItem mntmEquivalenciaDosDF = new JMenuItem("Equivalencia entre 2 DF's");
-	private JMenuItem mntmDfPerteneceDF = new JMenuItem("d.f. pertenece a DF");
+	private JMenuItem mntmDfPerteneceDF = new JMenuItem("d.f. pertenece a DF?");
 	private JMenuItem mntmUllman = new JMenuItem("Cierre de un conjunto de atributos (Ullman)");
 	private JMenuItem mntmClaves = new JMenuItem("Claves");
 	

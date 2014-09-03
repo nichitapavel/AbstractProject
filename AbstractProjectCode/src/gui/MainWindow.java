@@ -362,9 +362,19 @@ public class MainWindow {
 		txtNameDEP.setBounds(240, 10, 140, 25);
 		txtNameDEP.setColumns(10);
 		
-		JButton btnAddDEP = new JButton("A\u00F1adir Conjunto de Dependencias");
+		final JButton btnAddDEP = new JButton("A\u00F1adir Conjunto de Dependencias");
+		txtNameDEP.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(!txtNameDEP.getText().isEmpty())
+					btnAddDEP.setEnabled(true);
+				else
+					btnAddDEP.setEnabled(false);
+			}
+		});
 		btnAddDEP.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddDEP.setBounds(385, 10, 270, 25);
+		btnAddDEP.setEnabled(false);
 		
 		//añadiendo los elementos de panel de dependencias
 		panelDep.add(lblNameDEP);		
@@ -450,9 +460,19 @@ public class MainWindow {
 		txtNameR.setBounds(125, 10, 140, 25);
 		txtNameR.setColumns(10);
 		
-		JButton btnAddR = new JButton("A\u00F1adir Relaci\u00F3n");
+		final JButton btnAddR = new JButton("A\u00F1adir Relaci\u00F3n");
+		txtNameR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				if(!txtNameR.getText().isEmpty())
+					btnAddR.setEnabled(true);
+				else
+					btnAddR.setEnabled(false);
+			}
+		});
 		btnAddR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAddR.setBounds(270, 10, 140, 25);
+		btnAddR.setEnabled(false);
 		
 		//añadiendo los elementos de panel de conjunto depencias
 		panelDEP.add(separatorDEP);
@@ -467,7 +487,7 @@ public class MainWindow {
 		 * Evento de los botones del panel de conjunto de dependencias
 		 */
 		
-		btnAddR.addActionListener(new ActionListener() {
+		btnAddR.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent arg0) {
 
 				AttributeJoint relAttrJoint = new AttributeJoint(); 

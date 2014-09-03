@@ -34,7 +34,7 @@ public class CFJointClosed extends JDialog {
 	 * Create the dialog.
 	 */
 	public CFJointClosed(final ArrayList<DFJointCheckBox> dfList, ArrayList<Attribute> aList) {
-		setTitle("d.f. pertenece a DF");
+		setTitle("d.f. pertenece a DF?");
 		setBounds(100, 100, 450, 207);
 		getContentPane().setLayout(null);
 		

@@ -36,7 +36,7 @@ public class Compare2DFJoints extends JDialog {
 			setTitle("Equivalencia entre 2 DF's");
 			break;
 		default:
-			setTitle("DF A implica DF B");
+			setTitle("DF1 implica DF2?");
 			break;
 		}
 		setBounds(100, 100, 660, 179);

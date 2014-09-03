@@ -11,8 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 import datastructures.Relation;
 import datastructures.dependency.ADependency;
@@ -89,7 +91,12 @@ public class AssistedNormalization4NF extends JDialog {
 		textArea = new JTextArea();
 		textArea.setBounds(90, 10, 368, 190);
 		textArea.setEditable(false);
-		bottomPanel.add(textArea);
+		
+		JScrollPane scroll = new JScrollPane(textArea);
+		scroll.setBounds(90, 10, 368, 190);
+	    scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		bottomPanel.add(scroll);
 		
 		lblNewLabel = new JLabel("Resultado:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
