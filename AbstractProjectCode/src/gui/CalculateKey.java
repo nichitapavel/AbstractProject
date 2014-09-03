@@ -6,7 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.ScrollPaneConstants;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -33,7 +35,7 @@ public class CalculateKey extends JDialog {
 	 */
 	public CalculateKey(ArrayList<RelationCheckBox> relList) {
 		setTitle("Calculo de claves");
-		setBounds(100, 100, 504, 350);
+		setBounds(100, 100, 500, 290);
 		getContentPane().setLayout(null);
 		
 		final ArrayList<RelationCheckBox> rList = new ArrayList<>(relList);
@@ -46,7 +48,12 @@ public class CalculateKey extends JDialog {
 		final JTextArea txtResultados = new JTextArea();
 		txtResultados.setEditable(false);
 		txtResultados.setBounds(100, 160, 374, 144);
-		panel.add(txtResultados);
+		
+		JScrollPane scroll = new JScrollPane(txtResultados);
+		scroll.setBounds(100, 160, 374, 80);
+	    scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		panel.add(scroll);
 		
 		
 		final JLabel info = new JLabel("");

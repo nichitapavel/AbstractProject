@@ -10,9 +10,11 @@ import javax.swing.ButtonGroup;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.ScrollPaneConstants;
 
 import normalization.Normalization;
 import datastructures.Relation;
@@ -58,7 +60,11 @@ public class Normalize extends JDialog {
 		
 		final JTextArea textArea = new JTextArea();
 		textArea.setBounds(120, 155, 310, 161);
-		panel.add(textArea);
+		JScrollPane scroll = new JScrollPane(textArea);
+		scroll.setBounds(120, 155, 310, 161);
+	    scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		
+		panel.add(scroll);
 		
 		JLabel lblNewLabel = new JLabel("Resultado:");
 		lblNewLabel.setBounds(10, 155, 60, 24);
