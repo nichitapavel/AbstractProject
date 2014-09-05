@@ -72,7 +72,7 @@ public class About extends JFrame {
 		JTextPane txtpnTutorJessManuel = new JTextPane();
 		txtpnTutorJessManuel.setEditable(false);
 		txtpnTutorJessManuel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtpnTutorJessManuel.setText("Tutor: Jes\u00FAs Manuel Santiso");
+		txtpnTutorJessManuel.setText("Tutor: Jes\u00FAs M. Jorge Santiso");
 		txtpnTutorJessManuel.setBounds(270, 215, 260, 40);
 		txtpnTutorJessManuel.setBackground(contentPane.getBackground());
 		contentPane.add(txtpnTutorJessManuel);
@@ -86,6 +86,16 @@ public class About extends JFrame {
 		lblDatabaseNormalizationAnd.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblDatabaseNormalizationAnd.setBounds(270, 62, 212, 40);
 		contentPane.add(lblDatabaseNormalizationAnd);
+		
+		JLabel lblNewLabel = new JLabel("Grupo de Optimizaci\u00F3n y Miner\u00EDa de Datos");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(222, 255, 372, 40);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblUniversidadDeLa = new JLabel("Universidad de La Laguna");
+		lblUniversidadDeLa.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblUniversidadDeLa.setBounds(289, 306, 227, 40);
+		contentPane.add(lblUniversidadDeLa);
 		
 		setSize (800, 400);
 		this.setLocation (400, 400);

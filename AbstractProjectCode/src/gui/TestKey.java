@@ -119,7 +119,7 @@ public class TestKey extends JDialog {
 					break;
 				case 1:
 					txtResult.setForeground(Color.GREEN);
-					txtResult.setText("Es clave m\u00EDnima");
+					txtResult.setText("Es clave");
 					break;
 				default:
 					txtResult.setForeground(Color.ORANGE);
