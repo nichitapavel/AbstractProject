@@ -42,7 +42,7 @@ public class CalculateKey extends JDialog {
 		final ButtonGroup rdGroup = new ButtonGroup();
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 484, 461);
+		panel.setBounds(0, 0, 484, 251);
 		panel.setLayout(null);
 		
 		final JTextArea txtResultados = new JTextArea();

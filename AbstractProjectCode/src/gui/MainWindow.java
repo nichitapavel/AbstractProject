@@ -168,7 +168,7 @@ public class MainWindow {
 		panelAttr.add(btnAddFuncDep);
 		panelAttr.add(btnAddPlurDep);
 
-		//añadiendo el panel de attributos a la ventana
+		//anadiendo el panel de attributos a la ventana
 		frmTFG.getContentPane().add(panelAttr, BorderLayout.CENTER);
 		
 		/*
@@ -376,7 +376,7 @@ public class MainWindow {
 		btnAddDEP.setBounds(385, 10, 270, 25);
 		btnAddDEP.setEnabled(false);
 		
-		//añadiendo los elementos de panel de dependencias
+		//anadiendo los elementos de panel de dependencias
 		panelDep.add(lblNameDEP);		
 		panelDep.add(txtNameDEP);
 		panelDep.add(btnAddDEP);
@@ -452,7 +452,7 @@ public class MainWindow {
 		JSeparator separatorDEP = new JSeparator();
 		separatorDEP.setBounds(0, 0, 1920, 1);	
 		
-		JLabel lblNameR = new JLabel("Nombre Relaci\u00F3n:");
+		JLabel lblNameR = new JLabel("Nombre Relación:");
 		lblNameR.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNameR.setBounds(10, 10, 110, 25);
 		
@@ -460,7 +460,7 @@ public class MainWindow {
 		txtNameR.setBounds(125, 10, 140, 25);
 		txtNameR.setColumns(10);
 		
-		final JButton btnAddR = new JButton("A\u00F1adir Relaci\u00F3n");
+		final JButton btnAddR = new JButton("Añadir Relación");
 		txtNameR.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
@@ -474,7 +474,7 @@ public class MainWindow {
 		btnAddR.setBounds(270, 10, 140, 25);
 		btnAddR.setEnabled(false);
 		
-		//añadiendo los elementos de panel de conjunto depencias
+		//anadiendo los elementos de panel de conjunto depencias
 		panelDEP.add(separatorDEP);
 		panelDEP.add(lblNameR);
 		panelDEP.add(txtNameR);
